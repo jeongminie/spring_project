@@ -1,0 +1,27 @@
+#wrap {
+	width:1200px;
+	height:800px;
+	margin:auto;
+}
+
+.login-box {
+	width:400px;
+}
+
+#loginBtn {
+	background-color:#FFA500;
+	border-color:#FFA500
+}
+
+.signup-box {
+	width:400px;
+}
+
+.btnColor {
+	background-color:#FFA500;
+	border-color:#FFA500
+}
+
+nav {
+	font-size:20px; 
+}
