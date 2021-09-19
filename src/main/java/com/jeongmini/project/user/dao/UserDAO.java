@@ -1,5 +1,7 @@
 package com.jeongmini.project.user.dao;
 
+import java.util.Date;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.jeongmini.project.user.model.User;
@@ -22,4 +24,14 @@ public interface UserDAO {
 	
 	public int countUserEmail(
 			@Param("email") String email);
+
+
+	public int insertMypet(
+			@Param("userId") int userId,
+			@Param("userName") String userName,
+			@Param("petName") String petName,
+			@Param("petBirthday") String petBirthday,
+			@Param("petGender") String petGender
+			);
+	
 }

@@ -10,26 +10,82 @@
 
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  	
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
 <title>메인</title>
 </head>
 <body>
 	<div id="wrap">
 		<header>
+			<div class="d-flex justify-content-end">
+				<c:if test="${not empty userName}">
+					${userName }
+				</c:if>
+				<i class="bi bi-person"></i>
+			</div>
 		</header>
 		
 		<nav>
 			<ul class="nav nav-fill text-dark">
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">카테고리</a></li>
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">집사생활</a></li>
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">중고거래</a></li>
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">같이산책해요</a></li>
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">길잃은동물들</a></li>
-				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">맛집탐방</a></li>
+				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">집사생활</a></li>
+				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">집사일기</a></li>
+				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">건강달력</a></li>
 			</ul>
 		</nav>
+		
+		<div class="border-top"></div>
+		
+		<section>
+			<div class="timeLineBox">
+				userName
+				content
+			</div>
+		
+		
+		
+		</section>
+		
+		 	
+		 	<!-- <section class="mt-2 d-flex justify-content-between">
+				<article class="community-box d-flex justify-content-center">
+					<div class="w-100 ml-4 p-4">	
+						<div class="d-flex justify-content-between align-items-center mt-2">
+							<div class="articleTextSize">집사생활</div>
+							<small class="m-1"><a href="#" class="text-dark">더보기 > </a></small>
+						</div>
+						<div class="border-top mt-2"></div>
+						<div>
+						제목 내용
+						</div>
+					</div>
+				</article>
+				
+				<article class="used-box d-flex justify-content-center">
+					<div class="w-100 mr-4 p-4">
+						<div class="d-flex justify-content-between align-items-center mt-2">
+							<div class="articleTextSize">중고거래</div>
+							<small class="m-1"><a href="#" class="text-dark">더보기 > </a></small>
+						</div>
+						<div class="border-top mt-2"></div>
+					</div>
+				</article>
+				
+			</section> -->
+			
+			<!-- <section class="stray-box">
+				<div class="sectionTextSize mb-2">가족을 찾고있어요</div>
+				<div class="d-flex justify-content-between">
+					<div class="box-border p-2">
+						<div><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimage.nmv.naver.net%2Fblog_2021_08_22_1269%2F764e5ef5-0305-11ec-882d-48df37ae3dc4_01.jpg&type=sc960_832" class="imagePath-size w-100"></div>
+						<div class="border-top mt-2"></div>
+						<div>성별</div>
+						<div>발견장소</div>
+					</div>
+				</div>
+			</section> -->
+			
+			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-
+	
 </body>
 </html>

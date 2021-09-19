@@ -1,5 +1,7 @@
 package com.jeongmini.project.user.bo;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,11 @@ public class UserBO {
 		} else {
 			return true;
 		}
+	}
+	
+	public int myPet(int userId, String userName, String petName, String petBirthday, String petgGender) {
+		return userDAO.insertMypet(userId, userName, petName, petBirthday, petgGender);
+		
 	}
 
 }

@@ -1,8 +1,11 @@
+
 #wrap {
-	width:1200px;
-	height:800px;
+	width: 800px;
+  	height: 100%;
 	margin:auto;
+
 }
+
 
 .login-box {
 	width:400px;
@@ -22,6 +25,88 @@
 	border-color:#FFA500
 }
 
+
+.timeLineBox{
+	
+	border-bottom:1px solid LightGray;
+	background-color:white;
+}
+
+.textbox-size {
+	height:300px
+}
+
+.category-box {
+	height:50px;
+}
+
+.non-resize {
+	resize:none;
+}
+
+.uploadBtn{
+	background-color:#6f4f28;
+}
+
+header {
+	height:80px
+}
+
 nav {
-	font-size:20px; 
+	font-size:18px
+}
+
+.nav-item > .nav-link {
+	font-size:18px; color:black;
+	}
+
+.nav-item > .nav-link:hover {
+	color:#6f4f28
+}
+
+
+section > .community-box {
+	width:500px;
+	height:200px;
+}
+
+section > .used-box {
+	width:500px;
+	height:200px;
+}
+
+.articleTextSize {
+	font-size:17px;
+	font-weight:bold;
+}
+
+.stray-box {
+	width: 1000px;
+
+	
+}
+
+.sectionTextSize {
+	font-size:20px;
+	font-weight:bold;
+}
+
+.box-border {
+	width : 1000px;
+	border:1px solid LightGray;
+	background-color:white;
+}
+
+.imagePath-size {
+	width :300px;
+	height:auto;	
+}
+
+a {
+	text-decoration:none !important
+}
+
+.conditionImageSize {
+	width:40px;
+	height:40px;
 }

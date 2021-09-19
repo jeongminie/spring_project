@@ -1,5 +1,6 @@
 package com.jeongmini.project.user;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,6 +87,30 @@ public class UserRestController {
 			result.put("duplication", true);
 		} else {
 			result.put("duplication", false);
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/myPet")
+	public Map<String,String> myPet(
+			@RequestParam("petName") String petName,
+			@RequestParam("petBirthday") String petBirthday,
+			@RequestParam("petGender") String petGender,
+			HttpServletRequest request
+			) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		String userName = (String)session.getAttribute("userName");
+		
+		Map<String, String> result = new HashMap<>();
+		int count = userBO.myPet(userId, userName, petName, petBirthday, petGender);
+		
+		if(count ==1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
 		}
 		
 		return result;

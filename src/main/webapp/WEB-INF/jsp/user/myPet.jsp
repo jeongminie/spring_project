@@ -12,21 +12,28 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
   	<link rel="stylesheet" href="/css/style.css">
-<title>로그인</title>
+<title>나의 반려동물 등록하기</title>
 </head>
 <body>
 	<div id="wrap">
 		<section class="d-flex justify-content-center">	
 			<div class="login-box  d-flex justify-content-center align-items-center">
 				<div class="w-100">
-					<h2 class="text-center">로그인</h2>
-					<form id="loginForm">
-						<input id="loginEmailInput" type="text" class="form-control mt-4" placeholder="이메일을 입력해주세요">
-						<input id="passwordInput" type="password" class="form-control mt-3" placeholder="비밀번호를 입력해주세요">
-						<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
-					</form>
-					<div class="text-center mt-2" ><a href="/user/signUp_view">회원가입</a></div>
-					
+					<h2 class="text-center">반려동물 등록하기</h2>
+					<form id="petForm">
+						<label>반려동물 이름</label>
+						<input id="petNameInput" type="text" class="form-control">
+						<label class="mt-2">반려동물 생일</label>
+						<input id="petBirthdayInput" type="date" class="form-control">
+						<label class="mt-2">반려동물 성별</label>
+						<select id="petgenderInput" class="form-control">
+							<option>선택</option>
+							<option>암컷</option>
+							<option>수컷</option>
+							<option>중성</option>
+						</select>
+						<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">등록</button>
+					</form>				
 				</div>
 			</div>
 		</section>
@@ -34,36 +41,43 @@
 	
 	<script>
 		$(document).ready(function(){
-			$("#loginForm").on("submit", function(e){
+			$("#petForm").on("submit", function(e){
 				e.preventDefault();
 				
-				var loginEmail = $("#loginEmailInput").val();
-				var password = $("#passwordInput").val();
+				var petName = $("#petNameInput").val();
+				var petBirthday = $("#petBirthdayInput").val();
+				var petGender = $("#petgenderInput option:selected").val().trim();
 				
-				if(loginEmail == null || loginEmail == ""){
-					 alert("아이디를 입력해주세요");
+				if(petName == null || petName == ""){
+					 alert("반려동물 이름을 입력해주세요");
 					 return;
 				}
 				
-				if(password == null || password == ""){
-					 alert("비멀번호를 입력해주세요");
+				if(petBirthday == null || petBirthday == ""){
+					 alert("반려동물 생일을 입력해주세요");
 					 return;
 				}
+				
+				if(petGender == '선택'){
+					 alert("반려동물 성별을 입력해주세요");
+					 return;
+				}
+				
 				
 				$.ajax({
 					type:"post",
-					url:"/user/sign_in",
-					data:{"loginEmail":loginEmail, "password":password},
+					url:"/user/myPet",
+					data:{"petName":petName, "petBirthday":petBirthday, "petGender":petGender},
 					success:function(data){
 						if(data.result == "success") {
-							alert("로그인성공");
+							alert("등록 성공");
 							//location.href="/post/main";
 						} else {
-							alert("이메일과 비밀번호를 확인하세요");
+							alert("실패");
 						}
 					},
 					error:function(e){
-						alert("로그인실패");
+						alert("에러");
 					}
 				});
 			});
@@ -71,6 +85,5 @@
 	
 	
 	</script>
-
 </body>
 </html>

@@ -57,4 +57,26 @@
  			`email` = #{email}
 	 </select>
 	 
+	  <insert id="insertMypet" parameterType="map">
+	 	INSERT INTO
+ 			`mypet`
+ 		(
+ 		 	`userId`
+ 			,`userName`
+			,`petName`
+			, `petBirthday`
+			, `petGender`
+ 			, `createdAt`
+ 			, `updatedAt`	
+ 		) VALUES (
+ 			#{userId}
+ 			, #{userName}
+ 			, #{petName}
+ 			, #{petBirthday}
+ 			, #{petGender}
+ 			, now()
+ 			, now()
+ 		)
+	 </insert> 
+	 
  </mapper>

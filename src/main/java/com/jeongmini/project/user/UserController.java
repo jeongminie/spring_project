@@ -17,6 +17,11 @@ public class UserController {
 	public String signUpView() {
 		return "user/signUp";
 	}
+	
+	@GetMapping("/mypet_view")
+	public String mypetView() {
+		return "user/myPet";
+	}
 
 
 }
