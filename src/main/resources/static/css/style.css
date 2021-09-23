@@ -36,8 +36,10 @@
 	height : 20px;
 	background-color:LightGray;
 	border-radius: 3px;
-	font-size : 15px;
+	font-size : 13px;
 }
+
+
 
 .textbox-size {
 	height:300px
@@ -82,16 +84,21 @@ section > .used-box {
 	height:200px;
 }
 
+.bg-color{
+	background-color : #FFF8EE;
+}
+
+.daily-box {
+	border-radius: 5px;
+	width: 100px;
+	background-color:white;
+}
+
 .articleTextSize {
 	font-size:17px;
 	font-weight:bold;
 }
 
-.stray-box {
-	width: 1000px;
-
-	
-}
 
 .sectionTextSize {
 	font-size:20px;

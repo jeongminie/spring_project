@@ -12,6 +12,9 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
   	<link rel="stylesheet" href="/css/style.css">
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>나의 반려동물 등록하기</title>
 </head>
 <body>
@@ -23,8 +26,12 @@
 					<form id="petForm">
 						<label>반려동물 이름</label>
 						<input id="petNameInput" type="text" class="form-control">
-						<label class="mt-2">반려동물 생일</label>
-						<input id="petBirthdayInput" type="date" class="form-control">
+						<div>
+	                        <label class="mt-2 mr-2">반려동물 생일</label>
+	                        <input type="text" class="form-control" id="petBirthdayInput">
+                  		 </div>
+						<!-- <label class="mt-2">반려동물 생일</label>
+						<input id="petBirthdayInput" type="date" class="form-control"> -->
 						<label class="mt-2">반려동물 성별</label>
 						<select id="petgenderInput" class="form-control">
 							<option>선택</option>
@@ -41,13 +48,22 @@
 	
 	<script>
 		$(document).ready(function(){
+			var petBirthday = null;
+			$("#petBirthdayInput").datepicker({
+                 showButtonPanel: true, 
+                 currentText: '오늘',
+                 dateFormat: "yy-mm-dd",
+                 dayNamesMin:['월', '화', '수', '목', '금', '토', '일'],
+			});
+			
+			
 			$("#petForm").on("submit", function(e){
 				e.preventDefault();
 				
 				var petName = $("#petNameInput").val();
-				var petBirthday = $("#petBirthdayInput").val();
+				petBirthday = $("#petBirthdayInput").val();
 				var petGender = $("#petgenderInput option:selected").val().trim();
-				
+
 				if(petName == null || petName == ""){
 					 alert("반려동물 이름을 입력해주세요");
 					 return;

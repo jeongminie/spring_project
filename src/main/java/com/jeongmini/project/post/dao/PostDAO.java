@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.jeongmini.project.post.model.Community;
+import com.jeongmini.project.post.model.Daily;
 
 @Repository
 public interface PostDAO {
 	
 	public int insertPost(
-			@Param("userId") int id,
+			@Param("userId") int userId,
 			@Param("userName") String userName,
 			@Param("content") String content,
 			@Param("category") String category,
@@ -19,7 +20,7 @@ public interface PostDAO {
 			);
 	
 	public int insertPostDaily(
-			@Param("userId") int id,
+			@Param("userId") int userId,
 			@Param("userName") String userName,
 			@Param("content") String content,
 			@Param("condition") String condition,
@@ -28,4 +29,9 @@ public interface PostDAO {
 			);
 	
 	public List<Community> selectCommunityList();
+	
+	public List<Daily> selectDaily(
+			@Param("userId") int userId
+			);
+	
 }

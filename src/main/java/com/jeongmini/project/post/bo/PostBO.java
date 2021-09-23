@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jeongmini.project.common.FileManagerService;
 import com.jeongmini.project.post.dao.PostDAO;
 import com.jeongmini.project.post.model.Community;
+import com.jeongmini.project.post.model.Daily;
 
 @Service
 public class PostBO {
@@ -38,5 +39,9 @@ public class PostBO {
 	public List<Community> getCommunityList() {
 		return postDAO.selectCommunityList();
 		
+	}
+	
+	public List<Daily> getDaily(int userId) {
+		return postDAO.selectDaily(userId);
 	}
 }

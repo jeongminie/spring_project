@@ -2,13 +2,13 @@ package com.jeongmini.project.post.model;
 
 import java.util.Date;
 
-public class Community {
+public class Daily {
 	private int id;
-	private int userId;
 	private String userName;
 	private String content;
-	private String category;
-	private String imagePath;
+	private String codition;
+	private String health;
+	private String defecation;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -17,12 +17,6 @@ public class Community {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	public String getUserName() {
 		return userName;
@@ -36,17 +30,23 @@ public class Community {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getCategory() {
-		return category;
+	public String getCodition() {
+		return codition;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCodition(String codition) {
+		this.codition = codition;
 	}
-	public String getImagePath() {
-		return imagePath;
+	public String getHealth() {
+		return health;
 	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setHealth(String health) {
+		this.health = health;
+	}
+	public String getDefecation() {
+		return defecation;
+	}
+	public void setDefecation(String defecation) {
+		this.defecation = defecation;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
@@ -60,5 +60,6 @@ public class Community {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
+	
+	
 }

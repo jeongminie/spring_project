@@ -61,6 +61,22 @@
  			`community`
  		ORDER BY `id` DESC;
  	</select>
- 
+ 	
+ 	<select id="selectDaily" resultType="com.jeongmini.project.post.model.Daily">
+ 		SELECT
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`condition`
+ 			,`health`
+ 			,`defecation`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`daily`
+ 		WHERE
+ 			`userId` = #{userId}
+ 	</select>
  
  </mapper>

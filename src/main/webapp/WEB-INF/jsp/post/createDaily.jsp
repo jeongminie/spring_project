@@ -15,6 +15,9 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
+  	
+  	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <title>집사일기 작성</title>
 </head>
 <body>
@@ -31,13 +34,12 @@
 							<%=formatter.format(nowTime.getTime()) %>
 						</h4>
 						<div class="category-box d-flex justify-content-center">
-							<!-- <div class="d-flex align-items-center"><a href="#" class="text-secondary" id="conditionInput">오늘의 기분</a></div> -->
 							<div>
-								<a href="#" class="conditionIcon"><img src="/images/great.png" class="conditionImageSize mr-2" data-condition-id="great" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/images/happy.png" class="conditionImageSize mr-2" data-condition-id="happy" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/images/easy.png" class="conditionImageSize mr-2" data-condition-id="easy" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/images/sad.png" class="conditionImageSize mr-2" data-condition-id="sad" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/images/angry.png" class="conditionImageSize mr-2" data-condition-id="angry" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/great.png" class="conditionImageSize mr-2" data-condition-id="great" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/happy.png" class="conditionImageSize mr-2" data-condition-id="happy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/easy.png" class="conditionImageSize mr-2" data-condition-id="easy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/sad.png" class="conditionImageSize mr-2" data-condition-id="sad" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/angry.png" class="conditionImageSize mr-2" data-condition-id="angry" name="condition"></a>
 							</div>
 						</div>
 					<div class="border-top"></div>

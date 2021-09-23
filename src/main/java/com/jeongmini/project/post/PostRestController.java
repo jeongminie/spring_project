@@ -59,7 +59,7 @@ public class PostRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("userName");
-	
+
 		int count = postBO.addPostDaily(userId, userName, content, condition, health, defecation);
 		
 		Map<String, String> result = new HashMap<>();

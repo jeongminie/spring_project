@@ -41,7 +41,7 @@
 				var password = $("#passwordInput").val();
 				
 				if(loginEmail == null || loginEmail == ""){
-					 alert("아이디를 입력해주세요");
+					 alert("이메일을 입력해주세요");
 					 return;
 				}
 				

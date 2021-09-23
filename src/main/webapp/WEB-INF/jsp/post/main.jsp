@@ -16,22 +16,9 @@
 </head>
 <body>
 	<div id="wrap">
-		<header>
-			<div class="d-flex justify-content-end">
-				<c:if test="${not empty userName}">
-					${userName }
-				</c:if>
-				<i class="bi bi-person"></i>
-			</div>
-		</header>
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<nav>
-			<ul class="nav nav-fill text-dark">
-				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">집사생활</a></li>
-				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">집사일기</a></li>
-				<li class="nav-item"><a href="#" class="nav-link font-weight-bold">건강달력</a></li>
-			</ul>
-		</nav>
+		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
 		<div class="border-top"></div>
 		
@@ -40,24 +27,33 @@
 				<div class="d-flex justify-content-center align-items-center p-4">
 					<div class="timeLine">
 						<div class="userInfo d-flex justify-content-between">
-							<div>
-								<i class="bi bi-person-circle"></i>
+							<div class="p-2">
 								${community.userName }
 							</div>
-							<div class="d-flex align-items-center">
-								<div class="categoryStyle border-radius mr-2 ">${community.category }</div>
-								<c:if test="${community.userId eq userId }">
-									<i class="bi bi-three-dots mr-2"></i>
-								</c:if>
-							</div>
 						</div>
-						<div class="border-top"></div>
-						<div class="content">
-							<c:if test="${not empty community.imagePath }">
-								<img src="${community.imagePath }" class="imagePath-size w-100 imageClick">
+						<div class="d-flex align-items-center ml-2">
+							<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">${community.category }</div>
+							<c:if test="${community.userId eq userId }">
+								<i class="bi bi-three-dots mr-2"></i>
 							</c:if>
 						</div>
-		
+						<div class="p-2">
+							${community.content }							
+						</div>
+						<div class="p-2">
+							<c:if test="${not empty community.imagePath }">
+								<img src="${community.imagePath }" class="imagePath-size w-100">
+							</c:if>
+						</div>
+						<div class="border-top"></div>
+						<div class="d-flex">
+							<div class="mr-4">
+								공감하기
+							</div>
+							<div>
+								댓글달기
+							</div>
+						</div>
 					</div>
 				</div>
 			</c:forEach>

@@ -52,14 +52,14 @@
 	
 	<script>
 		$(document).ready(function(){
+				//체크안함
+				var isUserNameCheck = false;
+				var isEmailCheck = false;
+				//중복
+				var isDuplicateUserName = true;
+				var isDuplicateEmail = true;
 				$("#signupForm").on("submit", function(e){
 					e.preventDefault();
-					//체크안함
-					var isUserNameCheck = false;
-					var isEmailCheck = false;
-					//중복
-					var isDuplicateUserName = true;
-					var isDuplicateEmail = true;
 					
 					var name = $("#nameInput").val();
 					var email = $("#emailInput").val();
@@ -93,19 +93,23 @@
 					}
 					
 					if(isUserNameCheck == false) {
-						alert("중복체크를 해주세요")
+						alert("닉네임 중복체크를 해주세요");
+						return ;
 					}
 					
 					if(isEmailCheck == false) {
-						alert("중복체크를 해주세요")
+						alert("이메일 중복체크를 해주세요");
+						return ;
 					}
 					
 					if(isDuplicateUserName == true) {
-						alert("닉네임이 중복되었습니다.")
+						alert("닉네임이 중복되었습니다.");
+						return ;
 					}
 					
 					if(isDuplicateEmail == true) {
-						alert("이메일이 중복되었습니다.")
+						alert("이메일이 중복되었습니다.");
+						return ;
 					}
 					
 					

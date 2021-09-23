@@ -19,7 +19,8 @@ public class UserBO {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public User signIn(String loginEmail, String password) {
-		return userDAO.selectUser(loginEmail, password);
+		String encryptPassword = EncryptUtils.md5(password);
+		return userDAO.selectUser(loginEmail, encryptPassword);
 		
 	}
 	
