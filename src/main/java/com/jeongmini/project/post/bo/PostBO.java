@@ -1,11 +1,14 @@
 package com.jeongmini.project.post.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jeongmini.project.common.FileManagerService;
 import com.jeongmini.project.post.dao.PostDAO;
+import com.jeongmini.project.post.model.Community;
 
 @Service
 public class PostBO {
@@ -29,6 +32,11 @@ public class PostBO {
 	
 	public int addPostDaily(int userId, String userName, String content, String condition, String health, String defecation) {
 		return postDAO.insertPostDaily(userId, userName, content, condition, health, defecation);
+		
+	}
+	
+	public List<Community> getCommunityList() {
+		return postDAO.selectCommunityList();
 		
 	}
 }

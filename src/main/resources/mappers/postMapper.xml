@@ -46,6 +46,21 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="selectCommunityList" resultType="com.jeongmini.project.post.model.Community">
+ 		SELECT
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`category`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`community`
+ 		ORDER BY `id` DESC;
+ 	</select>
  
  
  </mapper>

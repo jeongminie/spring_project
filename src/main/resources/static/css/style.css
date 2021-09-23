@@ -26,10 +26,17 @@
 }
 
 
-.timeLineBox{
-	
-	border-bottom:1px solid LightGray;
+.timeLine{
+	width: 500px;
+	border:1px solid LightGray;
 	background-color:white;
+}
+
+.categoryStyle{
+	height : 20px;
+	background-color:LightGray;
+	border-radius: 3px;
+	font-size : 15px;
 }
 
 .textbox-size {

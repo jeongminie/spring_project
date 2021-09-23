@@ -36,11 +36,31 @@
 		<div class="border-top"></div>
 		
 		<section>
-			<div class="timeLineBox">
-				userName
-				content
-			</div>
+			<c:forEach var="community" items="${communityList }" varStatus="status">
+				<div class="d-flex justify-content-center align-items-center p-4">
+					<div class="timeLine">
+						<div class="userInfo d-flex justify-content-between">
+							<div>
+								<i class="bi bi-person-circle"></i>
+								${community.userName }
+							</div>
+							<div class="d-flex align-items-center">
+								<div class="categoryStyle border-radius mr-2 ">${community.category }</div>
+								<c:if test="${community.userId eq userId }">
+									<i class="bi bi-three-dots mr-2"></i>
+								</c:if>
+							</div>
+						</div>
+						<div class="border-top"></div>
+						<div class="content">
+							<c:if test="${not empty community.imagePath }">
+								<img src="${community.imagePath }" class="imagePath-size w-100 imageClick">
+							</c:if>
+						</div>
 		
+					</div>
+				</div>
+			</c:forEach>
 		
 		
 		</section>

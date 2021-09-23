@@ -24,116 +24,112 @@
 	%>
 	<div id="wrap">
 		<section>
-				<div class="d-flex justify-content-center align-items-center p-4">
-					<div class="box-border rounded">
-						<div>
-							<h4 class="text-center font-weight-bold mt-2">
-								<%=formatter.format(nowTime.getTime()) %>
-							</h4>
-							<div class="category-box d-flex justify-content-center">
-								<!-- <div class="d-flex align-items-center"><a href="#" class="text-secondary" id="conditionInput">오늘의 기분</a></div> -->
-								<div>
-									<a href="#"><img src="/images/행복.png" class="conditionImageSize mr-2" id="행복" name="condition"></a>
-									<a href="#" class="conditionClick"><img src="/images/보통.png" class="conditionImageSize mr-2" id="보통" name="condition"></a>
-									<a href="#" class="conditionClick"><img src="/images/완전보통.png" class="conditionImageSize mr-2" id="완전보통" name="condition"></a>
-									<a href="#" class="conditionClick"><img src="/images/슬픔.png" class="conditionImageSize mr-2" id="슬픔" name="condition"></a>
-									<a href="#" class="conditionClick"><img src="/images/화남.png" class="conditionImageSize mr-2" id="화남" name="condition"></a>
-								</div>
+			<div class="d-flex justify-content-center align-items-center p-4">
+				<div class="box-border rounded">
+					<div>
+						<h4 class="text-center font-weight-bold mt-2">
+							<%=formatter.format(nowTime.getTime()) %>
+						</h4>
+						<div class="category-box d-flex justify-content-center">
+							<!-- <div class="d-flex align-items-center"><a href="#" class="text-secondary" id="conditionInput">오늘의 기분</a></div> -->
+							<div>
+								<a href="#" class="conditionIcon"><img src="/images/great.png" class="conditionImageSize mr-2" data-condition-id="great" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/images/happy.png" class="conditionImageSize mr-2" data-condition-id="happy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/images/easy.png" class="conditionImageSize mr-2" data-condition-id="easy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/images/sad.png" class="conditionImageSize mr-2" data-condition-id="sad" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/images/angry.png" class="conditionImageSize mr-2" data-condition-id="angry" name="condition"></a>
 							</div>
-						<div class="border-top"></div>
 						</div>
-						<article class="text-box w-100">
-							<div class="textbox-size text-secondary p-2">
-								<textarea class="form-control border-0 non-resize" rows="10" placeholder="오늘의 반려일기를 기록해주세요 ..." id="contentInput"></textarea>
-							</div>
-						</article>
-						<div class="border-top"></div>
-						<article class="p-2">
-							<label class="text-secondary">건강</label>
-							<select class="form-control" id="healthInput">
-								<option>선택</option>
-								<option>양호</option>
-								<option>보통</option>
-								<option>나쁨</option>
-							</select>
-							<label class="text-secondary">배변</label>
-							<select class="form-control" id="defecationInput">
-								<option>선택</option>
-								<option>보통변</option>
-								<option>묽은변</option>
-								<option>설사</option>
-							</select>
-						</article>
-						<div class="p-2">
-							<button type="button" class="uploadBtn btn btn-block btn-sm text-white" id="saveBtn">기록하기</button>
-						</div>
-						
+					<div class="border-top"></div>
 					</div>
-				</div>			
-			</section>
+					<article class="text-box w-100">
+						<div class="textbox-size text-secondary p-2">
+							<textarea class="form-control border-0 non-resize" rows="10" placeholder="오늘의 반려일기를 기록해주세요 ..." id="contentInput"></textarea>
+						</div>
+					</article>
+					<div class="border-top"></div>
+					<article class="p-2">
+						<label class="text-secondary">건강</label>
+						<select class="form-control" id="healthInput">
+							<option>선택</option>
+							<option>양호</option>
+							<option>보통</option>
+							<option>나쁨</option>
+						</select>
+						<label class="text-secondary">배변</label>
+						<select class="form-control" id="defecationInput">
+							<option>선택</option>
+							<option>보통변</option>
+							<option>묽은변</option>
+							<option>설사</option>
+						</select>
+					</article>
+					<div class="p-2">
+						<button type="button" class="uploadBtn btn btn-block btn-sm text-white" id="saveBtn">기록하기</button>
+					</div>
+					
+				</div>
+			</div>			
+		</section>
 	</div>
 	
 	<script>	
 		
-		$(document).ready(function(){						
+		$(document).ready(function(){	
+			var condition = null;
+			
 			$("img[name='condition']").on("click", function(){
-				var condition = $(this).attr("id");
+				condition = $(this).data("condition-id");
+			});
 			
 			$("#saveBtn").on("click",function(){
-
-			var content = $("#contentInput").val().trim();
-			var health = $("#healthInput option:selected").val();
-			var defecation = $("#defecationInput option:selected").val();
-			
+				var content = $("#contentInput").val().trim();
+				var health = $("#healthInput option:selected").val();
+				var defecation = $("#defecationInput option:selected").val();
 				
-			if(content == null || content == "") {
-				alert("내용을 입력하세요");
-				return ;
-			}
-						
-			if(health == '선택') {
-				alert("건강상태를 선택하세요");
-				return ;
-			}
-			
-			if(defecation == '선택') {
-				alert("대변상태를 선택하세요");
-				return ;
-			}
-			
-			if(condition == null) {
-				alert("오늘의 기분을 선택하세요");
-				return ;
-			}
-			
-			$.ajax({
-				type:"post",
-				url:"/post/createDaily",
-				data:{"content":content, "condition":condition, "health":health, "defecation":defecation},
-				success:function(data){
-					if(data.result == "success") {
-						isConditionClick = true;
-						alert("업로드 성공");					 
-					} else {
-						alert("업로드 실패");
-					}
-				},
-				error:function(e) {
-					alert("error");
+				
+				if(condition == null) {
+					alert("오늘의 기분을 선택하세요");
+					return ;
+				}
+					
+				if(content == null || content == "") {
+					alert("내용을 입력하세요");
+					return ;
+				}
+							
+				if(health == '선택') {
+					alert("건강상태를 선택하세요");
+					return ;
 				}
 				
-				});
+				if(defecation == '선택') {
+					alert("배변상태를 선택하세요");
+					return ;
+				}
 				
-				return false;
 				
+				$.ajax({
+					type:"post",
+					url:"/post/createDaily",
+					data:{"content":content, "condition":condition, "health":health, "defecation":defecation},
+					success:function(data){
+						if(data.result == "success") {
+							alert("업로드 성공");					 
+						} else {
+							alert("업로드 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+					
+					});	
+			
 				});			
 			});
-		});
 
 	</script>
 	
-<!-- 				$("img[name='condition']").on("click", function(){
-					var condition =  $(this).attr("id"); -->
-
 </body>
 </html>
