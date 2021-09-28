@@ -14,6 +14,7 @@ import com.jeongmini.project.post.dao.PostDAO;
 import com.jeongmini.project.post.model.Community;
 import com.jeongmini.project.post.model.Daily;
 import com.jeongmini.project.post.model.PostWithComments;
+import com.jeongmini.project.post.sympathy.bo.SympathyBO;
 
 @Service
 public class PostBO {
@@ -22,6 +23,9 @@ public class PostBO {
 	
 	@Autowired
 	private CommentBO commentBO;
+	
+	@Autowired
+	private SympathyBO sympathyBO;
 	
 	public int addPost(int userId, String userName, String content, String category, MultipartFile file) {
 		
@@ -51,11 +55,13 @@ public class PostBO {
 		for(Community community:communityList) {
 			List<Comment> commentList = commentBO.getCommentList(community.getId());
 			int commentTotalCount = commentBO.getCommentTotalCount(community.getId());
+			boolean existSympathy = sympathyBO.existSympathy(userId, community.getId());
 			
 			PostWithComments postWithComments = new PostWithComments();
 			postWithComments.setCommunity(community);
 			postWithComments.setCommentList(commentList);
 			postWithComments.setCommentTotalCount(commentTotalCount);
+			postWithComments.setExistSympathy(existSympathy);
 			
 			postWithCommentsList.add(postWithComments);
 			

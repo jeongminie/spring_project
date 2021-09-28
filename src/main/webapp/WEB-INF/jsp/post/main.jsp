@@ -48,18 +48,25 @@
 						</div>
 						<div class="border-top"></div>
 						<div class="d-flex align-items-center" >
-							<div class="mr-4 d-flex align-items-center">
-								<a href="#"><img src="/image/like.jpg" class="commentImage-size"><small class="text-secondary">공감하기</small></a>	
+							<div class="mr-4 ml-2 d-flex align-items-center">
+								<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
+									<i class="bi bi-suit-heart mr-1"></i><small class="text-secondary">공감하기</small>
+									${postWithComment.existSympathy }
+								</a>
 							</div>
 							<div class="d-flex align-items-center">
 							 	<c:choose>
 									<c:when test="${postWithComment.commentTotalCount eq 0}" >
-										<img src="/image/comment.jpg" class="commentImage-size"> 
-										<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글쓰기</small></a>									
+										<div class="d-flex align-items-center justify-content-center">
+											<i class="bi bi-chat mr-1"></i>
+											<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글쓰기</small></a>		
+										</div>							
 									</c:when>
 									<c:otherwise>
-										<img src="/image/comment.jpg" class="commentImage-size"> 
-										<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글 ${postWithComment.commentTotalCount }개</small></a>	
+										<div class="d-flex align-items-center justify-content-center">
+											<i class="bi bi-chat mr-1"></i>
+											<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글 ${postWithComment.commentTotalCount }개</small></a>	
+										</div>
 									</c:otherwise>
 								</c:choose>
 							</div>			
@@ -70,48 +77,32 @@
 		
 		
 		</section>
-		
-		 	
-		 	<!-- <section class="mt-2 d-flex justify-content-between">
-				<article class="community-box d-flex justify-content-center">
-					<div class="w-100 ml-4 p-4">	
-						<div class="d-flex justify-content-between align-items-center mt-2">
-							<div class="articleTextSize">집사생활</div>
-							<small class="m-1"><a href="#" class="text-dark">더보기 > </a></small>
-						</div>
-						<div class="border-top mt-2"></div>
-						<div>
-						제목 내용
-						</div>
-					</div>
-				</article>
-				
-				<article class="used-box d-flex justify-content-center">
-					<div class="w-100 mr-4 p-4">
-						<div class="d-flex justify-content-between align-items-center mt-2">
-							<div class="articleTextSize">중고거래</div>
-							<small class="m-1"><a href="#" class="text-dark">더보기 > </a></small>
-						</div>
-						<div class="border-top mt-2"></div>
-					</div>
-				</article>
-				
-			</section> -->
 			
-			<!-- <section class="stray-box">
-				<div class="sectionTextSize mb-2">가족을 찾고있어요</div>
-				<div class="d-flex justify-content-between">
-					<div class="box-border p-2">
-						<div><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimage.nmv.naver.net%2Fblog_2021_08_22_1269%2F764e5ef5-0305-11ec-882d-48df37ae3dc4_01.jpg&type=sc960_832" class="imagePath-size w-100"></div>
-						<div class="border-top mt-2"></div>
-						<div>성별</div>
-						<div>발견장소</div>
-					</div>
-				</div>
-			</section> -->
-			
-			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
+	<script>
+		$(document).ready(function(){		
+			$(".sympathyBtn").on("click", function(e){
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/sympathy",
+					data:{"postId":postId},
+					success:function(data) {
+						if(data.result == "success"){
+							alert("성공")
+						} else {
+							alert("실패")
+						}
+					}
+				});
+			});
+		});
+	
+	</script>
 </body>
 </html>
