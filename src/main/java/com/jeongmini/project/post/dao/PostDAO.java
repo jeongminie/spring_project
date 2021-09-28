@@ -30,6 +30,8 @@ public interface PostDAO {
 	
 	public List<Community> selectCommunityList();
 	
+	public Community selectCommunity(@Param("id") int id);
+	
 	public List<Daily> selectDaily(
 			@Param("userId") int userId
 			);

@@ -1,5 +1,6 @@
 package com.jeongmini.project.post.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jeongmini.project.common.FileManagerService;
+import com.jeongmini.project.post.comment.bo.CommentBO;
+import com.jeongmini.project.post.comment.model.Comment;
 import com.jeongmini.project.post.dao.PostDAO;
 import com.jeongmini.project.post.model.Community;
 import com.jeongmini.project.post.model.Daily;
+import com.jeongmini.project.post.model.PostWithComments;
 
 @Service
 public class PostBO {
 	@Autowired
 	private PostDAO postDAO;
+	
+	@Autowired
+	private CommentBO commentBO;
 	
 	public int addPost(int userId, String userName, String content, String category, MultipartFile file) {
 		
@@ -36,12 +43,39 @@ public class PostBO {
 		
 	}
 	
-	public List<Community> getCommunityList() {
-		return postDAO.selectCommunityList();
+	public List<PostWithComments> getCommunityList(int userId) {
+		List<Community> communityList = postDAO.selectCommunityList();
 		
+		List<PostWithComments> postWithCommentsList = new ArrayList<>();
+		
+		for(Community community:communityList) {
+			List<Comment> commentList = commentBO.getCommentList(community.getId());
+			int commentTotalCount = commentBO.getCommentTotalCount(community.getId());
+			
+			PostWithComments postWithComments = new PostWithComments();
+			postWithComments.setCommunity(community);
+			postWithComments.setCommentList(commentList);
+			postWithComments.setCommentTotalCount(commentTotalCount);
+			
+			postWithCommentsList.add(postWithComments);
+			
+		}	
+		return postWithCommentsList; 	
+	}
+	
+	public Community getCommunity(int id) {
+		
+		Community community = postDAO.selectCommunity(id);
+		List<Comment> commentList = commentBO.getCommentList(community.getId());
+		
+		community.setCommentList(commentList);
+		
+		return community;
 	}
 	
 	public List<Daily> getDaily(int userId) {
 		return postDAO.selectDaily(userId);
 	}
+	
+	
 }

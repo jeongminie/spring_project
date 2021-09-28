@@ -56,8 +56,7 @@
 					data:{"loginEmail":loginEmail, "password":password},
 					success:function(data){
 						if(data.result == "success") {
-							alert("로그인성공");
-							//location.href="/post/main";
+							location.href="/post/main";
 						} else {
 							alert("이메일과 비밀번호를 확인하세요");
 						}

@@ -6,14 +6,29 @@
 
 }
 
+.logoImage-size{
+	width:40px;
+	height:30px;
+}
+
+.writeImage-size {
+	width:50px;
+	height:40px;
+}
+
+.commentImage-size {
+	width:30px;
+	height:30px;
+}
+
 
 .login-box {
 	width:400px;
 }
 
 #loginBtn {
-	background-color:#FFA500;
-	border-color:#FFA500
+	background-color:#FED291;;
+	border-color:#FED291;
 }
 
 .signup-box {
@@ -21,8 +36,8 @@
 }
 
 .btnColor {
-	background-color:#FFA500;
-	border-color:#FFA500
+	background-color:#FED291;;
+	border-color:#FED291;
 }
 
 
@@ -54,7 +69,7 @@
 }
 
 .uploadBtn{
-	background-color:#6f4f28;
+	background-color:#FED291;
 }
 
 header {
@@ -70,16 +85,11 @@ nav {
 	}
 
 .nav-item > .nav-link:hover {
-	color:#6f4f28
+	color:#FED291
 }
 
 
 section > .community-box {
-	width:500px;
-	height:200px;
-}
-
-section > .used-box {
 	width:500px;
 	height:200px;
 }
@@ -123,4 +133,11 @@ a {
 .conditionImageSize {
 	width:40px;
 	height:40px;
+}
+
+.text-flow{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
 }

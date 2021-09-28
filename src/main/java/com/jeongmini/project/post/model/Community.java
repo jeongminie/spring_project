@@ -1,6 +1,9 @@
 package com.jeongmini.project.post.model;
 
 import java.util.Date;
+import java.util.List;
+
+import com.jeongmini.project.post.comment.model.Comment;
 
 public class Community {
 	private int id;
@@ -11,6 +14,8 @@ public class Community {
 	private String imagePath;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	private List<Comment> commentList;
 	
 	public int getId() {
 		return id;
@@ -60,5 +65,12 @@ public class Community {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
+	}
 
+	
 }

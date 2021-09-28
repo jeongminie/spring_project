@@ -21,38 +21,48 @@
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
 		<div class="border-top"></div>
-		
+		<a style="display:scroll;position:fixed;bottom:10px;right:450px;" href="/post/create" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
+
 		<section>
-			<c:forEach var="community" items="${communityList }" varStatus="status">
+			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">
 				<div class="d-flex justify-content-center align-items-center p-4">
 					<div class="timeLine">
-						<div class="userInfo d-flex justify-content-between">
-							<div class="p-2">
-								${community.userName }
+						<div class="userInfo d-flex justify-content-between p-2">
+							<div>${postWithComment.community.userName }</div>
+							<div>
+								<c:if test="${postWithComment.community.userId eq userId }">
+									<i class="bi bi-three-dots mr-2"></i>
+								</c:if>
 							</div>
 						</div>
 						<div class="d-flex align-items-center ml-2">
-							<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">${community.category }</div>
-							<c:if test="${community.userId eq userId }">
-								<i class="bi bi-three-dots mr-2"></i>
-							</c:if>
+							<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">${postWithComment.community.category }</div>
+						</div>
+						<div class="text-flow p-2">
+							<a href="/post/detail_view?id=${postWithComment.community.id }" class="text-dark">${postWithComment.community.content }</a>						
 						</div>
 						<div class="p-2">
-							${community.content }							
-						</div>
-						<div class="p-2">
-							<c:if test="${not empty community.imagePath }">
-								<img src="${community.imagePath }" class="imagePath-size w-100">
+							<c:if test="${not empty postWithComment.community.imagePath }">
+								<img src="${postWithComment.community.imagePath }" class="imagePath-size w-100">
 							</c:if>
 						</div>
 						<div class="border-top"></div>
-						<div class="d-flex">
-							<div class="mr-4">
-								공감하기
+						<div class="d-flex align-items-center" >
+							<div class="mr-4 d-flex align-items-center">
+								<a href="#"><img src="/image/like.jpg" class="commentImage-size"><small class="text-secondary">공감하기</small></a>	
 							</div>
-							<div>
-								댓글달기
-							</div>
+							<div class="d-flex align-items-center">
+							 	<c:choose>
+									<c:when test="${postWithComment.commentTotalCount eq 0}" >
+										<img src="/image/comment.jpg" class="commentImage-size"> 
+										<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글쓰기</small></a>									
+									</c:when>
+									<c:otherwise>
+										<img src="/image/comment.jpg" class="commentImage-size"> 
+										<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글 ${postWithComment.commentTotalCount }개</small></a>	
+									</c:otherwise>
+								</c:choose>
+							</div>			
 						</div>
 					</div>
 				</div>
