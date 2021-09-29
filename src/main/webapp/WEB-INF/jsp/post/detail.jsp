@@ -28,7 +28,9 @@
 					<div>${community.userName }</div>
 					<div>
 						<c:if test="${community.userId eq userId }">
-							<i class="bi bi-three-dots mr-2"></i>
+							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostdeleteModal" data-post-id="${community.id }">
+								<i class="bi bi-three-dots mr-2"></i>
+							</a>
 						</c:if>
 					</div>
 				</div>
@@ -49,8 +51,17 @@
 				<div class="border-top"></div>
 				
 					<c:forEach var="comment" items="${community.commentList }" varStatus="status">					
-						<div>
-							<b>${comment.userName }</b> ${comment.comment }
+						<div class="d-flex justify-content-between p-1">
+							<div>
+								<b>${comment.userName }</b> ${comment.comment }
+							</div>
+							<div>
+								<c:if test="${comment.userId eq userId }">
+								<a href="#" class="text-dark moreCommentBtn" data-toggle="modal" data-target="#CommentdeleteModal" data-comment-id="${comment.id }">
+									<i class="bi bi-three-dots mr-2"></i>
+								</a>
+								</c:if>
+							</div>
 						</div>		
 					</c:forEach>
 			
@@ -64,6 +75,26 @@
 			</div>
 		</div>
 		
+	</div>
+	
+	<div class="modal fade" id="CommentdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body text-center">
+	        <a href="#" id="commentDeleteBtn">삭제 하기</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="PostdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body text-center">
+	        <a href="#" id="postDeleteBtn">삭제 하기</a>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 	
 	<script>
@@ -93,7 +124,60 @@
 						alert("error");
 					}	
 				});
-			});			
+			});
+			
+			$(".moreCommentBtn").on("click", function(){
+				var commentId = $(this).data("comment-id");
+				$("#commentDeleteBtn").data("comment-id", commentId);	
+			});
+			
+			$("#commentDeleteBtn").on("click", function(e){
+				e.preventDefault();
+				var commentId = $(this).data("comment-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/delete_comment",
+					data:{"commentId":commentId}, 
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}	
+					
+				});
+			});
+			
+			$(".morePostBtn").on("click", function(){
+				var postId = $(this).data("post-id");
+				$("#postDeleteBtn").data("post-id", postId);
+			});
+			
+			$("#postDeleteBtn").on("click", function(e){
+				e.preventDefault();
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/delete_post",
+					data:{"postId":postId}, 
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}	
+				});
+			});
 		});
 	
 	</script>

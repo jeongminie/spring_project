@@ -93,5 +93,13 @@
  		WHERE
  			`userId` = #{userId}
  	</select>
+ 	
+ 	<delete id="deletePost" parameterType="map">
+ 		DELETE FROM 
+ 			`community`
+ 		WHERE
+			`id` = #{id} AND
+			`userId` = #{userId}
+ 	</delete>
  
  </mapper>

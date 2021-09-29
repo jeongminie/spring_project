@@ -10,6 +10,7 @@ public class PostWithComments {
 	private List<Comment> commentList;
 	private int commentTotalCount;
 	private boolean existSympathy;
+	private int sympathyTotalCount;
 	
 	public Community getCommunity() {
 		return community;
@@ -35,7 +36,12 @@ public class PostWithComments {
 	public void setExistSympathy(boolean existSympathy) {
 		this.existSympathy = existSympathy;
 	}
-
+	public int getSympathyTotalCount() {
+		return sympathyTotalCount;
+	}
+	public void setSympathyTotalCount(int sympathyTotalCount) {
+		this.sympathyTotalCount = sympathyTotalCount;
+	}
 	
 	
 }

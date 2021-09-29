@@ -56,13 +56,15 @@ public class PostBO {
 			List<Comment> commentList = commentBO.getCommentList(community.getId());
 			int commentTotalCount = commentBO.getCommentTotalCount(community.getId());
 			boolean existSympathy = sympathyBO.existSympathy(userId, community.getId());
+			int sympathyTotalCount = sympathyBO.sympathyCount(community.getId());
 			
 			PostWithComments postWithComments = new PostWithComments();
 			postWithComments.setCommunity(community);
 			postWithComments.setCommentList(commentList);
 			postWithComments.setCommentTotalCount(commentTotalCount);
 			postWithComments.setExistSympathy(existSympathy);
-			
+			postWithComments.setSympathyTotalCount(sympathyTotalCount);
+						
 			postWithCommentsList.add(postWithComments);
 			
 		}	
@@ -83,5 +85,22 @@ public class PostBO {
 		return postDAO.selectDaily(userId);
 	}
 	
-	
+	public boolean deletePost(int postId, int userId) {
+		Community community = postDAO.selectCommunity(userId);
+		int count = postDAO.deletePost(postId, userId);
+		
+		if(count != 1) {
+			return false;
+		}
+		
+		FileManagerService fileManagerService = new FileManagerService();
+		fileManagerService.removeFile(community.getImagePath());
+		
+		commentBO.deletePostComment(postId);
+		sympathyBO.deletePostSympathy(postId);
+		
+		return true;
+		
+		
+	}
 }

@@ -19,4 +19,8 @@ public interface CommentDAO {
 	public List<Comment> selectCommentList(@Param("postId") int postId);
 
 	public int selectCommentTotalCount(@Param("postId") int postId);
+	
+	public int deleteComment(@Param("id") int id, @Param("userId") int userId );
+	
+	public int deletePostComment(@Param("postId") int postId);
 }

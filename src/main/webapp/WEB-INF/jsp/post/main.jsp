@@ -43,29 +43,43 @@
 						</div>
 						<div class="p-2">
 							<c:if test="${not empty postWithComment.community.imagePath }">
-								<img src="${postWithComment.community.imagePath }" class="imagePath-size w-100">
+								<img src="${postWithComment.community.imagePath }" class="imagePath-size imageClick w-100" data-post-id="${postWithComment.community.id }">
 							</c:if>
 						</div>
 						<div class="border-top"></div>
+						
 						<div class="d-flex align-items-center" >
 							<div class="mr-4 ml-2 d-flex align-items-center">
-								<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
-									<i class="bi bi-suit-heart mr-1"></i><small class="text-secondary">공감하기</small>
-									${postWithComment.existSympathy }
-								</a>
+							<c:choose>
+								<c:when test="${postWithComment.existSympathy eq false}">
+									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
+										<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${postWithComment.community.id }"></i><small class="text-secondary">공감하기</small>			
+									</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
+										<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${postWithComment.community.id }"></i><small class="text-secondary">공감 ${postWithComment.sympathyTotalCount }개</small>			
+										
+									</a>
+								</c:otherwise>
+							</c:choose>
 							</div>
 							<div class="d-flex align-items-center">
 							 	<c:choose>
 									<c:when test="${postWithComment.commentTotalCount eq 0}" >
 										<div class="d-flex align-items-center justify-content-center">
-											<i class="bi bi-chat mr-1"></i>
-											<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글쓰기</small></a>		
+											<a href="/post/detail_view?id=${postWithComment.community.id }">
+												<i class="bi bi-chat text-dark"></i>
+												<small class="text-secondary">댓글쓰기</small>
+											</a>		
 										</div>							
 									</c:when>
 									<c:otherwise>
 										<div class="d-flex align-items-center justify-content-center">
-											<i class="bi bi-chat mr-1"></i>
-											<a href="/post/detail_view?id=${postWithComment.community.id }"><small class="text-secondary">댓글 ${postWithComment.commentTotalCount }개</small></a>	
+											<a href="/post/detail_view?id=${postWithComment.community.id }">
+												<i class="bi bi-chat text-dark"></i>
+												<small class="text-secondary">댓글 ${postWithComment.commentTotalCount }개</small>
+											</a>	
 										</div>
 									</c:otherwise>
 								</c:choose>
@@ -82,26 +96,50 @@
 	</div>
 	
 	<script>
-		$(document).ready(function(){		
-			$(".sympathyBtn").on("click", function(e){
-				e.preventDefault();
+	
+	function processSympathy(postId) {
+		$.ajax({
+			type:"get",
+			url:"/post/sympathy",
+			data:{"postId":postId},
+			success:function(data) {
+				if(data.sympathy){
+					$("#heartIcon-" + postId).removeClass("bi-suit-heart");
+					$("#heartIcon-" + postId).addClass("bi-suit-heart-fill");
+					
+					$("#heartIcon-" + postId).removeClass("text-dark");
+					$("#heartIcon-" + postId).addClass("heartIconFill");
+				} else {
+					$("#heartIcon-" + postId).addClass("bi-suit-heart");
+					$("#heartIcon-" + postId).removeClass("bi-suit-heart-fill");
+					
+					$("#heartIcon-" + postId).addClass("text-dark");
+					$("#heartIcon-" + postId).removeClass("heartIconFill");
+				}
 				
-				var postId = $(this).data("post-id");
-				
-				$.ajax({
-					type:"get",
-					url:"/post/sympathy",
-					data:{"postId":postId},
-					success:function(data) {
-						if(data.result == "success"){
-							alert("성공")
-						} else {
-							alert("실패")
-						}
-					}
-				});
-			});
+				location.reload();
+			}
 		});
+		
+	}
+	
+	$(document).ready(function(){		
+		$(".sympathyBtn").on("click", function(e){
+			e.preventDefault();
+			var postId = $(this).data("post-id");
+			
+			processSympathy(postId);
+		});
+		
+		$(".imageClick").on("dblclick", function(e){
+			e.preventDefault();
+			var postId = $(this).data("post-id");
+			
+			processSympathy(postId);
+			
+			
+		});
+	});
 	
 	</script>
 </body>

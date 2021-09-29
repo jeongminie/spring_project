@@ -28,4 +28,29 @@
 			`userId` = #{userId} AND
 			`postId` = #{postId}
 	</select>
+	
+	<delete id="deleteSympathy" parameterType="map">
+		DELETE FROM `sympathy`
+		WHERE
+			`userId` = #{userId} AND
+			`postId` = #{postId}
+	
+	</delete>
+	
+	<select id="selectCountSympathyByPostId" parameterType="map" resultType="int">
+		SELECT
+			COUNT(1)
+		FROM
+			`sympathy`
+		WHERE
+			`postId` = #{postId}
+	</select>
+	
+		<delete id="deletePostSympathy" parameterType="map">
+		DELETE FROM `sympathy`
+		WHERE
+			`postId` = #{postId}
+	
+	</delete>
+	
 </mapper>

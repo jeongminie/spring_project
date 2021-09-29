@@ -24,4 +24,12 @@ public class CommentBO {
 	public int getCommentTotalCount(int postId) {
 		return commentDAO.selectCommentTotalCount(postId);
 	}
+	
+	public int deleteComment(int commentId, int userId) {
+		return commentDAO.deleteComment(commentId, userId);
+	}
+	
+	public int deletePostComment(int postId) {
+		return commentDAO.deletePostComment(postId);
+	}
 }

@@ -42,5 +42,32 @@ public class FileManagerService {
 		
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
+	
+	public void removeFile(String filePath) {
+		
+		String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
+		Path path = Paths.get(realFilePath);
 
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				logger.error("[FileManagerService removeFile] 파일 삭제 실패");
+				e.printStackTrace();
+			}
+		}
+		
+		path = path.getParent(); 
+		
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				logger.error("[FileManagerService removeFile] directory delete fail");
+				e.printStackTrace();
+			}
+		}
+			
+	}
 }
+

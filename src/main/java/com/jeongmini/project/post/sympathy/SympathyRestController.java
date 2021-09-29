@@ -21,21 +21,18 @@ public class SympathyRestController {
 	private SympathyBO sympathyBO;
 	
 	@GetMapping("/sympathy")
-	public Map<String, String> Sympathy (
+	public Map<String, Boolean> Sympathy (
 			@RequestParam("postId") int postId,
 			HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = sympathyBO.addSympathy(userId, postId);
-		Map<String, String> result = new HashMap<>();		
+		boolean sympathy = sympathyBO.sympathy(userId, postId);
 		
-		if(count == 1) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
+		Map<String, Boolean> result = new HashMap<>();		
+		
+		result.put("sympathy", sympathy);
 		
 		return result;
 			

@@ -71,7 +71,8 @@ public class PostController {
 		model.addAttribute("community", community);
 		
 		HttpSession session = request.getSession();
-		int userId = (Integer) session.getAttribute("userId");		
+		int userId = (Integer) session.getAttribute("userId");
+		session.setAttribute("postId", community.getId());
 		
 		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);		
 		model.addAttribute("postWithComments", postWithComments);

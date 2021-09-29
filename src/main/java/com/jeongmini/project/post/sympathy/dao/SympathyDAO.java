@@ -11,4 +11,11 @@ public interface SympathyDAO {
 	
 	public int selectCountSympathy(@Param("userId") int userId,
 			@Param("postId") int postId);
+	
+	public int deleteSympathy(@Param("userId") int userId,
+			@Param("postId") int postId);
+	
+	public int selectCountSympathyByPostId(@Param("postId") int postId);
+	
+	public int deletePostSympathy(@Param("postId") int postId);
 }

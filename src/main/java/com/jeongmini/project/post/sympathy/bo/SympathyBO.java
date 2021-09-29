@@ -9,10 +9,6 @@ import com.jeongmini.project.post.sympathy.dao.SympathyDAO;
 public class SympathyBO {
 	@Autowired
 	private SympathyDAO sympathyDAO;
-
-	public int addSympathy(int userId, int postId) {
-		return sympathyDAO.insertSympathy(userId, postId);
-		}
 	
 	public boolean existSympathy(int userId, int postId) {
 		int count = sympathyDAO.selectCountSympathy(userId, postId);
@@ -24,4 +20,22 @@ public class SympathyBO {
 		}
 	}
 	
+	public boolean sympathy(int userId, int postId) {
+		if(this.existSympathy(userId, postId)) {
+			sympathyDAO.deleteSympathy(userId, postId);		
+			return false;
+		} else {
+			sympathyDAO.insertSympathy(userId, postId);
+			return true;
+		}
+		
+	}
+	
+	public int sympathyCount(int postId) {
+		return sympathyDAO.selectCountSympathyByPostId(postId);
+	}
+	
+	public int deletePostSympathy(int postId) {
+		return sympathyDAO.deletePostSympathy(postId);
+	}
 }
