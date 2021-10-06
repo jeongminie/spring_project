@@ -15,15 +15,43 @@
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<style>
+		.mypet-box {
+		font-family: 'Nanum Gothic Coding', monospace;
+			}
+	</style>
 <title>나의 반려동물 등록하기</title>
 </head>
 <body>
 	<div id="wrap">
-		<section class="d-flex justify-content-center">	
+	<c:import url="/WEB-INF/jsp/include/header.jsp" />	
+		<section class="d-flex justify-content-center mypet-box">	
 			<div class="login-box  d-flex justify-content-center align-items-center">
 				<div class="w-100">
-					<h2 class="text-center">반려동물 등록하기</h2>
+					<h2 class="text-center mt-2">반려동물 등록하기</h2>
 					<form id="petForm">
+						<label for="gdsImg">반려동물 사진</label>
+							<input type="file" accept="image/*" id="fileInput" class="col-10 mb-2 d-none">
+							<a href="#" id="imageUploadBtn" class="a">추가하기</a>
+							<div id="preview" class="profile-img border mb-2" style="border-radius: 50%; ">
+							</div>
+						<%-- <c:choose>
+							<c:when test="${empty myPet.imagePath }">
+								<div class="profilInput-box d-flex justify-content-center align-items-center mb-2" style="border:1px dashed">
+									<input type="file" accept="image/*" id="fileInput" class="col-10 mb-2 d-none">
+									<a href="#" id="imageUploadBtn"><i class="bi bi-images text-dark"></i></a>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="profilInput-box d-flex justify-content-center align-items-center mb-2" style="border:1px dashed">
+									<div><img src=""></div>
+								</div>
+							</c:otherwise>
+						</c:choose> --%>
 						<label>반려동물 이름</label>
 						<input id="petNameInput" type="text" class="form-control">
 						<div>
@@ -48,6 +76,21 @@
 	
 	<script>
 		$(document).ready(function(){
+			$("#imageUploadBtn").on("click", function(){
+				$("#fileInput").click();
+			});
+			
+			 function readURL(input) {
+		            if (input.files && input.files[0]) {
+		                var reader = new FileReader();
+		                reader.onload = function (e) {
+		                    $('#blah').attr('src', e.target.result);
+		                }
+		                reader.readAsDataURL(input.files[0]);
+		            }
+		        }
+			
+			
 			var petBirthday = null;
 			$("#petBirthdayInput").datepicker({
                  showButtonPanel: true, 
@@ -79,11 +122,24 @@
 					 return;
 				}
 				
+				if($("#fileInput")[0].files.length == 0) {
+					alert("파일을 추가하세요");
+					return ;
+				}
+				
+				var formData = new FormData();
+				formData.append("petName", petName);
+				formData.append("petBirthday", petBirthday);
+				formData.append("petGender", petGender);
+				formData.append("file", $("#fileInput")[0].files[0]);
 				
 				$.ajax({
-					type:"post",
+					enctype:"mutipart/form-data",
+					type:"POST",
 					url:"/user/myPet",
-					data:{"petName":petName, "petBirthday":petBirthday, "petGender":petGender},
+					processData: false,
+					contentType: false,
+					data:formData,
 					success:function(data){
 						if(data.result == "success") {
 							alert("등록 성공");
@@ -102,4 +158,42 @@
 	
 	</script>
 </body>
+
+	<script>
+	    var fileInput = document.querySelector('#fileInput');
+	    var preview = document.querySelector('#preview');
+	 
+	    fileInput.addEventListener('change',function (e) {
+	        var get_file = e.target.files;
+	 
+	        var image = document.createElement('img');
+	 
+	        /* FileReader 객체 생성 */
+	        var reader = new FileReader();
+	 
+	        /* reader 시작시 함수 구현 */
+	        reader.onload = (function (aImg) {
+	            console.log(1);
+	 
+	            return function (e) {
+	                console.log(3);
+	                /* base64 인코딩 된 스트링 데이터 */
+	                aImg.src = e.target.result
+	            }
+	        })(image)
+	 
+	        if(get_file){
+	            /* 
+	                get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
+	                onload 에 설정했던 return 으로 넘어간다.
+	                이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
+	            */
+	            reader.readAsDataURL(get_file[0]);
+	            console.log(2);
+	        }
+	 
+	        preview.appendChild(image);
+	    })
+	</script>
+
 </html>

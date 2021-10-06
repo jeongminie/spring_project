@@ -6,9 +6,13 @@
 
 }
 
-.logoImage-size{
-	width:40px;
-	height:30px;
+.logo-size{
+	width:75px;
+	height:60px;
+}
+
+.btn {
+	background-color: white;
 }
 
 .writeImage-size {
@@ -27,7 +31,7 @@
 }
 
 #loginBtn {
-	background-color:#FED291;;
+	background-color:#FED291;
 	border-color:#FED291;
 }
 
@@ -72,17 +76,35 @@
 	background-color:#FED291;
 }
 
-header {
-	height:80px
+nav {
+	width: 800px;
+	font-size:18px	
 }
 
-nav {
-	font-size:18px
+li {
+	 position: relative;
+}
+
+.submenu {
+	width:260.66px;
+	list-style:none;
+	position : absolute;
+	display:none;
+	box-shadow: 2px 2px 5px #999;
+	background-color : white;
+}
+
+.submenu > li {
+	width:180px;
+}
+
+.nav li:hover .submenu {
+	display : block
 }
 
 .nav-item > .nav-link {
 	font-size:18px; color:black;
-	}
+}
 
 .nav-item > .nav-link:hover {
 	color:#FED291
@@ -130,9 +152,15 @@ a {
 	text-decoration:none !important
 }
 
-.conditionImageSize {
+.conditionImageSamllSize {
 	width:40px;
 	height:40px;
+}
+
+.conditionImageBigSize {
+	display:none;
+	width:45px;
+	height:45px;
 }
 
 .text-flow{
@@ -145,3 +173,52 @@ a {
 .heartIconFill {
 	color:#FE8765
 }
+
+.comment-box{
+	height:38px
+}
+
+.headerprofil-size{
+	width:25px;
+	height:25px
+}
+
+.mypageprofil-size{
+	width:50px;
+	height:50px
+}
+
+.profilInput-box {
+    text-align:center;
+    display:table;
+    border:1px solid #cecece;
+    width:100px;
+    height:100px;
+}
+
+.profile-img {
+	width:100px;
+	height:100px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow:hidden;
+}
+
+img {
+    width:280px;
+    height:250px;
+}
+
+.petProfile-box{
+	border:1px solid #cecece;
+    width:100px;
+    height:100px;
+    overflow:hidden;
+}
+
+.petProfile {
+	width:100px;
+    height:100px;
+}
+

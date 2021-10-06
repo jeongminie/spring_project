@@ -16,12 +16,16 @@ import com.jeongmini.project.post.bo.PostBO;
 import com.jeongmini.project.post.model.Community;
 import com.jeongmini.project.post.model.Daily;
 import com.jeongmini.project.post.model.PostWithComments;
+import com.jeongmini.project.post.sympathy.bo.SympathyBO;
 
 @Controller
 @RequestMapping("/post")
 public class PostController {
 	@Autowired
 	private PostBO postBO;
+	
+	@Autowired
+	private SympathyBO sympathyBO;
 	
 	@GetMapping("/main")
 	public String mainView(
@@ -48,18 +52,22 @@ public class PostController {
 	}
 	
 	@GetMapping("/daily")
-	public String dailyView(
-			Model model,
-			HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId");
-		List<Daily> daily = postBO.getDaily(userId);
-
-		model.addAttribute("daily", daily);
-		
-		return "post/daily";
+	public String dailyList() { 
+		return "post/daily"; 
 	}
+	
+		/*
+		 * @GetMapping(params = "method=data") public String data(Model model,
+		 * HttpServletRequest request) {
+		 * 
+		 * HttpSession session = request.getSession(); int userId = (Integer)
+		 * session.getAttribute("userId");
+		 * 
+		 * model.addAttribute("daily", postBO.dailyList(userId));
+		 * 
+		 * return "post/daily"; }
+		 */
+
 	
 	@GetMapping("detail_view")
 	public String detailView(
@@ -72,11 +80,46 @@ public class PostController {
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer) session.getAttribute("userId");
-		session.setAttribute("postId", community.getId());
 		
 		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);		
 		model.addAttribute("postWithComments", postWithComments);
 
 		return "post/detail";
+	}
+	
+	@GetMapping("/category_view")
+	public String categoryView(
+			@RequestParam("category") String category,
+			Model model,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer) session.getAttribute("userId");
+		
+		Community community = postBO.getCommunityCategoryList(category);
+		model.addAttribute("community", community);
+		
+		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);
+		model.addAttribute("postWithComments", postWithComments);
+		
+		return "post/category";
+	}
+	
+
+	public String categoryMenu(
+			@RequestParam("category") String category,
+			Model model,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer) session.getAttribute("userId");
+		
+		Community community = postBO.getCommunityCategory(category);
+		model.addAttribute("community", community);
+		
+		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);
+		model.addAttribute("postWithComments", postWithComments);
+		
+		return "include/menu";
 	}
 }

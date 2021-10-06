@@ -3,6 +3,7 @@ package com.jeongmini.project.post.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,7 +31,6 @@ public class PostBO {
 	public int addPost(int userId, String userName, String content, String category, MultipartFile file) {
 		
 		FileManagerService fileManager = new FileManagerService();
-		fileManager.saveFile(userId, file);
 		
 		String filePath = fileManager.saveFile(userId, file); 
 		
@@ -42,8 +42,8 @@ public class PostBO {
 		
 	}
 	
-	public int addPostDaily(int userId, String userName, String content, String condition, String health, String defecation) {
-		return postDAO.insertPostDaily(userId, userName, content, condition, health, defecation);
+	public int addPostDaily(int userId, String userName, String content, String condition, String health, String defecation, boolean walk, boolean medicine) {
+		return postDAO.insertPostDaily(userId, userName, content, condition, health, defecation, walk, medicine);
 		
 	}
 	
@@ -75,18 +75,22 @@ public class PostBO {
 		
 		Community community = postDAO.selectCommunity(id);
 		List<Comment> commentList = commentBO.getCommentList(community.getId());
+		boolean existSympathy = sympathyBO.existSympathy(community.getUserId(), community.getId());
+		int sympathyTotalCount = sympathyBO.sympathyCount(community.getId());
 		
 		community.setCommentList(commentList);
+		community.setSympathyTotalCount(sympathyTotalCount);
+		community.setExistSympathy(existSympathy);
 		
 		return community;
 	}
 	
-	public List<Daily> getDaily(int userId) {
-		return postDAO.selectDaily(userId);
-	}
+	public ArrayList<Daily> getDailyList(int userId){
+		return postDAO.selectDailyList(userId);
+	};
 	
 	public boolean deletePost(int postId, int userId) {
-		Community community = postDAO.selectCommunity(userId);
+		Community community = postDAO.selectCommunity(postId);
 		int count = postDAO.deletePost(postId, userId);
 		
 		if(count != 1) {
@@ -102,5 +106,13 @@ public class PostBO {
 		return true;
 		
 		
+	}
+	
+	public	Community getCommunityCategoryList(String category) {
+		return postDAO.selectCommunityCategoryList(category);
+	}
+	
+	public	Community getCommunityCategory(String category) {
+		return postDAO.selectCommunityCategory(category);
 	}
 }

@@ -1,5 +1,6 @@
 package com.jeongmini.project.post;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jeongmini.project.post.bo.PostBO;
+import com.jeongmini.project.post.model.Daily;
 
 @RestController
 @RequestMapping("/post")
@@ -54,6 +56,8 @@ public class PostRestController {
 			@RequestParam("condition") String condition,
 			@RequestParam("health") String health,
 			@RequestParam("defecation") String defecation,
+			@RequestParam("walk") boolean walk,
+			@RequestParam("medicine") boolean medicine,
 			HttpServletRequest request
 			) {
 		
@@ -61,7 +65,7 @@ public class PostRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("userName");
 
-		int count = postBO.addPostDaily(userId, userName, content, condition, health, defecation);
+		int count = postBO.addPostDaily(userId, userName, content, condition, health, defecation, walk, medicine);
 		
 		Map<String, String> result = new HashMap<>();
 		
@@ -73,6 +77,14 @@ public class PostRestController {
 		
 		return result;
 
+	}
+	
+	@GetMapping("/dailyData")
+	public ArrayList<Daily> daily(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		return postBO.getDailyList(userId);
 	}
 	
 	@GetMapping("/delete_post")

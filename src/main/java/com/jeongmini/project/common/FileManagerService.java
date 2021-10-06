@@ -14,7 +14,9 @@ public class FileManagerService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	private final String FILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\imageUpload\\images/";
+	private final String FILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\images/";
+	
+	private final String PROFILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/";
 	
 	public String saveFile(int userId, MultipartFile file) {
 		String directoryName = userId + "_" + System.currentTimeMillis() + "/";
@@ -43,9 +45,38 @@ public class FileManagerService {
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
 	
+	public String saveProfile(int userId, MultipartFile file) {
+		String directoryName = userId + "_" + System.currentTimeMillis() + "/";
+		
+		String filePath = PROFILE_UPLOAD_PATH + directoryName;
+		
+		File directory = new File(filePath);
+		
+		if(directory.mkdir() == false) {
+			logger.error("[FileManagerService saveFile] 디렉토리 생성 실패");
+			return null;
+		}
+		
+		byte[] bytes;
+		try {
+			bytes = file.getBytes();
+			Path path = Paths.get(filePath + file.getOriginalFilename());
+			Files.write(path, bytes);
+		} catch (IOException e) {
+			logger.error("[FileManagerService saveFile] 파일 생성 실패");
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+		return "/profile/" + directoryName + file.getOriginalFilename();
+	}
+	
+	
 	public void removeFile(String filePath) {
 		
 		String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
+		
 		Path path = Paths.get(realFilePath);
 
 		if(Files.exists(path)) {

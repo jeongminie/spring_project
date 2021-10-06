@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div id="wrap">
+	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section>
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
@@ -36,10 +37,14 @@
 							<div class="border-top"></div>
 							<div class="category-box mt-2">
 								<select class="border-0 col-12 text-secondary form-control" id="selectInput">
-							    	<option value="category">카테고리</option>
+									<option value="category">카테고리</option>
 							    	<option>일상</option>
 							    	<option>광고</option>
 							    	<option>리뷰</option>
+						    	<!-- <option data-category-id="category">카테고리</option>
+						    	<option data-category-id="daily">일상</option>
+						    	<option data-category-id="ad">광고</option>
+						    	<option data-category-id="review">리뷰</option> -->
 								</select>
 							</div>
 							<div class="p-2">
@@ -55,6 +60,7 @@
 	
 	<script>
 		$(document).ready(function(){
+			
 			$("#imageUploadBtn").on("click", function(){
 				$("#fileInput").click();
 			});
@@ -62,6 +68,7 @@
 			$("#saveBtn").on("click",function(){
 				var content = $("#contentInput").val().trim();
 				var category = $("#selectInput").val().trim();
+				/* var category = $("#selectInput option:selected").data("category-id"); */
 				
 				if(content == null || content == "") {
 					alert("내용을 입력하세요");
@@ -73,21 +80,26 @@
 					return ;
 				}
 				
+				if($("#fileInput")[0].files.length == 0) {
+					alert("파일을 추가하세요");
+					return ;
+				}
+				
 				var formData = new FormData();
 				formData.append("content", content);
 				formData.append("category", category);
-				formData.append("file", $("#fileInput")[0].files[0])
+				formData.append("file", $("#fileInput")[0].files[0]);
 					
 					$.ajax({
-						enctype:"multipart/form-data",
-						type:"post",
+						enctype:"mutipart/form-data",
+						type:"POST",
 						url:"/post/create",
-						processData:false,
-						contentType:false,
+						processData: false,
+						contentType: false,
 						data:formData,
 						success:function(data){
 							if(data.result == "success") {
-								alert("업로드 성공");					 
+								location.href="/post/main";
 							} else {
 								alert("업로드 실패");
 							}

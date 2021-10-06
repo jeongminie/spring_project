@@ -12,6 +12,14 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
+<!--   		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+	<style>
+		* {
+		font-family: 'Nanum Gothic Coding', monospace;
+		}
+	</style> -->
 <title>Insert title here</title>
 </head>
 <body>
@@ -45,8 +53,36 @@
 				</div>
 				<div class="border-top"></div>
 				<div class="d-flex p-2">
-					<div class="mr-4">공감하기</div>
-					<div>댓글</div>
+					<div class="mr-4">
+					<c:choose>
+						<c:when test="${community.existSympathy eq false}">
+							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
+								<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${community.id }"></i><small class="text-secondary">공감하기</small>			
+							</a>			
+						</c:when>
+						<c:otherwise>
+							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
+								<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${community.id }"></i><small class="text-secondary">공감 ${community.sympathyTotalCount }개</small>
+							</a>
+						</c:otherwise>
+					</c:choose>
+					</div>
+					<c:choose>
+						<c:when test="${community.commentTotalCount eq 0}" >
+							<div class="d-flex align-items-center justify-content-center">
+								<a href="/post/detail_view?id=${community.id }">
+									<i class="bi bi-chat text-dark"></i>
+									<small class="text-secondary">댓글쓰기</small>
+								</a>		
+							</div>							
+						</c:when>
+						<c:otherwise>
+							<div class="d-flex align-items-center justify-content-center">
+								<i class="bi bi-chat text-dark"></i>
+								<small class="text-secondary">댓글 ${community.commentTotalCount }개</small>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="border-top"></div>
 				
@@ -74,7 +110,17 @@
 				</div>
 			</div>
 		</div>
-		
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+	</div>
+	
+	<div class="modal fade" id="PostdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body text-center">
+	        <a href="#" id="postDeleteBtn">삭제 하기</a>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 	
 	<div class="modal fade" id="CommentdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -87,15 +133,6 @@
 	  </div>
 	</div>
 	
-	<div class="modal fade" id="PostdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      <div class="modal-body text-center">
-	        <a href="#" id="postDeleteBtn">삭제 하기</a>
-	      </div>
-	    </div>
-	  </div>
-	</div>
 	
 	<script>
 		$(document).ready(function(){
@@ -156,10 +193,12 @@
 			$(".morePostBtn").on("click", function(){
 				var postId = $(this).data("post-id");
 				$("#postDeleteBtn").data("post-id", postId);
+				
 			});
 			
 			$("#postDeleteBtn").on("click", function(e){
 				e.preventDefault();
+				
 				var postId = $(this).data("post-id");
 				
 				$.ajax({
@@ -168,13 +207,13 @@
 					data:{"postId":postId}, 
 					success:function(data) {
 						if(data.result == "success") {
-							location.reload();
+							location.href="/post/main";
 						} else {
 							alert("실패");
 						}
 					},
 					error:function(e) {
-						alert("error");
+						alert("error" + e);
 					}	
 				});
 			});

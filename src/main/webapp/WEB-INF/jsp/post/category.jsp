@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,11 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
-
 <title>메인</title>
 </head>
+		<%
+		String category = request.getParameter("category");
+		%>
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
@@ -25,7 +28,8 @@
 		<a style="display:scroll;position:fixed;bottom:10px;right:450px;" href="/post/create" title="top"><img src="/image/write.png" class="writeImage-size"></a>
 
 		<section>
-			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">
+				<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">
+
 				<div class="d-flex justify-content-center align-items-center p-4">
 					<div class="timeLine">
 						<div class="userInfo d-flex justify-content-between p-2">
@@ -37,17 +41,6 @@
 							</div>
 						</div>
 						<div class="d-flex align-items-center ml-2">
-						<%-- <c:choose>
-							<c:when test="${postWithComment.community.category eq 'daily' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">일상</div>
-							</c:when>
-							<c:when test="${postWithComment.community.category eq 'ad' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">광고</div>
-							</c:when>
-							<c:when test="${postWithComment.community.category eq 'review' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">리뷰</div>
-							</c:when>
-						</c:choose> --%>
 							<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">${postWithComment.community.category }</div>
 						</div>
 						<div class="text-flow p-2">
@@ -99,8 +92,9 @@
 						</div>
 					</div>
 				</div>
+
+			</c:if>
 			</c:forEach>
-		
 		
 		</section>
 			

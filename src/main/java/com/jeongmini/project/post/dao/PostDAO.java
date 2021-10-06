@@ -1,5 +1,6 @@
 package com.jeongmini.project.post.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -25,20 +26,23 @@ public interface PostDAO {
 			@Param("content") String content,
 			@Param("condition") String condition,
 			@Param("health") String health,
-			@Param("defecation") String defecation
+			@Param("defecation") String defecation,
+			@Param("walk") boolean walk,
+			@Param("medicine") boolean medicine
 			);
 	
 	public List<Community> selectCommunityList();
 	
 	public Community selectCommunity(@Param("id") int id);
 	
-	public List<Daily> selectDaily(
-			@Param("userId") int userId
-			);
+	public ArrayList<Daily> selectDailyList(@Param("userId") int userId);
 	
 	public int deletePost(
 			@Param("id") int id,
 			@Param("userId") int userId
 			);
 	
+	public Community selectCommunityCategoryList(@Param("category") String category);
+	
+	public Community selectCommunityCategory(@Param("category") String category);
 }

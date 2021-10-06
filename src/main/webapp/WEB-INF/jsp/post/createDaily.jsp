@@ -18,6 +18,14 @@
   	
   	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+	<style>
+		* {
+		font-family: 'Nanum Gothic Coding', monospace;
+		}
+	</style>
 <title>집사일기 작성</title>
 </head>
 <body>
@@ -26,6 +34,7 @@
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
 	%>
 	<div id="wrap">
+	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section>
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
@@ -35,11 +44,11 @@
 						</h4>
 						<div class="category-box d-flex justify-content-center">
 							<div>
-								<a href="#" class="conditionIcon"><img src="/image/great.png" class="conditionImageSize mr-2" data-condition-id="great" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/image/happy.png" class="conditionImageSize mr-2" data-condition-id="happy" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/image/easy.png" class="conditionImageSize mr-2" data-condition-id="easy" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/image/sad.png" class="conditionImageSize mr-2" data-condition-id="sad" name="condition"></a>
-								<a href="#" class="conditionIcon"><img src="/image/angry.png" class="conditionImageSize mr-2" data-condition-id="angry" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/great.png" class="conditionImageSamllSize mr-2" data-condition-id="great" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/happy.png" class="conditionImageSamllSize mr-2" data-condition-id="happy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/easy.png" class="conditionImageSamllSize mr-2" data-condition-id="easy" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/sad.png" class="conditionImageSamllSize mr-2" data-condition-id="sad" name="condition"></a>
+								<a href="#" class="conditionIcon"><img src="/image/angry.png" class="conditionImageSamllSize mr-2" data-condition-id="angry" name="condition"></a>
 							</div>
 						</div>
 					<div class="border-top"></div>
@@ -58,13 +67,21 @@
 							<option>보통</option>
 							<option>나쁨</option>
 						</select>
-						<label class="text-secondary">배변</label>
+						<label class="text-secondary mt-2">배변</label>
 						<select class="form-control" id="defecationInput">
 							<option>선택</option>
 							<option>보통변</option>
 							<option>묽은변</option>
 							<option>설사</option>
 						</select>
+						<div>
+							<label class="text-secondary mt-2">산책</label>
+							<input id="walkInput" type="checkbox" name="check" value="walk">	
+						</div>
+						<div>	
+							<label class="text-secondary">약 복용</label>
+							<input id="medicineInput" type="checkbox" name="check" value="medicine">
+						</div>
 					</article>
 					<div class="p-2">
 						<button type="button" class="uploadBtn btn btn-block btn-sm text-white" id="saveBtn">기록하기</button>
@@ -82,13 +99,16 @@
 			
 			$("img[name='condition']").on("click", function(){
 				condition = $(this).data("condition-id");
+
+				$(this).animate({opacity:'0.3'});					
 			});
 			
 			$("#saveBtn").on("click",function(){
 				var content = $("#contentInput").val().trim();
 				var health = $("#healthInput option:selected").val();
 				var defecation = $("#defecationInput option:selected").val();
-				
+				var walk = $('input:checkbox[id="walkInput"]').is(":checked") == true;
+				var medicine = $('input:checkbox[id="medicineInput"]').is(":checked") == true;
 				
 				if(condition == null) {
 					alert("오늘의 기분을 선택하세요");
@@ -109,15 +129,14 @@
 					alert("배변상태를 선택하세요");
 					return ;
 				}
-				
-				
+						
 				$.ajax({
 					type:"post",
 					url:"/post/createDaily",
-					data:{"content":content, "condition":condition, "health":health, "defecation":defecation},
+					data:{"content":content, "condition":condition, "health":health, "defecation":defecation, "walk":walk, "medicine":medicine},
 					success:function(data){
 						if(data.result == "success") {
-							alert("업로드 성공");					 
+							location.href="/post/daily";					 
 						} else {
 							alert("업로드 실패");
 						}
