@@ -6,7 +6,7 @@ public class Daily {
 	private int id;
 	private String userName;
 	private String content;
-	private String codition;
+	private String condition;
 	private String health;
 	private String defecation;
 	private Date createdAt;
@@ -30,11 +30,11 @@ public class Daily {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getCodition() {
-		return codition;
+	public String getCondition() {
+		return condition;
 	}
-	public void setCodition(String codition) {
-		this.codition = codition;
+	public void setCondition(String condition) {
+		this.condition = condition;
 	}
 	public String getHealth() {
 		return health;

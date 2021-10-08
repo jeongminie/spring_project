@@ -222,3 +222,11 @@ img {
     height:100px;
 }
 
+/* 달력 */
+.fc-event-time {
+	display:none;
+}
+
+.fc-daygrid-event-dot {
+	display:none;
+}

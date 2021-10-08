@@ -91,6 +91,8 @@
  			,`condition`
  			,`health`
  			,`defecation`
+ 			,`walk`
+ 			,`medicine`
  			,`createdAt`
  			,`updatedAt`
  		FROM
