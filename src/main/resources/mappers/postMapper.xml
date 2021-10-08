@@ -35,6 +35,7 @@
  			,`defecation`
  			,`walk`
  			,`medicine`
+ 			,`imageurl`
  			,`createdAt`
  			,`updatedAt`
  		) VALUES (
@@ -46,6 +47,7 @@
  			, #{defecation}
  			, #{walk}
  			, #{medicine}
+ 			, #{imageurl}
  			, now()
  			, now()
  		)
@@ -93,6 +95,7 @@
  			,`defecation`
  			,`walk`
  			,`medicine`
+ 			,`imageurl`
  			,`createdAt`
  			,`updatedAt`
  		FROM

@@ -58,6 +58,7 @@ public class PostRestController {
 			@RequestParam("defecation") String defecation,
 			@RequestParam("walk") boolean walk,
 			@RequestParam("medicine") boolean medicine,
+			@RequestParam("imageurl") String imageurl,
 			HttpServletRequest request
 			) {
 		
@@ -65,7 +66,7 @@ public class PostRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("userName");
 
-		int count = postBO.addPostDaily(userId, userName, content, condition, health, defecation, walk, medicine);
+		int count = postBO.addPostDaily(userId, userName, content, condition, health, defecation, walk, medicine, imageurl);
 		
 		Map<String, String> result = new HashMap<>();
 		

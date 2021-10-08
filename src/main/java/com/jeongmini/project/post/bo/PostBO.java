@@ -42,8 +42,8 @@ public class PostBO {
 		
 	}
 	
-	public int addPostDaily(int userId, String userName, String content, String condition, String health, String defecation, boolean walk, boolean medicine) {
-		return postDAO.insertPostDaily(userId, userName, content, condition, health, defecation, walk, medicine);
+	public int addPostDaily(int userId, String userName, String content, String condition, String health, String defecation, boolean walk, boolean medicine, String imageurl) {
+		return postDAO.insertPostDaily(userId, userName, content, condition, health, defecation, walk, medicine, imageurl);
 		
 	}
 	

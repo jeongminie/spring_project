@@ -28,7 +28,8 @@ public interface PostDAO {
 			@Param("health") String health,
 			@Param("defecation") String defecation,
 			@Param("walk") boolean walk,
-			@Param("medicine") boolean medicine
+			@Param("medicine") boolean medicine,
+			@Param("imageurl") String imageurl
 			);
 	
 	public List<Community> selectCommunityList();

@@ -28,38 +28,41 @@
 		var calendar = new FullCalendar.Calendar(calendarEl, {
 		  initialView: 'dayGridMonth'
 		});
+
 		calendar.render();
-		 calendar.addEvent({
+		
+		
+/* 		 calendar.addEvent({
 			title:'dd',
 			start:'2021-10-06',
-			imageurl:"./image/easy.png"
-			
-		}); 
+			imageurl:"/image/easy.png"
+
+		});  */
+		 
 		$.ajax({
 			type:"get",
 			url:"/post/dailyData",
 			data:{},
 			success:function(data) {
 				result = data;
-				for(i=0; i < result.length; i++) {
-				calendar.addEvent({
-					title:result[i]['condition'],
-					start:result[i]['createdAt'],
-					imageurl:result[i]["/image/sad.png"]
-
-  				
+				for(i=0; i < result.length; i++) {		
+					calendar.addEvent({
+					title:result[i]['imageurl'],
+					start:result[i]['createdAt']
   				 });
-  			 }
-  		 }
-			
-			  , eventRender:function(event, eventElement) {
-	                if(event.imageurl) {
-	                    eventElement.find(".fc-event-title").prepend("<center><img src='" + event.imageurl + "'><center>");
-	                }
-	            }
+  			 }				
+ 		 }
+		, eventRender:function(eventElement) {
+                if(title) {
+                	eventElement.find("div.fc-event-title").prepend("<img src='" + title +"' width='12' height='12'>");
 
+                }
+            }
+			
 	});
+		
   });
+
 
 </script>
 
@@ -73,9 +76,8 @@
 		<a style="display:scroll;position:fixed;bottom:10px;right:300px;" href="/post/createDaily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
 		
 		<div id='calendar'>
-			<div class="fc-daygrid-event-dot mr-4">			
-			</div>
-		
+
+	
 		</div>
 		
 		

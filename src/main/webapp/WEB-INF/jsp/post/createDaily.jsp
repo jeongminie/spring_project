@@ -109,6 +109,7 @@
 				var defecation = $("#defecationInput option:selected").val();
 				var walk = $('input:checkbox[id="walkInput"]').is(":checked") == true;
 				var medicine = $('input:checkbox[id="medicineInput"]').is(":checked") == true;
+				var imageurl = "/image/" + condition + ".png" 
 				
 				if(condition == null) {
 					alert("오늘의 기분을 선택하세요");
@@ -133,7 +134,7 @@
 				$.ajax({
 					type:"post",
 					url:"/post/createDaily",
-					data:{"content":content, "condition":condition, "health":health, "defecation":defecation, "walk":walk, "medicine":medicine},
+					data:{"content":content, "condition":condition, "health":health, "defecation":defecation, "walk":walk, "medicine":medicine, "imageurl":imageurl},
 					success:function(data){
 						if(data.result == "success") {
 							location.href="/post/daily";					 

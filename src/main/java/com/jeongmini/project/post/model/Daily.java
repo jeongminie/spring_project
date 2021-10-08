@@ -9,6 +9,7 @@ public class Daily {
 	private String condition;
 	private String health;
 	private String defecation;
+	private String imageurl;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -47,6 +48,12 @@ public class Daily {
 	}
 	public void setDefecation(String defecation) {
 		this.defecation = defecation;
+	}
+	public String getImageurl() {
+		return imageurl;
+	}
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
