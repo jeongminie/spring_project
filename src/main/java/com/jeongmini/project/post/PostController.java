@@ -52,23 +52,25 @@ public class PostController {
 	}
 	
 	@GetMapping("/daily")
-	public String dailyList() { 
-		return "post/daily"; 
+	public String dailyView() {
+		return "post/daily";
 	}
 	
-		/*
-		 * @GetMapping(params = "method=data") public String data(Model model,
-		 * HttpServletRequest request) {
-		 * 
-		 * HttpSession session = request.getSession(); int userId = (Integer)
-		 * session.getAttribute("userId");
-		 * 
-		 * model.addAttribute("daily", postBO.dailyList(userId));
-		 * 
-		 * return "post/daily"; }
-		 */
+	@GetMapping("/daily_detail")
+	public String dailyDetail(
+			//@RequestParam("id") int id,
+			Model model,
+			HttpServletRequest request) { 
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer) session.getAttribute("userId");
+		
+		Daily daily = postBO.getDaily( userId);
+		model.addAttribute("daily", daily);
+		
+		return "post/dailyDetail"; 
+	}
 
-	
 	@GetMapping("detail_view")
 	public String detailView(
 			@RequestParam("id") int id,
@@ -103,6 +105,16 @@ public class PostController {
 		model.addAttribute("postWithComments", postWithComments);
 		
 		return "post/category";
+	}
+	
+	@GetMapping("/update_view")
+	public String postUpdate(@RequestParam("id") int id,
+			Model model) {
+		
+		Community community = postBO.getCommunity(id);
+		model.addAttribute("community", community);
+		
+		return "post/postUpdate";
 	}
 	
 

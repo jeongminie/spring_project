@@ -40,6 +40,7 @@ public class UserRestController {
 			session.setAttribute("userName", user.getName());
 			session.setAttribute("userEmail", user.getEmail()); 
 			session.setAttribute("password", user.getPassword()); 
+			session.setAttribute("petName", user.getPetName());
 			
 		} else {
 			result.put("result", "fail");

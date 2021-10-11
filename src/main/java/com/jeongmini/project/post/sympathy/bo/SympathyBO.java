@@ -1,9 +1,12 @@
 package com.jeongmini.project.post.sympathy.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeongmini.project.post.sympathy.dao.SympathyDAO;
+import com.jeongmini.project.post.sympathy.model.Sympathy;
 
 @Service
 public class SympathyBO {
@@ -33,6 +36,10 @@ public class SympathyBO {
 	
 	public int sympathyCount(int postId) {
 		return sympathyDAO.selectCountSympathyByPostId(postId);
+	}
+	
+	public List<Sympathy> selectsympathyUserId(int postId) {
+		return sympathyDAO.selectSympathyUserId(postId);
 	}
 	
 	public int deletePostSympathy(int postId) {

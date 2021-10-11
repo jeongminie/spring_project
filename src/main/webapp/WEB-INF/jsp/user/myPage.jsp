@@ -34,36 +34,36 @@
 		
 		<section class="mypage-font">
 			<div>
-			<div class="d-flex justify-content-center align-items-center">
-				<div class="d-flex justify-content-between w-50">
+				<div class="d-flex justify-content-center align-items-center mt-4">
+					<div class="d-flex justify-content-between w-50">
+						<div>
+							<h4>
+							<c:if test="${not empty userName}">
+								<img src="/image/profil.jpg" class="mypageprofil-size">
+								${userName } 
+							</c:if>
+							</h4>
+						</div>
+						<div class="d-flex justify-content-center align-items-center">
+						<a href="#"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-center align-items-center mt-2">
+					<div class="d-flex justify-content-between w-50">
+						<h4>나의 펫밀리</h4>
+						<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center align-items-center">
 					<div>
-						<h3>
-						<c:if test="${not empty userName}">
-							<img src="/image/profil.jpg" class="mypageprofil-size">
-							${userName } 
-						</c:if>
-						</h3>
+					<div class="petProfile-box border" style="border-radius: 50%; ">
+						<img src="${myPet.imagePath }" class="petProfile">
 					</div>
-					<div class="d-flex justify-content-center align-items-center">
-					<a href="#"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+					<h5 class="text-center">${myPet.petName }</h5>
 					</div>
 				</div>
-			</div>
-			<div class="border-top"></div>
-			<div class="d-flex justify-content-center align-items-center">
-				<div class="d-flex justify-content-between w-50">
-					<h3>나의 펫밀리</h3>
-					<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
-				</div>
-			</div>
-			<div class="d-flex justify-content-center align-items-center">
-				<div>
-				<div class="petProfile-box border" style="border-radius: 50%; ">
-					<img src="${myPet.imagePath }" class="petProfile">
-				</div>
-				<h4 class="text-center">${myPet.petName }</h4>
-				</div>
-			</div>
 			</div>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />	

@@ -9,6 +9,8 @@ public class Daily {
 	private String condition;
 	private String health;
 	private String defecation;
+	private String walk;
+	private String medicine;
 	private String imageurl;
 	private Date createdAt;
 	private Date updatedAt;
@@ -66,6 +68,18 @@ public class Daily {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public String getWalk() {
+		return walk;
+	}
+	public void setWalk(String walk) {
+		this.walk = walk;
+	}
+	public String getMedicine() {
+		return medicine;
+	}
+	public void setMedicine(String medicine) {
+		this.medicine = medicine;
 	}
 	
 	

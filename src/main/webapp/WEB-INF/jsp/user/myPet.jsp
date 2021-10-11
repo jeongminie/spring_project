@@ -29,8 +29,10 @@
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />	
+	<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
+	<div class="border-top"></div>
 		<section class="d-flex justify-content-center mypet-box">	
-			<div class="login-box  d-flex justify-content-center align-items-center">
+			<div class="login-box d-flex justify-content-center align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mt-2">반려동물 등록하기</h2>
 					<form id="petForm">
@@ -39,19 +41,7 @@
 							<a href="#" id="imageUploadBtn" class="a">추가하기</a>
 							<div id="preview" class="profile-img border mb-2" style="border-radius: 50%; ">
 							</div>
-						<%-- <c:choose>
-							<c:when test="${empty myPet.imagePath }">
-								<div class="profilInput-box d-flex justify-content-center align-items-center mb-2" style="border:1px dashed">
-									<input type="file" accept="image/*" id="fileInput" class="col-10 mb-2 d-none">
-									<a href="#" id="imageUploadBtn"><i class="bi bi-images text-dark"></i></a>
-								</div>
-							</c:when>
-							<c:otherwise>
-								<div class="profilInput-box d-flex justify-content-center align-items-center mb-2" style="border:1px dashed">
-									<div><img src=""></div>
-								</div>
-							</c:otherwise>
-						</c:choose> --%>
+
 						<label>반려동물 이름</label>
 						<input id="petNameInput" type="text" class="form-control">
 						<div>

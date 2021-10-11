@@ -104,6 +104,27 @@
  			`userId` = #{userId}
  	</select>
  	
+ 	<select id="selectDaily" parameterType="int" resultType="com.jeongmini.project.post.model.Daily">
+ 		SELECT
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`condition`
+ 			,`health`
+ 			,`defecation`
+ 			,`walk`
+ 			,`medicine`
+ 			,`imageurl`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`daily`
+ 		WHERE
+ 			
+ 			`userId` = #{userId}
+ 	</select>
+ 	
  	<delete id="deletePost" parameterType="map">
  		DELETE FROM 
  			`community`
@@ -143,5 +164,15 @@
  		WHERE
  		 `category` = #{category}
  	</select>
+ 	
+ 	<update id="updatePost" parameterType="map">
+ 		UPDATE
+ 			`community`
+ 		SET
+ 			`content` = #{content}
+ 			, `category` = #{category}
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
  
  </mapper>

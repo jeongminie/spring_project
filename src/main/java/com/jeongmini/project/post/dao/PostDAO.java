@@ -38,6 +38,15 @@ public interface PostDAO {
 	
 	public ArrayList<Daily> selectDailyList(@Param("userId") int userId);
 	
+	public Daily selectDaily(
+			//@Param("id") int id,
+			@Param("userId") int userId
+			);
+	
+	public int updatePost(@Param("id") int id,
+			@Param("content") String content,
+			@Param("category") String category);
+	
 	public int deletePost(
 			@Param("id") int id,
 			@Param("userId") int userId

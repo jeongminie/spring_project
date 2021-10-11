@@ -9,7 +9,7 @@
 	font-family: 'Nanum Gothic Coding', monospace;
 		}
 </style>
-<header>
+<header class="mb-2">
 	<div class="h-100 d-flex justify-content-between p-2">
 		<div>
 		

@@ -3,7 +3,6 @@ package com.jeongmini.project.post.bo;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,6 +15,7 @@ import com.jeongmini.project.post.model.Community;
 import com.jeongmini.project.post.model.Daily;
 import com.jeongmini.project.post.model.PostWithComments;
 import com.jeongmini.project.post.sympathy.bo.SympathyBO;
+import com.jeongmini.project.post.sympathy.model.Sympathy;
 
 @Service
 public class PostBO {
@@ -57,6 +57,7 @@ public class PostBO {
 			int commentTotalCount = commentBO.getCommentTotalCount(community.getId());
 			boolean existSympathy = sympathyBO.existSympathy(userId, community.getId());
 			int sympathyTotalCount = sympathyBO.sympathyCount(community.getId());
+			List<Sympathy> sympathy = sympathyBO.selectsympathyUserId(community.getId());
 			
 			PostWithComments postWithComments = new PostWithComments();
 			postWithComments.setCommunity(community);
@@ -64,7 +65,8 @@ public class PostBO {
 			postWithComments.setCommentTotalCount(commentTotalCount);
 			postWithComments.setExistSympathy(existSympathy);
 			postWithComments.setSympathyTotalCount(sympathyTotalCount);
-						
+			postWithComments.setSympathy(sympathy);
+			
 			postWithCommentsList.add(postWithComments);
 			
 		}	
@@ -83,6 +85,14 @@ public class PostBO {
 		community.setExistSympathy(existSympathy);
 		
 		return community;
+	}
+	
+	public Daily getDaily(int userId) {
+		return postDAO.selectDaily(userId);
+	}
+	
+	public int updatePost(int postId, String content, String category) {
+		return postDAO.updatePost(postId, content, category);
 	}
 	
 	public ArrayList<Daily> getDailyList(int userId){

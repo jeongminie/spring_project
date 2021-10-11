@@ -88,6 +88,23 @@ public class PostRestController {
 		return postBO.getDailyList(userId);
 	}
 	
+	@GetMapping("/update")
+	public Map<String, String> update(@RequestParam("postId") int postId,
+			@RequestParam("category") String category,
+			@RequestParam("content") String content){
+		
+		int count = postBO.updatePost(postId, content, category);
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	} 
+	
 	@GetMapping("/delete_post")
 	public Map<String, String> deletePost (
 			@RequestParam("postId") int postId,

@@ -1,8 +1,8 @@
 
 #wrap {
-	width: 800px;
+	width: 900px;
   	height: 100%;
-	margin:auto;
+
 
 }
 
@@ -77,12 +77,16 @@
 }
 
 nav {
-	width: 800px;
-	font-size:18px	
+
+	font-size:18px;
+	vertical-align: middle; 
+	text-align: center;     
 }
 
 li {
 	 position: relative;
+	
+
 }
 
 .submenu {
@@ -110,11 +114,14 @@ li {
 	color:#FED291
 }
 
-
-section > .community-box {
+/* .mypage-box{
 	width:500px;
+} */
+
+/* section > .community-box {
+	width:500px; 
 	height:200px;
-}
+} */
 
 .bg-color{
 	background-color : #FFF8EE;
@@ -206,8 +213,8 @@ a {
 }
 
 img {
-    width:280px;
-    height:250px;
+    width:100px;
+    height:100px;
 }
 
 .petProfile-box{
@@ -228,5 +235,20 @@ img {
 }
 
 .fc-daygrid-event-dot {
+	display:none;
+}
+
+.daily-icon-size {
+	width:30px;
+    height:30px;
+}
+
+.fc-daygrid-event{
+	display:flex;
+	justify-content:center; 
+	align-items:center;
+}
+
+.fc-event-title{
 	display:none;
 }

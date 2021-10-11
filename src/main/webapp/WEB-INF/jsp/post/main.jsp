@@ -13,7 +13,7 @@
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
 
-<title>메인</title>
+<title>펫밀리</title>
 </head>
 <body>
 	<div id="wrap">
@@ -37,17 +37,6 @@
 							</div>
 						</div>
 						<div class="d-flex align-items-center ml-2">
-						<%-- <c:choose>
-							<c:when test="${postWithComment.community.category eq 'daily' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">일상</div>
-							</c:when>
-							<c:when test="${postWithComment.community.category eq 'ad' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">광고</div>
-							</c:when>
-							<c:when test="${postWithComment.community.category eq 'review' }">
-								<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">리뷰</div>
-							</c:when>
-						</c:choose> --%>
 							<div class="categoryStyle border-radius mr-2 text-secondary d-flex justify-content-center align-items-center">${postWithComment.community.category }</div>
 						</div>
 						<div class="text-flow p-2">
@@ -65,15 +54,22 @@
 							<c:choose>
 								<c:when test="${postWithComment.existSympathy eq false}">
 									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
-										<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${postWithComment.community.id }"></i><small class="text-secondary">공감하기</small>			
+										<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${postWithComment.community.id }"></i>		
 									</a>
 								</c:when>
 								<c:otherwise>
 									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }">
-										<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${postWithComment.community.id }"></i><small class="text-secondary">공감 ${postWithComment.sympathyTotalCount }개</small>			
-										
+										<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${postWithComment.community.id }"></i>				
 									</a>
 								</c:otherwise>
+							</c:choose> 
+							<c:choose>
+								<c:when test="${postWithComment.sympathyTotalCount eq 0 }">
+									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }"><small class="text-secondary">공감하기</small></a>
+								</c:when>
+								<c:when test="${postWithComment.sympathyTotalCount > 0 }">
+									<a href="#" class="sympathyBtn" data-post-id="${postWithComment.community.id }"><small class="text-secondary">공감 ${postWithComment.sympathyTotalCount }개</small></a>
+								</c:when>
 							</c:choose>
 							</div>
 							<div class="d-flex align-items-center">

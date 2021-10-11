@@ -27,17 +27,13 @@
 		var calendarEl = document.getElementById('calendar');
 		var calendar = new FullCalendar.Calendar(calendarEl, {
 		  initialView: 'dayGridMonth'
+		  
+		, eventDidMount:function(data) {
+		            $(data.el).html("<a href='/post/daily_detail?id=${daily.id }'><img class='daily-icon-size' src='" + data.event.title + "'></a>");
+		                
+		          }
 		});
 
-		calendar.render();
-		
-		
-/* 		 calendar.addEvent({
-			title:'dd',
-			start:'2021-10-06',
-			imageurl:"/image/easy.png"
-
-		});  */
 		 
 		$.ajax({
 			type:"get",
@@ -52,14 +48,9 @@
   				 });
   			 }				
  		 }
-		, eventRender:function(eventElement) {
-                if(title) {
-                	eventElement.find("div.fc-event-title").prepend("<img src='" + title +"' width='12' height='12'>");
-
-                }
-            }
 			
 	});
+		calendar.render();
 		
   });
 
@@ -73,9 +64,9 @@
 		
 		<div class="border-top"></div>
 		
-		<a style="display:scroll;position:fixed;bottom:10px;right:300px;" href="/post/createDaily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
+		<a style="display:scroll;position:fixed;bottom:10px;right:250px;" href="/post/createDaily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
 		
-		<div id='calendar'>
+		<div id='calendar' class="mt-4">
 
 	
 		</div>

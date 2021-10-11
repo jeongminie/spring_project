@@ -36,7 +36,7 @@
 					<div>${community.userName }</div>
 					<div>
 						<c:if test="${community.userId eq userId }">
-							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostdeleteModal" data-post-id="${community.id }">
+							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostModal" data-post-id="${community.id }">
 								<i class="bi bi-three-dots mr-2"></i>
 							</a>
 						</c:if>
@@ -48,7 +48,7 @@
 				</div>
 				<div class="p-2">
 					<c:if test="${not empty community.imagePath }">
-						<img src="${community.imagePath }" class="imagePath-size w-100">
+						<img src="${community.imagePath }" class="imagePath-size w-100 imageClick" data-post-id="${community.id }">
 					</c:if>
 				</div>
 				<div class="border-top"></div>
@@ -57,14 +57,22 @@
 					<c:choose>
 						<c:when test="${community.existSympathy eq false}">
 							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
-								<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${community.id }"></i><small class="text-secondary">공감하기</small>			
+								<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${community.id }"></i>
 							</a>			
 						</c:when>
 						<c:otherwise>
 							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
-								<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${community.id }"></i><small class="text-secondary">공감 ${community.sympathyTotalCount }개</small>
+								<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${community.id }"></i>
 							</a>
 						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${community.sympathyTotalCount eq 0 }">
+							<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감하기</small></a>
+						</c:when>
+						<c:when test="${community.sympathyTotalCount > 0 }">
+							<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감 ${community.sympathyTotalCount }개</small></a>
+						</c:when>
 					</c:choose>
 					</div>
 					<c:choose>
@@ -113,10 +121,12 @@
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
-	<div class="modal fade" id="PostdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body text-center">
+	        <a href="/post/update_view?id=${community.id }" id="postModifyBtn">수정 하기</a>
+			<hr>
 	        <a href="#" id="postDeleteBtn">삭제 하기</a>
 	      </div>
 	    </div>
@@ -135,7 +145,51 @@
 	
 	
 	<script>
+	
+	function processSympathy(postId) {
+		$.ajax({
+			type:"get",
+			url:"/post/sympathy",
+			data:{"postId":postId},
+			success:function(data) {
+				if(data.sympathy){
+					$("#heartIcon-" + postId).removeClass("bi-suit-heart");
+					$("#heartIcon-" + postId).addClass("bi-suit-heart-fill");
+					
+					$("#heartIcon-" + postId).removeClass("text-dark");
+					$("#heartIcon-" + postId).addClass("heartIconFill");
+				} else {
+					$("#heartIcon-" + postId).addClass("bi-suit-heart");
+					$("#heartIcon-" + postId).removeClass("bi-suit-heart-fill");
+					
+					$("#heartIcon-" + postId).addClass("text-dark");
+					$("#heartIcon-" + postId).removeClass("heartIconFill");
+				}
+				
+				location.reload();
+			}
+		});
+		
+	}
 		$(document).ready(function(){
+			$(document).ready(function(){		
+				$(".sympathyBtn").on("click", function(e){
+					e.preventDefault();
+					var postId = $(this).data("post-id");
+					
+					processSympathy(postId);
+				});
+				
+				$(".imageClick").on("dblclick", function(e){
+					e.preventDefault();
+					var postId = $(this).data("post-id");
+					
+					processSympathy(postId);
+					
+					
+				});
+			});
+			
 			$(".commentBtn").on("click", function(){
 				var postId = $(this).data("post-id");
 				var comment = $("#commentInput-" + postId).val();
@@ -217,6 +271,28 @@
 					}	
 				});
 			});
+			
+			/* $("#postModifyBtn").on("click", function(e){
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/update",
+					data:{"postId":postId}, 
+					success:function(data) {
+						if(data.result == "success") {
+							location.href="/post/details";
+						} else {
+							alert("실패");
+						}
+					},
+					error:function(e) {
+						alert("error" + e);
+					}	
+				});
+			}); */
 		});
 	
 	</script>

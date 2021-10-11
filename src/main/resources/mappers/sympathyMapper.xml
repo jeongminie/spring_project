@@ -29,14 +29,6 @@
 			`postId` = #{postId}
 	</select>
 	
-	<delete id="deleteSympathy" parameterType="map">
-		DELETE FROM `sympathy`
-		WHERE
-			`userId` = #{userId} AND
-			`postId` = #{postId}
-	
-	</delete>
-	
 	<select id="selectCountSympathyByPostId" parameterType="map" resultType="int">
 		SELECT
 			COUNT(1)
@@ -46,11 +38,29 @@
 			`postId` = #{postId}
 	</select>
 	
-		<delete id="deletePostSympathy" parameterType="map">
+	<select id="selectSympathyUserId" parameterType="map" resultType="com.jeongmini.project.post.sympathy.model.Sympathy">
+		SELECT
+			`userId`
+ 			, `postId`
+ 			, `createdAt`
+		FROM
+			`sympathy`
+		WHERE 
+			`postId` = #{postId}
+	</select> 
+	
+	<delete id="deleteSympathy" parameterType="map">
+		DELETE FROM `sympathy`
+		WHERE
+			`userId` = #{userId} AND
+			`postId` = #{postId}
+	
+	</delete>
+	
+	<delete id="deletePostSympathy" parameterType="map">
 		DELETE FROM `sympathy`
 		WHERE
 			`postId` = #{postId}
-	
 	</delete>
 	
 </mapper>
