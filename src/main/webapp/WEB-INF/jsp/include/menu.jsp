@@ -21,7 +21,7 @@
 			</ul>
 		</li>
 		<li class="nav-item"><a href="/post/daily" class="nav-link font-weight-bold">집사일기</a></li>
-		<li class="nav-item"><a href="/user/myPage" class="nav-link font-weight-bold">마이페이지</a></li>
+		<li class="nav-item"><a href="/info/myPage" class="nav-link font-weight-bold">마이페이지</a></li>
 	</ul>
 </nav>
 

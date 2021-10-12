@@ -24,9 +24,6 @@ public class PostController {
 	@Autowired
 	private PostBO postBO;
 	
-	@Autowired
-	private SympathyBO sympathyBO;
-	
 	@GetMapping("/main")
 	public String mainView(
 			Model model,

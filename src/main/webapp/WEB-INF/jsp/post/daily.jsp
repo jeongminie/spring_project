@@ -29,7 +29,7 @@
 		  initialView: 'dayGridMonth'
 		  
 		, eventDidMount:function(data) {
-		            $(data.el).html("<a href='/post/daily_detail?id=${daily.id }'><img class='daily-icon-size' src='" + data.event.title + "'></a>");
+		            $(data.el).html("<a href='/post/daily_detail?id=${daily.id }'><img data-post-id='${daily.id }' class='daily-icon-size' src='" + data.event.title + "'></a>");
 		                
 		          }
 		});
