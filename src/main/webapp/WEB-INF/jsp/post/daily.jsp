@@ -29,9 +29,14 @@
 		  initialView: 'dayGridMonth'
 		  
 		, eventDidMount:function(data) {
-		            $(data.el).html("<a href='/post/daily_detail?id=${daily.id }'><img data-post-id='${daily.id }' class='daily-icon-size' src='" + data.event.title + "'></a>");
+		            $(data.el).html("<a href='/post/daily_detail?id= ??? }'><img id='dailyClick' data-post-id='${daily.id }' class='daily-icon-size' src='" + data.event.title + "'></a>");
 		                
 		          }
+		});
+		
+		$("#dailyClick").on("click", function(){
+			var postId = $(this).data("post-id");
+			alert(postId)
 		});
 
 		 

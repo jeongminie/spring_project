@@ -121,7 +121,7 @@
  		FROM
  			`daily`
  		WHERE
- 			
+ 			`id` = #{id} AND
  			`userId` = #{userId}
  	</select>
  	

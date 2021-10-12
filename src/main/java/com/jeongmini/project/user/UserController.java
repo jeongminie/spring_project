@@ -37,7 +37,7 @@ public class UserController {
 		MyPet myPet = userBO.getMyPet();
 		model.addAttribute("myPet", myPet);
 		
-		return "userInfo/myPet";
+		return "info/myPet";
 	}
 
 	@GetMapping("/user/sign_out")

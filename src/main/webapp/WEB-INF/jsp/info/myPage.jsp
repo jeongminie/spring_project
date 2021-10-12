@@ -45,7 +45,7 @@
 							</h4>
 						</div>
 						<div class="d-flex justify-content-center align-items-center">
-						<a href="#"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+						<a href="/info/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
 						</div>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 				<div class="d-flex justify-content-center align-items-center mt-2">
 					<div class="d-flex justify-content-between w-50">
 						<h4>나의 펫밀리</h4>
-						<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
+						<a href="/info/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center">

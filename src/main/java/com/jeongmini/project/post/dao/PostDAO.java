@@ -39,7 +39,7 @@ public interface PostDAO {
 	public ArrayList<Daily> selectDailyList(@Param("userId") int userId);
 	
 	public Daily selectDaily(
-			//@Param("id") int id,
+			@Param("id") int id,
 			@Param("userId") int userId
 			);
 	
