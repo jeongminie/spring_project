@@ -13,17 +13,9 @@
   	
   	<link rel="stylesheet" href="/css/style.css">
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-	<style>
-		.mypet-box {
-		font-family: 'Nanum Gothic Coding', monospace;
-			}
-	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>나의 반려동물 등록하기</title>
 </head>
 <body>
@@ -31,11 +23,12 @@
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
 	<div class="border-top"></div>
-		<section class="d-flex justify-content-center mypet-box">	
+		<section class="d-flex justify-content-center">	
 			<div class="login-box d-flex justify-content-center align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mt-2">반려동물 등록하기</h2>
 					<form id="petForm">
+
 						<label for="gdsImg">반려동물 사진</label>
 							<input type="file" accept="image/*" id="fileInput" class="col-10 mb-2 d-none">
 							<a href="#" id="imageUploadBtn" class="a">추가하기</a>

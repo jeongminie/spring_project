@@ -1,7 +1,7 @@
 package com.jeongmini.project.post;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -81,7 +81,7 @@ public class PostRestController {
 	}
 	
 	@GetMapping("/dailyData")
-	public ArrayList<Daily> daily(HttpServletRequest request) {
+	public List<Daily> daily(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		

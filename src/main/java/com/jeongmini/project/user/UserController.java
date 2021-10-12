@@ -60,6 +60,11 @@ public class UserController {
 		return "user/myPage";
 	}
 	
+	@GetMapping("/mypage2")
+	public String mapage2() {
+		return "user/mypage2";
+	}
+	
 	@GetMapping("/userUpdate")
 	public String userUpdate() {
 		return "/user/userUpdate";

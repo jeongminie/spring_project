@@ -1,13 +1,14 @@
-
 #wrap {
-	width: 900px;
-  	height: 100%;
+	width: 1000px;
+	margin:0 auto; 
+}
 
-
+section {
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .logo-size{
-	width:75px;
+	width:70px;
 	height:60px;
 }
 
@@ -229,7 +230,16 @@ img {
     height:100px;
 }
 
+.create-box{
+	width:800px;
+	margin:auto
+}
 /* 달력 */
+
+#calendar{
+	width:800px;
+	margin:auto
+}
 .fc-event-time {
 	display:none;
 }

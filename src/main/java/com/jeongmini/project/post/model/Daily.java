@@ -1,6 +1,7 @@
 package com.jeongmini.project.post.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Daily {
 	private int id;
@@ -14,6 +15,8 @@ public class Daily {
 	private String imageurl;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	private List<Daily> dailyList;
 	
 	public int getId() {
 		return id;

@@ -12,112 +12,110 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
-<!--   		<link rel="preconnect" href="https://fonts.googleapis.com">
+
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-	<style>
-		* {
-		font-family: 'Nanum Gothic Coding', monospace;
-		}
-	</style> -->
-<title>Insert title here</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">	
+<title>펫밀리</title>
+
 </head>
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		
-		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
-		
+		<c:import url="/WEB-INF/jsp/include/menu.jsp" />		
 		<div class="border-top"></div>
 		
-		<div class="d-flex justify-content-center align-items-center mt-4">
-			<div class="timeLine">
-				<div class="userInfo d-flex justify-content-between p-2">
-					<div>${community.userName }</div>
-					<div>
-						<c:if test="${community.userId eq userId }">
-							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostModal" data-post-id="${community.id }">
-								<i class="bi bi-three-dots mr-2"></i>
-							</a>
-						</c:if>
-					</div>
-				</div>
-				<div class="border-top"></div>
-				<div class="p-2">
-					${community.content }
-				</div>
-				<div class="p-2">
-					<c:if test="${not empty community.imagePath }">
-						<img src="${community.imagePath }" class="imagePath-size w-100 imageClick" data-post-id="${community.id }">
-					</c:if>
-				</div>
-				<div class="border-top"></div>
-				<div class="d-flex p-2">
-					<div class="mr-4">
-					<c:choose>
-						<c:when test="${community.existSympathy eq false}">
-							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
-								<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${community.id }"></i>
-							</a>			
-						</c:when>
-						<c:otherwise>
-							<a href="#" class="sympathyBtn" data-post-id="${community.id }">
-								<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${community.id }"></i>
-							</a>
-						</c:otherwise>
-					</c:choose>
-					<c:choose>
-						<c:when test="${community.sympathyTotalCount eq 0 }">
-							<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감하기</small></a>
-						</c:when>
-						<c:when test="${community.sympathyTotalCount > 0 }">
-							<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감 ${community.sympathyTotalCount }개</small></a>
-						</c:when>
-					</c:choose>
-					</div>
-					<c:choose>
-						<c:when test="${community.commentTotalCount eq 0}" >
-							<div class="d-flex align-items-center justify-content-center">
-								<a href="/post/detail_view?id=${community.id }">
-									<i class="bi bi-chat text-dark"></i>
-									<small class="text-secondary">댓글쓰기</small>
-								</a>		
-							</div>							
-						</c:when>
-						<c:otherwise>
-							<div class="d-flex align-items-center justify-content-center">
-								<i class="bi bi-chat text-dark"></i>
-								<small class="text-secondary">댓글 ${community.commentTotalCount }개</small>
-							</div>
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<div class="border-top"></div>
-				
-					<c:forEach var="comment" items="${community.commentList }" varStatus="status">					
-						<div class="d-flex justify-content-between p-1">
-							<div>
-								<b>${comment.userName }</b> ${comment.comment }
-							</div>
-							<div>
-								<c:if test="${comment.userId eq userId }">
-								<a href="#" class="text-dark moreCommentBtn" data-toggle="modal" data-target="#CommentdeleteModal" data-comment-id="${comment.id }">
+		<section>
+		
+			<div class="d-flex justify-content-center align-items-center mt-4">
+				<div class="timeLine">
+					<div class="userInfo d-flex justify-content-between p-2">
+						<div>${community.userName }</div>
+						<div>
+							<c:if test="${community.userId eq userId }">
+								<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostModal" data-post-id="${community.id }">
 									<i class="bi bi-three-dots mr-2"></i>
 								</a>
-								</c:if>
-							</div>
-						</div>		
-					</c:forEach>
-			
-				<div class="d-flex">
-					<div class="comment-box w-100 d-flex justify-content-center align-items-center" >
-						<div>${userName }</div>
-						<input type="text" class="form-control col-10" id="commentInput-${community.id }" style="border:none" placeholder="댓글 달기...">
-						<button class="btn btn-link btn-sm commentBtn" data-post-id="${community.id }">게시</button>
+							</c:if>
+						</div>
+					</div>
+					<div class="border-top"></div>
+					<div class="p-2">
+						${community.content }
+					</div>
+					<div class="p-2">
+						<c:if test="${not empty community.imagePath }">
+							<img src="${community.imagePath }" class="imagePath-size w-100 imageClick" data-post-id="${community.id }">
+						</c:if>
+					</div>
+					<div class="border-top"></div>
+					<div class="d-flex p-2">
+						<div class="mr-4">
+						<c:choose>
+							<c:when test="${community.existSympathy eq false}">
+								<a href="#" class="sympathyBtn" data-post-id="${community.id }">
+									<i class="bi bi-suit-heart text-dark mr-1" id="heartIcon-${community.id }"></i>
+								</a>			
+							</c:when>
+							<c:otherwise>
+								<a href="#" class="sympathyBtn" data-post-id="${community.id }">
+									<i class="bi bi-suit-heart-fill heartIconFill mr-1" id="heartIcon-${community.id }"></i>
+								</a>
+							</c:otherwise>
+						</c:choose>
+						<c:choose>
+							<c:when test="${community.sympathyTotalCount eq 0 }">
+								<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감하기</small></a>
+							</c:when>
+							<c:when test="${community.sympathyTotalCount > 0 }">
+								<a href="#" class="sympathyBtn" data-post-id="${community.id }"><small class="text-secondary">공감 ${community.sympathyTotalCount }개</small></a>
+							</c:when>
+						</c:choose>
+						</div>
+						<c:choose>
+							<c:when test="${community.commentTotalCount eq 0}" >
+								<div class="d-flex align-items-center justify-content-center">
+									<a href="/post/detail_view?id=${community.id }">
+										<i class="bi bi-chat text-dark"></i>
+										<small class="text-secondary">댓글쓰기</small>
+									</a>		
+								</div>							
+							</c:when>
+							<c:otherwise>
+								<div class="d-flex align-items-center justify-content-center">
+									<i class="bi bi-chat text-dark"></i>
+									<small class="text-secondary">댓글 ${community.commentTotalCount }개</small>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</div>
+					<div class="border-top"></div>
+					
+						<c:forEach var="comment" items="${community.commentList }" varStatus="status">					
+							<div class="d-flex justify-content-between p-1">
+								<div>
+									<b>${comment.userName }</b> ${comment.comment }
+								</div>
+								<div>
+									<c:if test="${comment.userId eq userId }">
+									<a href="#" class="text-dark moreCommentBtn" data-toggle="modal" data-target="#CommentdeleteModal" data-comment-id="${comment.id }">
+										<i class="bi bi-three-dots mr-2"></i>
+									</a>
+									</c:if>
+								</div>
+							</div>		
+						</c:forEach>
+				
+					<div class="d-flex">
+						<div class="comment-box w-100 d-flex justify-content-center align-items-center" >
+							<div>${userName }</div>
+							<input type="text" class="form-control col-10" id="commentInput-${community.id }" style="border:none" placeholder="댓글 달기...">
+							<button class="btn btn-link btn-sm commentBtn" data-post-id="${community.id }">게시</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	

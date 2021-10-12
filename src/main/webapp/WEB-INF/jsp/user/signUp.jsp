@@ -14,17 +14,15 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
   	<link rel="stylesheet" href="/css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-	<style>
-		.signupfont {
-		font-family: 'Nanum Gothic Coding', monospace;
-			}
-	</style>
+
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div id="wrap"> 
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex justify-content-center mt-2 signupfont">
+		<section class="d-flex justify-content-center mt-2">
 			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mb-4">회원가입</h2>

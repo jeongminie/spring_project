@@ -9,20 +9,12 @@
 	font-family: 'Nanum Gothic Coding', monospace;
 		}
 </style>
-<header class="mb-2">
+<header>
 	<div class="h-100 d-flex justify-content-between p-2">
-		<div>
-		
-		</div>
-		
-		<c:choose>
-			<c:when test="${not empty userId}">
-				<a href="/post/main"><img src="/image/logo.jpg" class="logo-size ml-5"></a>	
-			</c:when>
-			<c:otherwise>
-				<a href="/user/signIn_view"><img src="/image/logo.jpg" class="logo-size ml-2"></a>	
-			</c:otherwise>
-		</c:choose>
+ 		<div></div>
+ 		
+		<a href="/post/main"><img src="/image/logo.jpg" class="logo-size"></a>	
+
 		<div class="dropdown"> 
 			 <c:if test="${not empty userName}">
 				<button class="btn dropdown-toggle font-weight-bold" data-toggle="dropdown"> 
@@ -40,7 +32,3 @@
 </header>
 <div class="border-top"></div>
 
-<script>
-
-
-</script>

@@ -18,14 +18,10 @@
   	
   	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-	<style>
-		* {
-		font-family: 'Nanum Gothic Coding', monospace;
-		}
-	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>집사일기 작성</title>
 </head>
 <body>
@@ -35,7 +31,7 @@
 	%>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section>
+		<section class="create-box">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
@@ -99,8 +95,10 @@
 			
 			$("img[name='condition']").on("click", function(){
 				condition = $(this).data("condition-id");
-
-				$(this).animate({opacity:'0.3'});					
+					
+				$(this).animate({opacity:'0.3'});		
+				
+				 $('.conditionImageSamllSize').not(this).animate({opacity:'1'});
 			});
 			
 			$("#saveBtn").on("click",function(){

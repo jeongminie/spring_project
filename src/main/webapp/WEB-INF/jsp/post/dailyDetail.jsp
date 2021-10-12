@@ -21,6 +21,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+	
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">	
 </head>
 <style>
 	.dailyFont {
@@ -33,7 +37,7 @@
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 	<div class="border-top"></div>
-		<section class="dailyFont">
+		<section>
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>

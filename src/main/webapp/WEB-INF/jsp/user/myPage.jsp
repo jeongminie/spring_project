@@ -13,17 +13,9 @@
   	
   	<link rel="stylesheet" href="/css/style.css">
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-	<style>
-		.mypage-font {
-		font-family: 'Nanum Gothic Coding', monospace;
-			}
-	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>마이페이지</title>
 </head>
 <body>
@@ -32,7 +24,7 @@
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
 		<div class="border-top"></div>
 		
-		<section class="mypage-font">
+		<section>
 			<div>
 				<div class="d-flex justify-content-center align-items-center mt-4">
 					<div class="d-flex justify-content-between w-50">
@@ -45,7 +37,7 @@
 							</h4>
 						</div>
 						<div class="d-flex justify-content-center align-items-center">
-						<a href="#"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+						<a href="/user/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
 						</div>
 					</div>
 				</div>

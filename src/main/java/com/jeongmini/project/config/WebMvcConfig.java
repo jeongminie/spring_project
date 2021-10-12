@@ -16,7 +16,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
-		.addResourceLocations("file:///C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\images/");
+//		.addResourceLocations("file:///C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\images/");
+		.addResourceLocations("file:/home/ec2-user/upload_images/");
 		
 		registry.addResourceHandler("/profile/**")
 		.addResourceLocations("file:///C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/");
@@ -25,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors (InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor).addPathPatterns("/**")
-		.excludePathPatterns("/static/**", "/user/sign_out", "/user/myPage", "/user//mypet_view");
+		.excludePathPatterns("/static/**", "/user/sign_out", "/user/myPage", "/user/mypet_view", "/user/mypage2");
 	}
 
 }
