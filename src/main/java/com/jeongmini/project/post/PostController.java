@@ -55,14 +55,14 @@ public class PostController {
 	
 	@GetMapping("/daily_detail")
 	public String dailyDetail(
-			@RequestParam("postId") int postId,
+			@RequestParam("id") int id,
 			Model model,
 			HttpServletRequest request) { 
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer) session.getAttribute("userId");
 		
-		Daily daily = postBO.getDaily(postId, userId);
+		Daily daily = postBO.getDaily(id, userId);
 		model.addAttribute("daily", daily);
 		
 		return "post/dailyDetail"; 

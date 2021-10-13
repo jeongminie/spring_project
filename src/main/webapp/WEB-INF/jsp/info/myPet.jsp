@@ -30,26 +30,28 @@
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
-	<div class="border-top"></div>
+	
 		<section class="d-flex justify-content-center mypet-box">	
-			<div class="login-box d-flex justify-content-center align-items-center">
+			<div class="login-box d-flex justify-content-center align-items-center mt-2">
 				<div class="w-100">
 					<h2 class="text-center mt-2">반려동물 등록하기</h2>
+					<div class="border-top"></div>
 					<form id="petForm">
-						<label for="gdsImg">반려동물 사진</label>
+						<div class="d-flex justify-content-center mt-2">
+							<label for="gdsImg">반려동물 사진</label>
 							<input type="file" accept="image/*" id="fileInput" class="col-10 mb-2 d-none">
-							<a href="#" id="imageUploadBtn" class="a">추가하기</a>
-							<div id="preview" class="profile-img border mb-2" style="border-radius: 50%; ">
-							</div>
-
+							<a href="#" id="imageUploadBtn" class="a ml-2">추가</a>
+						</div>
+						<div class="d-flex justify-content-center">
+						<div id="preview" class="profile-img border mb-2" style="border-radius: 50%; ">
+						</div>
+						</div>
 						<label>반려동물 이름</label>
 						<input id="petNameInput" type="text" class="form-control">
 						<div>
 	                        <label class="mt-2 mr-2">반려동물 생일</label>
 	                        <input type="text" class="form-control" id="petBirthdayInput">
                   		 </div>
-						<!-- <label class="mt-2">반려동물 생일</label>
-						<input id="petBirthdayInput" type="date" class="form-control"> -->
 						<label class="mt-2">반려동물 성별</label>
 						<select id="petgenderInput" class="form-control">
 							<option>선택</option>

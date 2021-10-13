@@ -11,8 +11,7 @@
 </style>
 
 <nav>
-
-	<ul class="nav nav-fill text-dark">	
+	<ul class="nav nav-fill">	
 		<li class="nav-item"><a href="/post/main" class="nav-link font-weight-bold dropdown">커뮤니티</a>
 			<ul class="submenu">			
 				<li class="font-weight-bold"><a href="/post/category_view?category=일상">일상</a></li>

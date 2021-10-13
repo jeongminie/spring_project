@@ -38,7 +38,6 @@
 		</div> 
 	</div>
 </header>
-<div class="border-top"></div>
 
 <script>
 

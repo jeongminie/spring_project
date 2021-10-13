@@ -34,6 +34,7 @@
 						<input id="passwordInput" type="password" class="form-control mt-3" placeholder="비밀번호를 입력해주세요">
 						<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
 					</form>
+					<div class="border-top mt-3"></div>
 					<div class="text-center mt-2" ><a href="/user/signUp_view">회원가입</a></div>
 					
 				</div>

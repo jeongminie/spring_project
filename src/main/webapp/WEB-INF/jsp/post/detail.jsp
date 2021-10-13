@@ -12,15 +12,8 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
-<!--   		<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-	<style>
-		* {
-		font-family: 'Nanum Gothic Coding', monospace;
-		}
-	</style> -->
-<title>Insert title here</title>
+
+<title>펫밀리</title>
 </head>
 <body>
 	<div id="wrap">
@@ -33,7 +26,9 @@
 		<div class="d-flex justify-content-center align-items-center mt-4">
 			<div class="timeLine">
 				<div class="userInfo d-flex justify-content-between p-2">
-					<div>${community.userName }</div>
+					<div class="d-flex justify-content-center align-items-center">
+						<img src="/image/profil.jpg" class="headerprofil-size mr-1">${community.userName }
+					</div>
 					<div>
 						<c:if test="${community.userId eq userId }">
 							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostModal" data-post-id="${community.id }">

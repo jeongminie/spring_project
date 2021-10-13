@@ -18,13 +18,11 @@
   	
   	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
 </head>
 <style>
 	.dailyFont {
-	font-family: 'Gaegu', cursive;
+	font-family: 'HSYuji-Regular'
 	}
 </style>
 <body>
@@ -43,7 +41,7 @@
 					</div>
 					<div class="border-top"></div>
 					<div class="p-4">
-						${daily.content } fdhajkseafjkj
+						${daily.content }
 					</div>
 					<div class="border-top"></div>
 					<div class="p-4">
