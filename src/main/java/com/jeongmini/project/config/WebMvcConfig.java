@@ -20,7 +20,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:/home/ec2-user/upload_images/");
 		
 		registry.addResourceHandler("/profile/**")
-		.addResourceLocations("file:///C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/");
+//		.addResourceLocations("file:///C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/");
+		.addResourceLocations("file:/home/ec2-user/upload_images/");
 	}
 	
 	@Override

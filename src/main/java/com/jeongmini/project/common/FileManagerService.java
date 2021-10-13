@@ -15,9 +15,10 @@ public class FileManagerService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 //	private final String FILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\images/";
-	private final String PROFILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/";
+//	private final String PROFILE_UPLOAD_PATH = "C:\\Users\\opooi\\OneDrive\\바탕 화면\\workspace\\Spring\\upload\\project\\profile/";
 	
 	private final String FILE_UPLOAD_PATH = "/home/ec2-user/upload_images/";
+	private final String PROFILE_UPLOAD_PATH = "/home/ec2-user/upload_images/";
 	
 	public String saveFile(int userId, MultipartFile file) {
 		String directoryName = userId + "_" + System.currentTimeMillis() + "/";
