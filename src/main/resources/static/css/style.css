@@ -1,10 +1,15 @@
 #wrap {
+<<<<<<< HEAD
 	width: 1000px;
 	margin:0 auto; 
 }
 
 section {
 	font-family: 'Noto Sans KR', sans-serif;
+=======
+	width: 900px;
+  	margin : auto;
+>>>>>>> develop
 }
 
 .logo-size{
@@ -19,6 +24,10 @@ section {
 .writeImage-size {
 	width:50px;
 	height:40px;
+}
+
+.writeImage {
+	display:scroll;position:fixed;bottom:10px;right:450px;
 }
 
 .commentImage-size {
@@ -78,7 +87,7 @@ section {
 }
 
 nav {
-
+	background-color:#FED291;	
 	font-size:18px;
 	vertical-align: middle; 
 	text-align: center;     
@@ -86,8 +95,10 @@ nav {
 
 li {
 	 position: relative;
-	
+}
 
+.nav > .nav-item > a:hover {
+	 background-color:#FFE7C1;
 }
 
 .submenu {
@@ -108,12 +119,9 @@ li {
 }
 
 .nav-item > .nav-link {
-	font-size:18px; color:black;
+	font-size:18px; color:white;
 }
 
-.nav-item > .nav-link:hover {
-	color:#FED291
-}
 
 /* .mypage-box{
 	width:500px;
@@ -163,12 +171,6 @@ a {
 .conditionImageSamllSize {
 	width:40px;
 	height:40px;
-}
-
-.conditionImageBigSize {
-	display:none;
-	width:45px;
-	height:45px;
 }
 
 .text-flow{
@@ -261,4 +263,11 @@ img {
 
 .fc-event-title{
 	display:none;
+}
+
+@font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

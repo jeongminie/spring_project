@@ -31,7 +31,12 @@
 	%>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
+<<<<<<< HEAD
 		<section class="create-box">
+=======
+	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
+		<section>
+>>>>>>> develop
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
@@ -78,11 +83,8 @@
 							<label class="text-secondary">약 복용</label>
 							<input id="medicineInput" type="checkbox" name="check" value="medicine">
 						</div>
-					</article>
-					<div class="p-2">
 						<button type="button" class="uploadBtn btn btn-block btn-sm text-white" id="saveBtn">기록하기</button>
-					</div>
-					
+					</article>		
 				</div>
 			</div>			
 		</section>
@@ -95,10 +97,16 @@
 			
 			$("img[name='condition']").on("click", function(){
 				condition = $(this).data("condition-id");
+<<<<<<< HEAD
 					
 				$(this).animate({opacity:'0.3'});		
 				
 				 $('.conditionImageSamllSize').not(this).animate({opacity:'1'});
+=======
+
+				$(this).animate({opacity:'0.3'});
+				$('.conditionImageSamllSize').not(this).css({opacity:'1'});
+>>>>>>> develop
 			});
 			
 			$("#saveBtn").on("click",function(){

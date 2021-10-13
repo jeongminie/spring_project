@@ -22,7 +22,6 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
-		<div class="border-top"></div>
 		
 		<section>
 			<div>
@@ -37,15 +36,19 @@
 							</h4>
 						</div>
 						<div class="d-flex justify-content-center align-items-center">
+<<<<<<< HEAD:src/main/webapp/WEB-INF/jsp/user/myPage.jsp
 						<a href="/user/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+=======
+						<a href="/info/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+>>>>>>> develop:src/main/webapp/WEB-INF/jsp/info/myPage.jsp
 						</div>
 					</div>
 				</div>
-
+				<div class="border-top w-50" style="margin-left:225px"></div>
 				<div class="d-flex justify-content-center align-items-center mt-2">
 					<div class="d-flex justify-content-between w-50">
 						<h4>나의 펫밀리</h4>
-						<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
+						<a href="/info/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center">

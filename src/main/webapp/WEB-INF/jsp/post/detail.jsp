@@ -13,11 +13,15 @@
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
 
+<<<<<<< HEAD
   	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">	
 <title>펫밀리</title>
 
+=======
+<title>펫밀리</title>
+>>>>>>> develop
 </head>
 <body>
 	<div id="wrap">
@@ -25,6 +29,7 @@
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />		
 		<div class="border-top"></div>
 		
+<<<<<<< HEAD
 		<section>
 		
 			<div class="d-flex justify-content-center align-items-center mt-4">
@@ -38,6 +43,20 @@
 								</a>
 							</c:if>
 						</div>
+=======
+		<div class="d-flex justify-content-center align-items-center mt-4">
+			<div class="timeLine">
+				<div class="userInfo d-flex justify-content-between p-2">
+					<div class="d-flex justify-content-center align-items-center">
+						<img src="/image/profil.jpg" class="headerprofil-size mr-1">${community.userName }
+					</div>
+					<div>
+						<c:if test="${community.userId eq userId }">
+							<a href="#" class="text-dark morePostBtn" data-toggle="modal" data-target="#PostModal" data-post-id="${community.id }">
+								<i class="bi bi-three-dots mr-2"></i>
+							</a>
+						</c:if>
+>>>>>>> develop
 					</div>
 					<div class="border-top"></div>
 					<div class="p-2">

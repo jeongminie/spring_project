@@ -26,19 +26,22 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
+<<<<<<< HEAD
 		<div class="border-top"></div>
 		<a style="display:scroll;position:fixed;bottom:10px;right:450px;" href="/post/create" title="top"><img src="/image/write.png" class="writeImage-size"></a>
+=======
+		
+		
+		<a href="/post/create" title="top" class="writeImage"><img src="/image/write.png" class="writeImage-size"></a>
+>>>>>>> develop
 
 		<section>
 			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">
 				<div class="d-flex justify-content-center align-items-center p-4">
 					<div class="timeLine">
 						<div class="userInfo d-flex justify-content-between p-2">
-							<div>${postWithComment.community.userName }</div>
-							<div>
-								<c:if test="${postWithComment.community.userId eq userId }">
-									<i class="bi bi-three-dots mr-2"></i>
-								</c:if>
+							<div class="d-flex justify-content-center align-items-center">
+								<img src="/image/profil.jpg" class="headerprofil-size mr-1"> ${postWithComment.community.userName }
 							</div>
 						</div>
 						<div class="d-flex align-items-center ml-2">

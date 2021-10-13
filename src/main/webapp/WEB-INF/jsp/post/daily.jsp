@@ -34,11 +34,10 @@
 		  initialView: 'dayGridMonth'
 		  
 		, eventDidMount:function(data) {
-		            $(data.el).html("<a href='/post/daily_detail?id=${daily.id }'><img class='daily-icon-size' src='" + data.event.title + "'></a>");
+		            $(data.el).html("<a href='/post/daily_detail?id="+ data.event.extendedProps.postId + "'><img class='daily-icon-size' src='" + data.event.title + "'></a>");
 		                
 		          }
 		});
-
 		 
 		$.ajax({
 			type:"get",
@@ -46,11 +45,17 @@
 			data:{},
 			success:function(data) {
 				result = data;
-				for(i=0; i < result.length; i++) {		
+				for(i=0; i < result.length; i++) {	
 					calendar.addEvent({
+						
 					title:result[i]['imageurl'],
-					start:result[i]['createdAt']
+					start:result[i]['createdAt'],
+					
+					extendedProps: {
+				        postId: result[i]['id']
+				      }
   				 });
+					
   			 }				
  		 }
 			
@@ -72,7 +77,14 @@
 		<a style="display:scroll;position:fixed;bottom:10px;right:250px;" href="/post/createDaily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
 		<section>
 		
+<<<<<<< HEAD
 			<div id='calendar' class="mt-4">
+=======
+		<div id='calendar' class="mt-4">
+		
+		</div>
+		
+>>>>>>> develop
 		
 			</div>
 			

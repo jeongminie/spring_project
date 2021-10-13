@@ -14,17 +14,16 @@ import com.jeongmini.project.user.bo.UserBO;
 import com.jeongmini.project.user.model.MyPet;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserBO userBO;
 	
-	@GetMapping("/signIn_view")
+	@GetMapping("/user/signIn_view")
 	public String signInView() {
 		return "user/signIn";
 	}
 	
-	@GetMapping("/signUp_view")
+	@GetMapping("/user/signUp_view")
 	public String signUpView() {
 		return "user/signUp";
 	}
@@ -32,16 +31,16 @@ public class UserController {
 	/*
 	 * @GetMapping("/mypet_view") public String mypetView() { return "user/myPet"; }
 	 */
-	@GetMapping("/mypet_view")
+	@GetMapping("/info/mypet_view")
 	public String mypetModel(Model model) {
 		
 		MyPet myPet = userBO.getMyPet();
 		model.addAttribute("myPet", myPet);
 		
-		return "user/myPet";
+		return "info/myPet";
 	}
 
-	@GetMapping("/sign_out")
+	@GetMapping("/user/sign_out")
 	public String signOut(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
@@ -52,22 +51,26 @@ public class UserController {
 		return "redirect:/user/signIn_view";
 	}
 	
-	@GetMapping("/myPage")
+	@GetMapping("/info/myPage")
 	public String mypageView(Model model) {
 		MyPet myPet = userBO.getMyPet();
 		model.addAttribute("myPet", myPet);
 		
-		return "user/myPage";
+		return "info/myPage";
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/mypage2")
 	public String mapage2() {
 		return "user/mypage2";
 	}
 	
 	@GetMapping("/userUpdate")
+=======
+	@GetMapping("/info/userUpdate")
+>>>>>>> develop
 	public String userUpdate() {
-		return "/user/userUpdate";
+		return "info/userUpdate";
 	}
 
 }
