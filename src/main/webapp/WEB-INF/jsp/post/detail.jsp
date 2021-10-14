@@ -175,8 +175,8 @@
 		});
 		
 	}
-		$(document).ready(function(){
-			$(document).ready(function(){		
+
+			$(document).ready(function(){
 				$(".sympathyBtn").on("click", function(e){
 					e.preventDefault();
 					var postId = $(this).data("post-id");
@@ -189,10 +189,7 @@
 					var postId = $(this).data("post-id");
 					
 					processSympathy(postId);
-					
-					
 				});
-			});
 			
 			$(".commentBtn").on("click", function(){
 				var postId = $(this).data("post-id");
