@@ -22,7 +22,11 @@ section {
 	height:40px;
 }
 
-.writeImage {
+.writeImage-main {
+	display:scroll;position:fixed;bottom:10px;right:450px;
+}
+
+.writeImage-daily {
 	display:scroll;position:fixed;bottom:10px;right:450px;
 }
 

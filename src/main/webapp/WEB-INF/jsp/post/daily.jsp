@@ -74,7 +74,7 @@
 		
 		<div class="border-top"></div>
 		
-		<a href="/post/createDaily" class="writeImage" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
+		<a href="/post/createDaily" class="writeImage-daily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
 		<section>			
 			<div id='calendar' class="mt-4">
 			

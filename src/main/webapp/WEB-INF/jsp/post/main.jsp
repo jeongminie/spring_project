@@ -27,7 +27,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<a href="/post/create" title="top" class="writeImage"><img src="/image/write.png" class="writeImage-size"></a>
+		<a href="/post/create" title="top" class="writeImage-main"><img src="/image/write.png" class="writeImage-size"></a>
 
 		<section>
 			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">

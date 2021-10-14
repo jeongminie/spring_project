@@ -15,23 +15,15 @@
   	
   	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<<<<<<< HEAD
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-=======
 	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
 
->>>>>>> develop
 <title>글 작성</title>
 </head>
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-<<<<<<< HEAD
-		<section class="create-box">
-=======
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		<section>
->>>>>>> develop
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
