@@ -25,5 +25,5 @@
      
  ## :last_quarter_moon_with_face:주요기능:first_quarter_moon_with_face:
  * 회원가입
-    * package : 
+    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/user
     * view  : 
