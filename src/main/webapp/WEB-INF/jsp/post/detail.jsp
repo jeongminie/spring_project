@@ -25,7 +25,8 @@
 		<section>
 		<div class="d-flex justify-content-center align-items-center mt-4">
 			<div class="timeLine">
-				<div class="userInfo d-flex justify-content-between p-2">
+				<div class="userInfo p-2">
+				<div class=" d-flex justify-content-between">
 					<div class="d-flex justify-content-center align-items-center">
 						<img src="/image/profil.jpg" class="headerprofil-size mr-1">${community.userName }
 					</div>
@@ -36,6 +37,7 @@
 							</a>
 						</c:if>
 					</div>
+				</div>
 					<div class="border-top"></div>
 					<div class="p-2">
 						${community.content }
