@@ -16,14 +16,18 @@
   	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
-
 <title>글 작성</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
-		<section>
+		<section class="font">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>

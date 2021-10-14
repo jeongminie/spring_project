@@ -114,22 +114,5 @@ public class PostController {
 		
 		return "post/postUpdate";
 	}
-	
 
-	public String categoryMenu(
-			@RequestParam("category") String category,
-			Model model,
-			HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		int userId = (Integer) session.getAttribute("userId");
-		
-		Community community = postBO.getCommunityCategory(category);
-		model.addAttribute("community", community);
-		
-		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);
-		model.addAttribute("postWithComments", postWithComments);
-		
-		return "include/menu";
-	}
 }

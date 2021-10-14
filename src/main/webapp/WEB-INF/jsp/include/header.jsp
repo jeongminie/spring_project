@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <style>
 	header {
-	font-family: 'Nanum Gothic Coding', monospace;
+	font-family: 'Cafe24SsurroundAir';
 		}
 </style>
 <header>
@@ -23,11 +23,9 @@
 				</button> 
 			</c:if>
 			<div class="dropdown-menu"> 
-				<a class="dropdown-item"  href="/info/mypet_view">반려동물 등록하기</a> 
 				<a class="dropdown-item"  href="/user/sign_out">로그아웃</a> 
-			</div> 
-		
-		</div> 
+			</div> 		
+		</div>
 	</div>
 </header>
 

@@ -26,6 +26,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet"> 	
   	
 </head>	
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <script>
 
  	$(document).ready(function() {
@@ -75,7 +80,7 @@
 		<div class="border-top"></div>
 		
 		<a href="/post/createDaily" class="writeImage-daily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
-		<section>			
+		<section class="font">			
 			<div id='calendar' class="mt-4">
 			
 			</div>

@@ -21,6 +21,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">	
 <title>펫밀리</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 
 <body>
 	<div id="wrap">
@@ -29,7 +34,7 @@
 		
 		<a href="/post/create" title="top" class="writeImage-main"><img src="/image/write.png" class="writeImage-size"></a>
 
-		<section>
+		<section class="font">
 			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">
 				<div class="d-flex justify-content-center align-items-center p-4">
 					<div class="timeLine">

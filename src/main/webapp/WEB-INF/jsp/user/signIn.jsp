@@ -18,10 +18,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>로그인</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex justify-content-center mt-2">	
+		<section class="d-flex justify-content-center mt-2 font">	
 			<div class="login-box  d-flex justify-content-center align-items-center">
 				<div class="w-100">
 					<h2 class="text-center">로그인</h2>

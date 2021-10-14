@@ -18,12 +18,17 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>마이페이지</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
 		
-		<section>
+		<section class="font">
 			<div>
 				<div class="d-flex justify-content-center align-items-center mt-4">
 					<div class="d-flex justify-content-between w-50">
@@ -36,7 +41,7 @@
 							</h4>
 						</div>
 						<div class="d-flex justify-content-center align-items-center">
-							<a href="/info/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
+							<a href="/user/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
 						</div>
 					</div>
 				</div>
@@ -44,7 +49,7 @@
 				<div class="d-flex justify-content-center align-items-center mt-2">
 					<div class="d-flex justify-content-between w-50">
 						<h4>나의 펫밀리</h4>
-						<a href="/info/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
+						<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center">

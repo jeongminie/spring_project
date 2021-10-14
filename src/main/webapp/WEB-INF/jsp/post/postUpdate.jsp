@@ -18,10 +18,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>글 수정</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section>
+		<section class="font">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
@@ -37,15 +42,11 @@
 							<div class="border-top"></div>
 							<div class="category-box mt-2">
 								<select class="border-0 col-12 text-secondary form-control" id="selectInput">
-									<option value="category" selected>${community.category }</option>
+									<option selected>${community.category }</option>
 							    	<option>일상</option>
 							    	<option>광고</option>
 							    	<option>리뷰</option>
-						    	<!-- <option data-category-id="category">카테고리</option>
-						    	<option data-category-id="daily">일상</option>
-						    	<option data-category-id="ad">광고</option>
-						    	<option data-category-id="review">리뷰</option> -->
-								</select>
+							    </select>
 							</div>
 							<div class="p-2">
 								<button type="button" class="uploadBtn btn btn-block btn-sm text-white" id="saveBtn" data-post-id="${community.id }">업로드</button>

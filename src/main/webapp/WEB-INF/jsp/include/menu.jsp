@@ -6,21 +6,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <style>
 	nav {
-	font-family: 'Nanum Gothic Coding', monospace;
+	    font-family: 'Cafe24SsurroundAir';
 		}
 </style>
 
 <nav>
 	<ul class="nav nav-fill">
 		<li class="nav-item"><a href="/post/main" class="nav-link font-weight-bold dropdown">커뮤니티</a>
-			<ul class="submenu">			
-				<li class="font-weight-bold"><a href="/post/category_view?category=일상">일상</a></li>
-				<li class="font-weight-bold"><a href="/post/category_view?category=광고">광고</a></li>
-				<li class="font-weight-bold"><a href="/post/category_view?category=리뷰">리뷰</a></li>
-			</ul>
+			<!-- <ul class="submenu">			
+				<li class="font-weight-bold"><a href="/post/main?category=" class="category" data-category-id="daily">일상</a></li>
+				<li class="font-weight-bold"><a href="/post/main?category=" class="category" data-category-id="ad">광고</a></li>
+				<li class="font-weight-bold"><a href="/post/main?category=" class="category" data-category-id="review">리뷰</a></li>
+			</ul> -->
 		</li>
 		<li class="nav-item"><a href="/post/daily" class="nav-link font-weight-bold">집사일기</a></li>
-		<li class="nav-item"><a href="/info/myPage" class="nav-link font-weight-bold">마이페이지</a></li>
+		<li class="nav-item"><a href="/user/myPage" class="nav-link font-weight-bold">마이페이지</a></li>
 	</ul>
 </nav>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$(".category").on("click", function(){
+			var category = $(this).data("category-id");
+			alert(category);
+			
+		});
+	});
+	
+</script>
 

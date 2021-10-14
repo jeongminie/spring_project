@@ -14,30 +14,31 @@ import com.jeongmini.project.user.bo.UserBO;
 import com.jeongmini.project.user.model.MyPet;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserBO userBO;
 	
-	@GetMapping("/user/signIn_view")
+	@GetMapping("/signIn_view")
 	public String signInView() {
 		return "user/signIn";
 	}
 	
-	@GetMapping("/user/signUp_view")
+	@GetMapping("/signUp_view")
 	public String signUpView() {
 		return "user/signUp";
 	}
 	
-	@GetMapping("/info/mypet_view")
+	@GetMapping("/mypet_view")
 	public String mypetModel(Model model) {
 		
 		MyPet myPet = userBO.getMyPet();
 		model.addAttribute("myPet", myPet);
 		
-		return "info/myPet";
+		return "user/myPet";
 	}
 
-	@GetMapping("/user/sign_out")
+	@GetMapping("/sign_out")
 	public String signOut(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
@@ -48,17 +49,17 @@ public class UserController {
 		return "redirect:/user/signIn_view";
 	}
 	
-	@GetMapping("/info/myPage")
+	@GetMapping("/myPage")
 	public String mypageView(Model model) {
 		MyPet myPet = userBO.getMyPet();
 		model.addAttribute("myPet", myPet);
 		
-		return "info/myPage";
+		return "user/myPage";
 	}
 
-	@GetMapping("/info/userUpdate")
+	@GetMapping("/userUpdate")
 	public String userUpdate() {
-		return "info/userUpdate";
+		return "user/userUpdate";
 	}
 
 }

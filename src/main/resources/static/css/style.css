@@ -27,7 +27,12 @@ section {
 }
 
 .writeImage-daily {
-	display:scroll;position:fixed;bottom:10px;right:450px;
+	display:scroll;position:fixed;bottom:10px;right:300px;
+}
+
+.dailyDetailImageSize {
+	width:25px;
+	height:25px;
 }
 
 .commentImage-size {
@@ -213,11 +218,14 @@ a {
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow:hidden;
+	border-radius: 50%;
 }
 
-img {
-    width:100px;
-    height:100px;
+
+#image_section {
+	width:100px;
+	height:100px;
+	
 }
 
 .petProfile-box{
@@ -265,9 +273,40 @@ img {
 	display:none;
 }
 
+/* 폰트 */
 @font-face {
     font-family: 'HSYuji-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.dailycontent-box {
+	width:426px;
+}
+
+.yesornoImage-size {
+	width:25px;
+	height:25px;
 }

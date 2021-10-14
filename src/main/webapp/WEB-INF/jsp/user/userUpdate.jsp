@@ -18,14 +18,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>내 정보 수정</title>
 </head>
-<script>
-</script>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
+
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex justify-content-center mt-2">
+		<section class="d-flex justify-content-center mt-2 font">
 			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mb-4">내 정보 수정</h2>
@@ -62,11 +66,16 @@
 			//중복
 			var isDuplicateUserName = true;
 			
+			var passwordInputCheck = false;
+
+			$("#passwordInput").on("propertychange change keyup paste input", function(){
+				passwordInputCheck = true;
+			});
+			
 			$("#updateForm").on("submit", function(e){
 				e.preventDefault();
 				
 				var name = $("#nameInput").val();
-				var email = $("#emailInput").val();
 				var password = $("#passwordInput").val();
 				var passwordConfirm = $("#passwordConfirmInput").val();
 				
@@ -75,6 +84,11 @@
 					return false;
 				}
 				
+				if(passwordInputCheck == false) {
+					alert("비밀번호 항목은 필수 입력값입니다.");
+					return ;
+				}
+					
 				if(isUserNameCheck == false) {
 					alert("닉네임 중복체크를 해주세요");
 					return ;
@@ -90,9 +104,10 @@
 				url:"/user/update",
 				data:{"name":name, "password":password},
 				success:function(data){
+					passwordInputCheck == true;
 					if(data.result == "success"){
-						alert("정보가 수정되었습니다")
-						location.href="/user/myPage";
+						alert("정보가 수정되었습니다");
+						location.reload;
 					}
 				},
 				error:function(e){

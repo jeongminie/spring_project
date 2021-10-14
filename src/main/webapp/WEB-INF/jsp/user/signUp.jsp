@@ -19,10 +19,15 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap"> 
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex justify-content-center mt-2">
+		<section class="d-flex justify-content-center mt-2 font">
 			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mb-4">회원가입</h2>

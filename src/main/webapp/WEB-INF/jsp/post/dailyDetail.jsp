@@ -22,7 +22,7 @@
 </head>
 <style>
 	.dailyFont {
-	font-family: 'HSYuji-Regular'
+	font-family: 'GowunDodum-Regular';
 	}
 </style>
 <body>
@@ -30,8 +30,8 @@
 <div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
-	<div class="border-top"></div>
-		<section>
+
+		<section class="dailyFont">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
@@ -40,48 +40,54 @@
 						</h4>
 					</div>
 					<div class="border-top"></div>
-					<div class="p-4">
-						${daily.content }
+					<div class="d-flex">
+					<div>
+						<div class="p-4 dailycontent-box">
+							${daily.content }
+						</div>
 					</div>
-					<div class="border-top"></div>
+					<div class="border-right"></div>
+					<div class="dailycontent-box">
 					<div class="p-4">
-						<h4 class="d-flex justify-content-center align-items-center">오늘 ${petName }의 하루</h4>
-						<div class="d-flex ">
+						<h4 class="text-center">오늘 ${petName }의 하루</h4>
+						<div class="d-flex justify-content-center">
 							<h5 class="mr-2">기분</h5>
-							<img src="/image/${daily.condition }.png" class="conditionImageSamllSize">
+							<img src="/image/${daily.condition }.png" class="dailyDetailImageSize">
 						</div> 
-						<div class="d-flex">
+						<div class="d-flex justify-content-center">
 							<h5 class="mr-2">건강</h5>
 							${daily.health }</div> 
-						<div class="d-flex">
+						<div class="d-flex justify-content-center">
 							<h5 class="mr-2">배변상태</h5>
 							${daily.defecation }
 						</div> 
-						<div class="d-flex">
+						<div class="d-flex justify-content-center">
 							<h5 class="mr-2">산책</h5>
 							<c:choose>
 								<c:when test="${daily.walk eq 0}">
-								안함
+									<img src="/image/no.png" class="yesornoImage-size">
 								</c:when>
 								<c:otherwise>
-								했음
+									<img src="/image/yes.png" class="yesornoImage-size">
 								</c:otherwise>
 							</c:choose>						
 						</div> 
-						<div class="d-flex">
+						<div class="d-flex justify-content-center">
 							<h5 class="mr-2">약 복용</h5>
 							<c:choose>
 								<c:when test="${daily.medicine eq 0}">
-								미복용
+									<img src="/image/no.png" class="yesornoImage-size">
 								</c:when>
 								<c:otherwise>
-								복용
+									<img src="/image/yes.png" class="yesornoImage-size">
 								</c:otherwise>
 							</c:choose>	
 						</div> 
 
 					</div>
+					</div>
 				</div>
+			</div>
 			</div>
 		</section>
 		

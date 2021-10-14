@@ -24,6 +24,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>집사일기 작성</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<%
 	Date nowTime = new Date();
@@ -32,7 +37,7 @@
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
-		<section>
+		<section class="font">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>

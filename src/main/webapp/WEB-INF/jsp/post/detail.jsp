@@ -12,21 +12,24 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	<link rel="stylesheet" href="/css/style.css">
-
 <title>펫밀리</title>
-
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />		
 		<div class="border-top"></div>
 		
-		<section>
+		<section class="font">
 		<div class="d-flex justify-content-center align-items-center mt-4">
 			<div class="timeLine">
 				<div class="userInfo p-2">
-				<div class=" d-flex justify-content-between">
+				<div class=" d-flex justify-content-between mb-2">
 					<div class="d-flex justify-content-center align-items-center">
 						<img src="/image/profil.jpg" class="headerprofil-size mr-1">${community.userName }
 					</div>
@@ -39,6 +42,9 @@
 					</div>
 				</div>
 					<div class="border-top"></div>
+					<div class="d-flex align-items-center ml-2">
+						<div class="categoryStyle border-radius mr-2 mt-2 text-secondary d-flex justify-content-center align-items-center">${community.category }</div>
+					</div>
 					<div class="p-2">
 						${community.content }
 					</div>
@@ -278,10 +284,10 @@
 				$.ajax({
 					type:"get",
 					url:"/post/update",
-					data:{"postId":postId}, 
+					data:{"postId":postId, "content":content, "category":category}, 
 					success:function(data) {
 						if(data.result == "success") {
-							location.href="/post/details";
+							location.reload;
 						} else {
 							alert("실패");
 						}

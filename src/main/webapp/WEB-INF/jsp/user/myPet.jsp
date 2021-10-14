@@ -22,12 +22,17 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <title>나의 반려동물 등록하기</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
 	
-		<section class="d-flex justify-content-center mypet-box">	
+		<section class="d-flex justify-content-center mypet-box font">	
 			<div class="login-box d-flex justify-content-center align-items-center mt-2">
 				<div class="w-100">
 					<h2 class="text-center mt-2">반려동물 등록하기</h2>
@@ -39,8 +44,9 @@
 							<a href="#" id="imageUploadBtn" class="a ml-2">추가</a>
 						</div>
 						<div class="d-flex justify-content-center">
-						<div id="preview" class="profile-img border mb-2" style="border-radius: 50%; ">
-						</div>
+							<div id="preview" class="profile-img border">
+							   <img id="image_section" src="#" class="d-none w-100"/>
+							</div>
 						</div>
 						<label>반려동물 이름</label>
 						<input id="petNameInput" type="text" class="form-control">
@@ -64,20 +70,27 @@
 	
 	<script>
 		$(document).ready(function(){
+			
+			function readURL(input) {
+				 if (input.files && input.files[0]) {
+				  var reader = new FileReader();
+				  
+				  reader.onload = function (e) {
+				   $('#image_section').attr('src', e.target.result); 
+				   $('#image_section').removeClass("d-none")
+				  }
+				  
+				  reader.readAsDataURL(input.files[0]);
+				  }
+				}
+				 
+				$("#fileInput").change(function(){
+				   readURL(this);
+				});
+				
 			$("#imageUploadBtn").on("click", function(){
 				$("#fileInput").click();
 			});
-			
-			 function readURL(input) {
-		            if (input.files && input.files[0]) {
-		                var reader = new FileReader();
-		                reader.onload = function (e) {
-		                    $('#blah').attr('src', e.target.result);
-		                }
-		                reader.readAsDataURL(input.files[0]);
-		            }
-		        }
-			
 			
 			var petBirthday = null;
 			$("#petBirthdayInput").datepicker({
@@ -146,42 +159,5 @@
 	
 	</script>
 </body>
-
-	<script>
-	    var fileInput = document.querySelector('#fileInput');
-	    var preview = document.querySelector('#preview');
-	 
-	    fileInput.addEventListener('change',function (e) {
-	        var get_file = e.target.files;
-	 
-	        var image = document.createElement('img');
-	 
-	        /* FileReader 객체 생성 */
-	        var reader = new FileReader();
-	 
-	        /* reader 시작시 함수 구현 */
-	        reader.onload = (function (aImg) {
-	            console.log(1);
-	 
-	            return function (e) {
-	                console.log(3);
-	                /* base64 인코딩 된 스트링 데이터 */
-	                aImg.src = e.target.result
-	            }
-	        })(image)
-	 
-	        if(get_file){
-	            /* 
-	                get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
-	                onload 에 설정했던 return 으로 넘어간다.
-	                이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
-	            */
-	            reader.readAsDataURL(get_file[0]);
-	            console.log(2);
-	        }
-	 
-	        preview.appendChild(image);
-	    })
-	</script>
 
 </html>
