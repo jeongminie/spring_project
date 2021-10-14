@@ -87,13 +87,8 @@ public class PostBO {
 		return community;
 	}
 	
-<<<<<<< HEAD
-	public Daily getDaily(int postId, int userId) {
-		return postDAO.selectDaily(postId, userId);
-=======
 	public Daily getDaily(int id, int userId) {
 		return postDAO.selectDaily(id, userId);
->>>>>>> develop
 	}
 	
 	public int updatePost(int postId, String content, String category) {

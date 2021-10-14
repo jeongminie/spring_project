@@ -26,14 +26,8 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
-<<<<<<< HEAD
-		<div class="border-top"></div>
-		<a style="display:scroll;position:fixed;bottom:10px;right:450px;" href="/post/create" title="top"><img src="/image/write.png" class="writeImage-size"></a>
-=======
-		
 		
 		<a href="/post/create" title="top" class="writeImage"><img src="/image/write.png" class="writeImage-size"></a>
->>>>>>> develop
 
 		<section>
 			<c:forEach var="postWithComment" items="${postWithComments }" varStatus="status">

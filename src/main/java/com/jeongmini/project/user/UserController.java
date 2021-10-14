@@ -28,9 +28,6 @@ public class UserController {
 		return "user/signUp";
 	}
 	
-	/*
-	 * @GetMapping("/mypet_view") public String mypetView() { return "user/myPet"; }
-	 */
 	@GetMapping("/info/mypet_view")
 	public String mypetModel(Model model) {
 		
@@ -58,17 +55,8 @@ public class UserController {
 		
 		return "info/myPage";
 	}
-	
-<<<<<<< HEAD
-	@GetMapping("/mypage2")
-	public String mapage2() {
-		return "user/mypage2";
-	}
-	
-	@GetMapping("/userUpdate")
-=======
+
 	@GetMapping("/info/userUpdate")
->>>>>>> develop
 	public String userUpdate() {
 		return "info/userUpdate";
 	}

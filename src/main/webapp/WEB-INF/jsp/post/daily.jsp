@@ -74,20 +74,11 @@
 		
 		<div class="border-top"></div>
 		
-		<a style="display:scroll;position:fixed;bottom:10px;right:250px;" href="/post/createDaily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
-		<section>
-		
-<<<<<<< HEAD
+		<a href="/post/createDaily" class="writeImage" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
+		<section>			
 			<div id='calendar' class="mt-4">
-=======
-		<div id='calendar' class="mt-4">
-		
-		</div>
-		
->>>>>>> develop
-		
-			</div>
 			
+			</div>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>

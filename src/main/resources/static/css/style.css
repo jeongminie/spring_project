@@ -1,15 +1,11 @@
 #wrap {
-<<<<<<< HEAD
 	width: 1000px;
 	margin:0 auto; 
 }
 
 section {
-	font-family: 'Noto Sans KR', sans-serif;
-=======
 	width: 900px;
   	margin : auto;
->>>>>>> develop
 }
 
 .logo-size{

@@ -36,11 +36,7 @@
 							</h4>
 						</div>
 						<div class="d-flex justify-content-center align-items-center">
-<<<<<<< HEAD:src/main/webapp/WEB-INF/jsp/user/myPage.jsp
-						<a href="/user/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
-=======
-						<a href="/info/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
->>>>>>> develop:src/main/webapp/WEB-INF/jsp/info/myPage.jsp
+							<a href="/info/userUpdate"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >내 정보 수정</button></a>
 						</div>
 					</div>
 				</div>

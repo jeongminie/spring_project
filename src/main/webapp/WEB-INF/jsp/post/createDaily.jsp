@@ -31,12 +31,8 @@
 	%>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
-<<<<<<< HEAD
-		<section class="create-box">
-=======
 	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		<section>
->>>>>>> develop
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
 					<div>
@@ -97,16 +93,10 @@
 			
 			$("img[name='condition']").on("click", function(){
 				condition = $(this).data("condition-id");
-<<<<<<< HEAD
-					
-				$(this).animate({opacity:'0.3'});		
 				
-				 $('.conditionImageSamllSize').not(this).animate({opacity:'1'});
-=======
-
 				$(this).animate({opacity:'0.3'});
 				$('.conditionImageSamllSize').not(this).css({opacity:'1'});
->>>>>>> develop
+	
 			});
 			
 			$("#saveBtn").on("click",function(){
