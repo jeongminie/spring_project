@@ -50,7 +50,7 @@
 						<input id="passwordInput" type="password" class="form-control mb-2">
 						비밀번호 확인
 						<input id="passwordConfirmInput" type="password" class="form-control mb-2">
-						<small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small>
+						<div><small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small></div>
 						반려동물 이름
 						<input id="petNameInput" type="text" class="form-control">
 						<button type="submit" id="signUpBtn" class="btn btnColor text-white btn-block mt-3">회원가입</button>		

@@ -275,28 +275,7 @@
 					}	
 				});
 			});
-			
-			/* $("#postModifyBtn").on("click", function(e){
-				e.preventDefault();
-				
-				var postId = $(this).data("post-id");
-				
-				$.ajax({
-					type:"get",
-					url:"/post/update",
-					data:{"postId":postId, "content":content, "category":category}, 
-					success:function(data) {
-						if(data.result == "success") {
-							location.reload;
-						} else {
-							alert("실패");
-						}
-					},
-					error:function(e) {
-						alert("error" + e);
-					}	
-				});
-			}); */
+
 		});
 	
 	</script>

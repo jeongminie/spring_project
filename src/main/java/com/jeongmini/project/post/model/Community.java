@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.jeongmini.project.post.comment.model.Comment;
+import com.jeongmini.project.post.sympathy.model.Sympathy;
 
 public class Community {
 	private int id;
@@ -20,6 +21,7 @@ public class Community {
 	private boolean existSympathy;
 	private int commentTotalCount;
 	private String selectCategory;
+	private List<Sympathy> sympathy;
 	
 	public int getId() {
 		return id;
@@ -98,6 +100,12 @@ public class Community {
 	}
 	public void setSelectCategory(String selectCategory) {
 		this.selectCategory = selectCategory;
+	}
+	public List<Sympathy> getSympathy() {
+		return sympathy;
+	}
+	public void setSympathy(List<Sympathy> sympathy) {
+		this.sympathy = sympathy;
 	}
 
 	

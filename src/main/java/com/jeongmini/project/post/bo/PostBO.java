@@ -79,10 +79,12 @@ public class PostBO {
 		List<Comment> commentList = commentBO.getCommentList(community.getId());
 		boolean existSympathy = sympathyBO.existSympathy(community.getUserId(), community.getId());
 		int sympathyTotalCount = sympathyBO.sympathyCount(community.getId());
+		List<Sympathy> sympathy = sympathyBO.selectsympathyUserId(community.getId());
 		
 		community.setCommentList(commentList);
 		community.setSympathyTotalCount(sympathyTotalCount);
 		community.setExistSympathy(existSympathy);
+		community.setSympathy(sympathy);
 		
 		return community;
 	}
