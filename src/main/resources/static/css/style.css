@@ -1,16 +1,54 @@
 #wrap {
-	width:1200px;
-	height:800px;
-	margin:auto;
+	width: 1000px;
+	margin:0 auto; 
 }
+
+section {
+	width: 900px;
+  	margin : auto;
+}
+
+.logo-size{
+	width:70px;
+	height:60px;
+	margin-left:70px;
+}
+
+.btn {
+	background-color: white;
+}
+
+.writeImage-size {
+	width:50px;
+	height:40px;
+}
+
+.writeImage-main {
+	display:scroll;position:fixed;bottom:10px;right:450px;
+}
+
+.writeImage-daily {
+	display:scroll;position:fixed;bottom:10px;right:300px;
+}
+
+.dailyDetailImageSize {
+	width:25px;
+	height:25px;
+}
+
+.commentImage-size {
+	width:30px;
+	height:30px;
+}
+
 
 .login-box {
 	width:400px;
 }
 
 #loginBtn {
-	background-color:#FFA500;
-	border-color:#FFA500
+	background-color:#FED291;
+	border-color:#FED291;
 }
 
 .signup-box {
@@ -18,10 +56,258 @@
 }
 
 .btnColor {
-	background-color:#FFA500;
-	border-color:#FFA500
+	background-color:#FED291;;
+	border-color:#FED291;
+}
+
+
+.timeLine{
+	width: 500px;
+	border:1px solid LightGray;
+	background-color:white;
+}
+
+.categoryStyle{
+	height : 20px;
+	background-color:LightGray;
+	border-radius: 3px;
+	font-size : 13px;
+}
+
+
+
+.textbox-size {
+	height:300px
+}
+
+.category-box {
+	height:50px;
+}
+
+.non-resize {
+	resize:none;
+}
+
+.uploadBtn{
+	background-color:#FED291;
 }
 
 nav {
-	font-size:20px; 
+	background-color:#FED291;	
+	font-size:18px;
+	vertical-align: middle; 
+	text-align: center;     
+}
+
+li {
+	 position: relative;
+}
+
+.nav > .nav-item > a:hover {
+	 background-color:#FFE7C1;
+}
+
+.submenu {
+	width:260.66px;
+	list-style:none;
+	position : absolute;
+	display:none;
+	box-shadow: 2px 2px 5px #999;
+	background-color : white;
+}
+
+.submenu > li {
+	width:180px;
+}
+
+.nav li:hover .submenu {
+	display : block
+}
+
+.nav-item > .nav-link {
+	font-size:18px; color:white;
+}
+
+
+/* .mypage-box{
+	width:500px;
+} */
+
+/* section > .community-box {
+	width:500px; 
+	height:200px;
+} */
+
+.bg-color{
+	background-color : #FFF8EE;
+}
+
+.daily-box {
+	border-radius: 5px;
+	width: 100px;
+	background-color:white;
+}
+
+.articleTextSize {
+	font-size:17px;
+	font-weight:bold;
+}
+
+
+.sectionTextSize {
+	font-size:20px;
+	font-weight:bold;
+}
+
+.box-border {
+	width : 1000px;
+	border:1px solid LightGray;
+	background-color:white;
+}
+
+.imagePath-size {
+	width :300px;
+	height:auto;	
+}
+
+a {
+	text-decoration:none !important
+}
+
+.conditionImageSamllSize {
+	width:40px;
+	height:40px;
+}
+
+.text-flow{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+.heartIconFill {
+	color:#FE8765
+}
+
+.comment-box{
+	height:38px
+}
+
+.headerprofil-size{
+	width:25px;
+	height:25px
+}
+
+.mypageprofil-size{
+	width:50px;
+	height:50px
+}
+
+.profilInput-box {
+    text-align:center;
+    display:table;
+    border:1px solid #cecece;
+    width:100px;
+    height:100px;
+}
+
+.profile-img {
+	width:100px;
+	height:100px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow:hidden;
+	border-radius: 50%;
+}
+
+
+#image_section {
+	width:100px;
+	height:100px;
+	
+}
+
+.petProfile-box{
+	border:1px solid #cecece;
+    width:100px;
+    height:100px;
+    overflow:hidden;
+}
+
+.petProfile {
+	width:100px;
+    height:100px;
+}
+
+.create-box{
+	width:800px;
+	margin:auto
+}
+/* 달력 */
+
+#calendar{
+	width:800px;
+	margin:auto
+}
+.fc-event-time {
+	display:none;
+}
+
+.fc-daygrid-event-dot {
+	display:none;
+}
+
+.daily-icon-size {
+	width:30px;
+    height:30px;
+}
+
+.fc-daygrid-event{
+	display:flex;
+	justify-content:center; 
+	align-items:center;
+}
+
+.fc-event-title{
+	display:none;
+}
+
+/* 폰트 */
+@font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.dailycontent-box {
+	width:426px;
+}
+
+.yesornoImage-size {
+	width:25px;
+	height:25px;
 }

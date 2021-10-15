@@ -4,9 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.jeongmini.project.common.EncryptUtils;
+import com.jeongmini.project.common.FileManagerService;
 import com.jeongmini.project.user.dao.UserDAO;
+import com.jeongmini.project.user.model.MyPet;
 import com.jeongmini.project.user.model.User;
 
 @Service
@@ -17,7 +20,8 @@ public class UserBO {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public User signIn(String loginEmail, String password) {
-		return userDAO.selectUser(loginEmail, password);
+		String encryptPassword = EncryptUtils.md5(password);
+		return userDAO.selectUser(loginEmail, encryptPassword);
 		
 	}
 	
@@ -48,5 +52,32 @@ public class UserBO {
 			return true;
 		}
 	}
+	
+	public int myPet(int userId, String userName, String petName, String petBirthday, String petgGender, MultipartFile file) {
+
+		FileManagerService fileManager = new FileManagerService();
+		
+		String filePath = fileManager.saveProfile(userId, file);
+		
+		if(filePath == null) {
+			return -1;
+		}
+		
+		
+		return userDAO.insertMypet(userId, userName, petName, petBirthday, petgGender, filePath);
+		
+	}
+	
+	public MyPet getMyPet() {
+		return userDAO.selectMyPet();
+		
+	}
+	
+	public int userUpdate(int id, String name, String password ) {
+		String encryptPassword = EncryptUtils.md5(password);
+		return userDAO.UserUpdate(id, name, encryptPassword);
+	}
+	
+	
 
 }

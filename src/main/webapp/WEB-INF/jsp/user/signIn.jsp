@@ -12,19 +12,30 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
   	<link rel="stylesheet" href="/css/style.css">
-<title>회원가입</title>
+
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+<title>로그인</title>
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap">
-		<section class="d-flex justify-content-center">	
+	<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<section class="d-flex justify-content-center mt-2 font">	
 			<div class="login-box  d-flex justify-content-center align-items-center">
 				<div class="w-100">
 					<h2 class="text-center">로그인</h2>
 					<form id="loginForm">
 						<input id="loginEmailInput" type="text" class="form-control mt-4" placeholder="이메일을 입력해주세요">
-						<input id="passwordInput" type="text" class="form-control mt-3" placeholder="비밀번호를 입력해주세요">
+						<input id="passwordInput" type="password" class="form-control mt-3" placeholder="비밀번호를 입력해주세요">
 						<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
 					</form>
+					<div class="border-top mt-3"></div>
 					<div class="text-center mt-2" ><a href="/user/signUp_view">회원가입</a></div>
 					
 				</div>
@@ -41,7 +52,7 @@
 				var password = $("#passwordInput").val();
 				
 				if(loginEmail == null || loginEmail == ""){
-					 alert("아이디를 입력해주세요");
+					 alert("이메일을 입력해주세요");
 					 return;
 				}
 				
@@ -56,8 +67,7 @@
 					data:{"loginEmail":loginEmail, "password":password},
 					success:function(data){
 						if(data.result == "success") {
-							alert("로그인성공");
-							//location.href="/post/main";
+							location.href="/post/main";
 						} else {
 							alert("이메일과 비밀번호를 확인하세요");
 						}

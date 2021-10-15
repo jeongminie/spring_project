@@ -14,10 +14,20 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
   	<link rel="stylesheet" href="/css/style.css">
+
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 </head>
+<style>
+	.font{
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	}
+</style>
 <body>
 	<div id="wrap"> 
-		<section class="d-flex justify-content-center">
+	<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<section class="d-flex justify-content-center mt-2 font">
 			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
 					<h2 class="text-center mb-4">회원가입</h2>
@@ -40,7 +50,7 @@
 						<input id="passwordInput" type="password" class="form-control mb-2">
 						비밀번호 확인
 						<input id="passwordConfirmInput" type="password" class="form-control mb-2">
-						<small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small>
+						<div><small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small></div>
 						반려동물 이름
 						<input id="petNameInput" type="text" class="form-control">
 						<button type="submit" id="signUpBtn" class="btn btnColor text-white btn-block mt-3">회원가입</button>		
@@ -52,14 +62,14 @@
 	
 	<script>
 		$(document).ready(function(){
+				//체크안함
+				var isUserNameCheck = false;
+				var isEmailCheck = false;
+				//중복
+				var isDuplicateUserName = true;
+				var isDuplicateEmail = true;
 				$("#signupForm").on("submit", function(e){
 					e.preventDefault();
-					//체크안함
-					var isUserNameCheck = false;
-					var isEmailCheck = false;
-					//중복
-					var isDuplicateUserName = true;
-					var isDuplicateEmail = true;
 					
 					var name = $("#nameInput").val();
 					var email = $("#emailInput").val();
@@ -93,19 +103,23 @@
 					}
 					
 					if(isUserNameCheck == false) {
-						alert("중복체크를 해주세요")
+						alert("닉네임 중복체크를 해주세요");
+						return ;
 					}
 					
 					if(isEmailCheck == false) {
-						alert("중복체크를 해주세요")
+						alert("이메일 중복체크를 해주세요");
+						return ;
 					}
 					
 					if(isDuplicateUserName == true) {
-						alert("닉네임이 중복되었습니다.")
+						alert("닉네임이 중복되었습니다.");
+						return ;
 					}
 					
 					if(isDuplicateEmail == true) {
-						alert("이메일이 중복되었습니다.")
+						alert("이메일이 중복되었습니다.");
+						return ;
 					}
 					
 					

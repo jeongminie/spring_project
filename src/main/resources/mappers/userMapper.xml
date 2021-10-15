@@ -57,4 +57,53 @@
  			`email` = #{email}
 	 </select>
 	 
+	  <insert id="insertMypet" parameterType="map">
+	 	INSERT INTO
+ 			`mypet`
+ 		(
+ 		 	`userId`
+ 			,`userName`
+			,`petName`
+			, `petBirthday`
+			, `petGender`
+			, `imagePath`
+ 			, `createdAt`
+ 			, `updatedAt`	
+ 		) VALUES (
+ 			#{userId}
+ 			, #{userName}
+ 			, #{petName}
+ 			, #{petBirthday}
+ 			, #{petGender}
+ 			, #{imagePath}
+ 			, now()
+ 			, now()
+ 		)
+	 </insert> 
+	 
+	  <select id="selectMyPet" parameterType="map" resultType="com.jeongmini.project.user.model.MyPet">
+	 	SELECT
+	 		`id`
+	 		,`userId`
+ 			,`userName`
+			,`petName`
+			, `petBirthday`
+			, `petGender`
+			,`imagePath`
+ 			, `createdAt`
+ 			, `updatedAt`	
+		FROM
+			`mypet`
+	 </select>
+	 
+	 <update id="UserUpdate" parameterType="map">
+	 	UPDATE
+	 		`user`
+	 	SET
+	 		`name` = #{name}
+	 		,`password` = #{password}
+	 	WHERE
+ 			`id` = #{id}
+	 </update>
+	 
  </mapper>
