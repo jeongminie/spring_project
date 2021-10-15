@@ -17,7 +17,7 @@
  
  
  ## :last_quarter_moon_with_face:포트폴리오:first_quarter_moon_with_face:
- [포트폴리오](file:///C:/Users/opooi/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4.pdf)
+ [포트폴리오](https://github.com/jeongminiee/spring_project/blob/0cce4b8f6f8182c4ac25518a7ccd7431ac529a0a/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4.pdf)
  
  ## :last_quarter_moon_with_face:설계:first_quarter_moon_with_face:
  * DB, URL, 일정 설계
