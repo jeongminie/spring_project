@@ -84,7 +84,7 @@
 	  <select id="selectMyPet" parameterType="map" resultType="com.jeongmini.project.user.model.MyPet">
 	 	SELECT
 	 		`id`
-	 		`userId`
+	 		,`userId`
  			,`userName`
 			,`petName`
 			, `petBirthday`

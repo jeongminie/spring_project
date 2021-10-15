@@ -27,10 +27,13 @@ public class PermissionInterceptor implements HandlerInterceptor {
 				return false;
 				}
 			
-			} /*
-				 * else { if(uri.startsWith("/user")) { response.sendRedirect("/post/main");
-				 * return false; } }
-				 */
+			} else { 
+				if(uri.equals("/user/signIn_view") ||  uri.equals("/user/signUp_view")) { 
+					response.sendRedirect("/post/main");
+					return false; 
+				} 
+			}
+				 
 		
 		return true;
 	}

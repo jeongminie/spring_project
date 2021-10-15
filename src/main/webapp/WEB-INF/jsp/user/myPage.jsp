@@ -36,7 +36,7 @@
 							<h4>
 							<c:if test="${not empty userName}">
 								<img src="/image/profil.jpg" class="mypageprofil-size">
-								${userName } 
+								${userName }
 							</c:if>
 							</h4>
 						</div>
@@ -54,10 +54,12 @@
 				</div>
 				<div class="d-flex justify-content-center align-items-center">
 					<div>
-					<div class="petProfile-box border" style="border-radius: 50%; ">
-						<img src="${myPet.imagePath }" class="petProfile">
-					</div>
-					<h5 class="text-center">${myPet.petName }</h5>
+					<c:if test="${userId eq myPet.userId || not empty myPet.imagePath}">
+							<div class="petProfile-box border" style="border-radius: 50%; ">
+								<img src="${myPet.imagePath }" class="petProfile">
+							</div>
+					</c:if>
+						<h5 class="text-center">${myPet.petName }</h5>
 					</div>
 				</div>
 			</div>
