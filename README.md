@@ -17,28 +17,28 @@
  
  
  ## :last_quarter_moon_with_face:포트폴리오:first_quarter_moon_with_face:
- 
+ [포트폴리오](file:///C:/Users/opooi/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4.pdf)
  
  ## :last_quarter_moon_with_face:설계:first_quarter_moon_with_face:
- - DB, URL, 일정 설계
-     https://docs.google.com/spreadsheets/d/1wqvXxMHZ9vgfcky_KyY-KWKPz7cKwdUwdcoCXCRdrwM/edit?usp=sharing
+ * DB, URL, 일정 설계
+    * https://docs.google.com/spreadsheets/d/1wqvXxMHZ9vgfcky_KyY-KWKPz7cKwdUwdcoCXCRdrwM/edit?usp=sharing
      
  ## :last_quarter_moon_with_face:주요기능:first_quarter_moon_with_face:
  * 회원가입
-    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/user
-    * view  : https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/user
+    * package : [com.jeongmini.project.user.*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/user)
+    * view  : [/webapp/WEB-INF/jsp/user/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/user)
  * 로그인
-    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/user
-    * view  : https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/user
+    * package :  [com.jeongmini.project.user.*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/user)
+    * view  : [/webapp/WEB-INF/jsp/user/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/user)
  * 게시물 작성 & 일기 작성
-    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post
-    * view  : https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post
+    * package :[com.jeongmini.project.post.*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post)
+    * view  : [/webapp/WEB-INF/jsp/post/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post)
  * 댓글
-    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post/comment
-    * view  : https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post
+    * package :[com.jeongmini.project.post.comment.*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post/comment)
+    * view  :  [/webapp/WEB-INF/jsp/post/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post)
  * 공감
-    * package : https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post/sympathy
-    * view  : https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post
+    * package : [com.jeongmini.project.post.sympathy.*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/java/com/jeongmini/project/post/sympathy)
+    * view  : [/webapp/WEB-INF/jsp/post/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post)
 
 ## :last_quarter_moon_with_face:데모:first_quarter_moon_with_face:
 
