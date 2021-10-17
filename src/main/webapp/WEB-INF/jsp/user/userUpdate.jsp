@@ -37,7 +37,7 @@
 						<div class="mb-2">
 						닉네임
 						<div class="d-flex">
-							<input id="nameInput" type="text" class="form-control col-9" value="${userName}">
+							<input id="nameInput" type="text" class="form-control col-9" value="${userName}" autocomplete="off">
 							<button type="button" class="btn btnColor text-white ml-2" id="nameCheckBtn">중복 확인</button>
 						</div>
 						<div><small class="text-danger d-none" id="duplicationName">중복된 닉네임 입니다.</small></div>
