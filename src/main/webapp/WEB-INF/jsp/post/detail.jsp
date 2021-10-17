@@ -23,7 +23,6 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />		
-		<div class="border-top"></div>
 		
 		<section class="font">
 		<div class="d-flex justify-content-center align-items-center mt-4">

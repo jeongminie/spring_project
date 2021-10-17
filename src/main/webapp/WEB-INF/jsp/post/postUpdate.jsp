@@ -26,6 +26,8 @@
 <body>
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
+	<c:import url="/WEB-INF/jsp/include/menu.jsp" />
+	
 		<section class="font">
 			<div class="d-flex justify-content-center align-items-center p-4">
 				<div class="box-border rounded">
