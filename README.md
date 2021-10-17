@@ -43,10 +43,10 @@
 ## :last_quarter_moon_with_face:데모:first_quarter_moon_with_face:
 
 ## :last_quarter_moon_with_face:외부 라이브러리 라이센스:first_quarter_moon_with_face:
-- Tomcat Apache License 2.0
-- Mysql GPLv2 or proprietary
-- Spring framework Apache License 2.0
-- Mybatis Apache License 2.0
-- Bootstrap MIT License
-- jQuery MIT License
+- [Tomcat Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- [Mysql GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0.html)
+- [Spring framework Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- [Mybatis Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- [Bootstrap MIT License](https://opensource.org/licenses/MIT)
+- [jQuery MIT License](https://opensource.org/licenses/MIT)
 
