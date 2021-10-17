@@ -77,8 +77,6 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<div class="border-top"></div>
-		
 		<a href="/post/createDaily" class="writeImage-daily" title=”top"><img src="/image/write.png" class="writeImage-size"></a>
 		<section class="font">			
 			<div id='calendar' class="mt-4">
