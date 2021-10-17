@@ -10,7 +10,7 @@
 ![MYSQL](https://img.shields.io/badge/MYSQL-FA58D0?style=flat-square&logo=MYSQL&logoColor=black)
 ![AWS](https://img.shields.io/badge/AWS-FA5882?style=flat-square&logo=AmazonAWS&logoColor=black)
 
-## :last_quarter_moon_with_face:프로젝트 설명:first_quarter_moon_with_face:
+## :dog:프로젝트 설명:pig:
  - 반려인들을 위한 애견 커뮤니티 프로젝트
  - 반려인들과 소통할 수 있는 커뮤니티
  - 반려동물의 일기와 건강상태 체크
