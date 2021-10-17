@@ -54,12 +54,12 @@
 				</div>
 				<div class="d-flex justify-content-center align-items-center">
 					<div>
-					<c:if test="${userId eq myPet.userId || not empty myPet.imagePath}">
-							<div class="petProfile-box border" style="border-radius: 50%; ">
-								<img src="${myPet.imagePath }" class="petProfile">
-							</div>
-					</c:if>
+					<c:if test="${userId eq myPet.userId && not empty myPet.imagePath}">
+						<div class="petProfile-box border" style="border-radius: 50%; ">
+							<img src="${myPet.imagePath }" class="petProfile">
+						</div>
 						<h5 class="text-center">${myPet.petName }</h5>
+					</c:if>
 					</div>
 				</div>
 			</div>
