@@ -34,14 +34,14 @@
 					<form id="signupForm">
 						닉네임
 						<div class="d-flex">
-							<input id="nameInput" type="text" class="form-control col-9">
+							<input id="nameInput" type="text" class="form-control col-9" autocomplete="off">
 							<button type="button" class="btn btnColor text-white ml-2" id="nameCheckBtn">중복 확인</button>
 						</div>
 							<div><small class="text-danger d-none" id="duplicationName">중복된 닉네임 입니다.</small></div>
 							<div><small class="text-success d-none" id="ableName">사용 가능한 닉네임 입니다.</small></div>
 						이메일
 						<div class="d-flex">
-							<input id="emailInput" type="text" class="form-control col-9">
+							<input id="emailInput" type="text" class="form-control col-9" autocomplete="off">
 							<button type="button" class="btn btnColor ml-2 text-white" id="emailCheckBtn">중복 확인</button>
 						</div>
 						<div><small class="text-danger d-none" id="duplicationEmail">중복된 이메일 입니다.</small></div>
@@ -52,7 +52,7 @@
 						<input id="passwordConfirmInput" type="password" class="form-control mb-2">
 						<div><small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small></div>
 						반려동물 이름
-						<input id="petNameInput" type="text" class="form-control">
+						<input id="petNameInput" type="text" class="form-control" autocomplete="off">
 						<button type="submit" id="signUpBtn" class="btn btnColor text-white btn-block mt-3">회원가입</button>		
 					</form>
 				</div>
