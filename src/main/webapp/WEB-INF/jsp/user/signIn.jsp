@@ -25,7 +25,7 @@
 </style>
 <body>
 	<div id="wrap">
-	<c:import url="/WEB-INF/jsp/include/header.jsp" />
+	<c:import url="/WEB-INF/jsp/include/signHeader.jsp"/>
 		<section class="d-flex justify-content-center mt-2 font">	
 			<div class="login-box  d-flex justify-content-center align-items-center">
 				<div class="w-100">
