@@ -49,10 +49,10 @@
 							</div>
 						</div>
 						<label>반려동물 이름</label>
-						<input id="petNameInput" type="text" class="form-control">
+						<input id="petNameInput" type="text" class="form-control" autocomplete="off">
 						<div>
 	                        <label class="mt-2 mr-2">반려동물 생일</label>
-	                        <input type="text" class="form-control" id="petBirthdayInput">
+	                        <input type="text" class="form-control" id="petBirthdayInput" autocomplete="off">
                   		 </div>
 						<label class="mt-2">반려동물 성별</label>
 						<select id="petgenderInput" class="form-control">

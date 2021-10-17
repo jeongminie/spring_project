@@ -31,7 +31,7 @@
 				<div class="w-100">
 					<h2 class="text-center">로그인</h2>
 					<form id="loginForm">
-						<input id="loginEmailInput" type="text" class="form-control mt-4" placeholder="이메일을 입력해주세요">
+						<input id="loginEmailInput" type="text" class="form-control mt-4" placeholder="이메일을 입력해주세요" autocomplete="off">
 						<input id="passwordInput" type="password" class="form-control mt-3" placeholder="비밀번호를 입력해주세요">
 						<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
 					</form>
