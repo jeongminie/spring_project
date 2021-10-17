@@ -61,8 +61,6 @@
 	
 	<script>
 		$(document).ready(function(){
-			//체크안함
-			var isUserNameCheck = false;
 			//중복
 			var isDuplicateUserName = true;
 			
@@ -88,11 +86,6 @@
 					alert("비밀번호 항목은 필수 입력값입니다.");
 					return ;
 				}
-					
-				if(isUserNameCheck == false) {
-					alert("닉네임 중복체크를 해주세요");
-					return ;
-				}
 				
 				if(isDuplicateUserName == true) {
 					alert("닉네임이 중복되었습니다.");
@@ -107,7 +100,7 @@
 					passwordInputCheck == true;
 					if(data.result == "success"){
 						alert("정보가 수정되었습니다");
-						location.reload;
+						location.href="/post/main";
 					}
 				},
 				error:function(e){
