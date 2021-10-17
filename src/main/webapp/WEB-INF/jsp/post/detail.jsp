@@ -111,9 +111,9 @@
 						</c:forEach>
 				
 					<div class="d-flex">
-						<div class="comment-box w-100 d-flex justify-content-center align-items-center" >
+						<div class="comment-box w-100 d-flex align-items-center" >
 							<div>${userName }</div>
-							<input type="text" class="form-control col-10" id="commentInput-${community.id }" style="border:none" placeholder="댓글 달기...">
+							<input type="text" class="form-control" id="commentInput-${community.id }" style="border:none" placeholder="댓글 달기...">
 							<button class="btn btn-link btn-sm commentBtn" data-post-id="${community.id }">게시</button>
 						</div>
 					</div>
