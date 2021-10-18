@@ -28,7 +28,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />	
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />	
 		
-		<section class="font">
+		<section class="font mypage-section">
 			<div>
 				<div class="d-flex justify-content-center align-items-center mt-4">
 					<div class="d-flex justify-content-between w-50">

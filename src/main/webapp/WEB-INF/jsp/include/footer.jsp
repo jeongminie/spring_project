@@ -1,1 +1,1 @@
-<small class="text-secondary d-flex justify-content-center mt-4">© 2021 All Rights Reserved.</small>
+<small class="text-secondary d-flex justify-content-center mt-4">© 2021. petMily All Rights Reserved.</small>
