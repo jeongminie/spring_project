@@ -68,8 +68,8 @@ public class UserBO {
 		
 	}
 	
-	public MyPet getMyPet() {
-		return userDAO.selectMyPet();
+	public MyPet getMyPet(int userId) {
+		return userDAO.selectMyPet(userId);
 		
 	}
 	

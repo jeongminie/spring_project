@@ -58,8 +58,8 @@
 						<div class="petProfile-box border" style="border-radius: 50%; ">
 							<img src="${myPet.imagePath }" class="petProfile">
 						</div>
-					</c:if>
 						<h5 class="text-center">${myPet.petName }</h5>
+					</c:if>
 					</div>
 				</div>
 			</div>
