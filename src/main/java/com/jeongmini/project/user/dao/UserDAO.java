@@ -34,7 +34,7 @@ public interface UserDAO {
 			@Param("imagePath") String imagePath
 			);
 	
-	public MyPet selectMyPet();
+	public MyPet selectMyPet(@Param("userId") int userId);
 	
 	public int UserUpdate(
 			@Param("id") int id,

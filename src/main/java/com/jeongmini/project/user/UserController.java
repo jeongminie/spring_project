@@ -30,9 +30,14 @@ public class UserController {
 	}
 	
 	@GetMapping("/mypet_view")
-	public String mypetModel(Model model) {
+	public String mypetModel(
+			Model model,
+			HttpServletRequest request ) {
 		
-		MyPet myPet = userBO.getMyPet();
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		MyPet myPet = userBO.getMyPet(userId);
 		model.addAttribute("myPet", myPet);
 		
 		return "user/myPet";
@@ -50,8 +55,13 @@ public class UserController {
 	}
 	
 	@GetMapping("/myPage")
-	public String mypageView(Model model) {
-		MyPet myPet = userBO.getMyPet();
+	public String mypageView(Model model,
+			HttpServletRequest request ) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		MyPet myPet = userBO.getMyPet(userId);
 		model.addAttribute("myPet", myPet);
 		
 		return "user/myPage";

@@ -76,8 +76,8 @@
 				  var reader = new FileReader();
 				  
 				  reader.onload = function (e) {
-				   $('#image_section').attr('src', e.target.result); 
-				   $('#image_section').removeClass("d-none")
+				   $("#image_section").attr("src", e.target.result); 
+				   $("#image_section").removeClass("d-none")
 				  }
 				  
 				  reader.readAsDataURL(input.files[0]);
@@ -144,7 +144,6 @@
 					success:function(data){
 						if(data.result == "success") {
 							alert("등록되었습니다");
-							location.href="/user/myPage";
 						} else {
 							alert("실패");
 						}

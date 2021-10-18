@@ -81,7 +81,7 @@
  		)
 	 </insert> 
 	 
-	  <select id="selectMyPet" parameterType="map" resultType="com.jeongmini.project.user.model.MyPet">
+	  <select id="selectMyPet" parameterType="int" resultType="com.jeongmini.project.user.model.MyPet">
 	 	SELECT
 	 		`id`
 	 		,`userId`
@@ -94,6 +94,8 @@
  			, `updatedAt`	
 		FROM
 			`mypet`
+		WHERE
+			`userId` = #{userId}
 	 </select>
 	 
 	 <update id="UserUpdate" parameterType="map">
