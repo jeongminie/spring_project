@@ -45,16 +45,16 @@
     * view  : [/webapp/WEB-INF/jsp/post/*](https://github.com/jeongminiee/spring_project/tree/develop/src/main/webapp/WEB-INF/jsp/post)
 
 ## :last_quarter_moon_with_face:데모:first_quarter_moon_with_face:
- * [펫밀리](https://youtu.be/k9EJaaM2WOg)
-    * [0:00 회원가입](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [1:00 로그인](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [1:22 커뮤니티 공감하기, 댓글작성, 댓글삭제](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [2:05 커뮤니티 글쓰기](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [3:00 집사일기](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [3:10 일기 작성](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [3:50 반려동물 등록](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [4:25 내정보 수정](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
-    * [4:58 로그아웃](https://www.youtube.com/watch?v=k9EJaaM2WOg&t=4s)
+ * [펫밀리](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [0:00 회원가입](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [1:00 로그인](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [1:22 커뮤니티 공감하기, 댓글작성, 댓글삭제](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [2:05 커뮤니티 글쓰기](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [3:00 집사일기](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [3:10 일기 작성](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [3:50 반려동물 등록](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [4:25 내정보 수정](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
+    * [4:58 로그아웃](https://www.youtube.com/watch?v=kc6bq36zAEw&t=3s)
 
 ## :last_quarter_moon_with_face:외부 라이브러리 라이센스:first_quarter_moon_with_face:
 - [Tomcat Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
