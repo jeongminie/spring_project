@@ -52,14 +52,19 @@
 						<a href="/user/mypet_view"><button type="button" class="uploadBtn btn btn-block btn-sm text-white" >등록하기</button></a>
 					</div>
 				</div>
+	
 				<div class="d-flex justify-content-center align-items-center">
-					<div>
-					<c:if test="${userId eq myPet.userId && not empty myPet.imagePath}">
-						<div class="petProfile-box border" style="border-radius: 50%; ">
-							<img src="${myPet.imagePath }" class="petProfile">
+					<div class="d-flex align-items-between">
+						<c:forEach var="myPet" items="${myPet }">
+						<div>
+							<c:if test="${userId eq myPet.userId && not empty myPet.imagePath}">
+								<div class="petProfile-box border" style="border-radius: 50%; ">
+									<img src="${myPet.imagePath }" class="petProfile">
+								</div>
+								<h5 class="text-center">${myPet.petName }</h5>
+							</c:if>
 						</div>
-						<h5 class="text-center">${myPet.petName }</h5>
-					</c:if>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

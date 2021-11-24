@@ -1,5 +1,7 @@
 package com.jeongmini.project.user.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.jeongmini.project.user.model.MyPet;
@@ -34,7 +36,7 @@ public interface UserDAO {
 			@Param("imagePath") String imagePath
 			);
 	
-	public MyPet selectMyPet(@Param("userId") int userId);
+	public List<MyPet> selectMyPet(@Param("userId") int userId);
 	
 	public int UserUpdate(
 			@Param("id") int id,

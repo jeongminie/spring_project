@@ -73,11 +73,11 @@ public class PostBO {
 		return postWithCommentsList; 	
 	}
 	
-	public Community getCommunity(int id) {
+	public Community getCommunity(int userId, int id) {
 		
 		Community community = postDAO.selectCommunity(id);
 		List<Comment> commentList = commentBO.getCommentList(community.getId());
-		boolean existSympathy = sympathyBO.existSympathy(community.getUserId(), community.getId());
+		boolean existSympathy = sympathyBO.existSympathy(userId, community.getId());
 		int sympathyTotalCount = sympathyBO.sympathyCount(community.getId());
 		List<Sympathy> sympathy = sympathyBO.selectsympathyUserId(community.getId());
 		

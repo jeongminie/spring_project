@@ -16,7 +16,6 @@ import com.jeongmini.project.post.bo.PostBO;
 import com.jeongmini.project.post.model.Community;
 import com.jeongmini.project.post.model.Daily;
 import com.jeongmini.project.post.model.PostWithComments;
-import com.jeongmini.project.post.sympathy.bo.SympathyBO;
 
 @Controller
 @RequestMapping("/post")
@@ -75,11 +74,12 @@ public class PostController {
 			Model model,
 			HttpServletRequest request) {
 		
-		Community community = postBO.getCommunity(id);
-		model.addAttribute("community", community);
-		
 		HttpSession session = request.getSession();
 		int userId = (Integer) session.getAttribute("userId");
+		
+		Community community = postBO.getCommunity(userId, id);
+		model.addAttribute("community", community);
+		
 		
 		List<PostWithComments> postWithComments = postBO.getCommunityList(userId);		
 		model.addAttribute("postWithComments", postWithComments);
@@ -107,9 +107,13 @@ public class PostController {
 	
 	@GetMapping("/update_view")
 	public String postUpdate(@RequestParam("id") int id,
-			Model model) {
+			Model model,
+			HttpServletRequest request) {
 		
-		Community community = postBO.getCommunity(id);
+		HttpSession session = request.getSession();
+		int userId = (Integer) session.getAttribute("userId");
+		
+		Community community = postBO.getCommunity(userId, id);
 		model.addAttribute("community", community);
 		
 		return "post/postUpdate";

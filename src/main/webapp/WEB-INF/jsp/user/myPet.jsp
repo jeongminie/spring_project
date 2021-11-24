@@ -145,6 +145,7 @@
 					success:function(data){
 						if(data.result == "success") {
 							alert("등록되었습니다");
+							location.href="/user/myPage"
 						} else {
 							alert("실패");
 						}

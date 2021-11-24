@@ -1,6 +1,7 @@
 package com.jeongmini.project.user.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class MyPet {
 	
@@ -13,6 +14,7 @@ public class MyPet {
 	private String imagePath;
 	private Date createdAt;
 	private Date updatedAt;
+	private List<MyPet> mypetList;
 	
 	public int getId() {
 		return id;
@@ -67,6 +69,12 @@ public class MyPet {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public List<MyPet> getMypetList() {
+		return mypetList;
+	}
+	public void setMypetList(List<MyPet> mypetList) {
+		this.mypetList = mypetList;
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.jeongmini.project.user.bo;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +70,7 @@ public class UserBO {
 		
 	}
 	
-	public MyPet getMyPet(int userId) {
+	public List<MyPet> getMyPet(int userId) {
 		return userDAO.selectMyPet(userId);
 		
 	}
