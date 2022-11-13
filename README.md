@@ -14,11 +14,6 @@
  - 반려인들을 위한 애견 커뮤니티 프로젝트
  - 반려인들과 소통할 수 있는 커뮤니티
  - 반려동물의 일기와 건강상태 체크
-
-## :link:AWS:link:
-* http://3.34.96.47:8080/user/signIn_view
-    * ID : user@gmail.com / PASSWORD : 123
-
  
  ## :last_quarter_moon_with_face:포트폴리오:first_quarter_moon_with_face:
  [포트폴리오](https://github.com/jeongminie/spring_project/blob/master/portfolio.pdf)
